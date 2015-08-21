@@ -5,6 +5,6 @@ These are my personal poshfiles.
 Installation instructions:
 
 ````powershell
-git clone https://github.com/giggio/poshfiles.git $env:HOME\Documents\WindowsPowerShell
+git clone https://github.com/giggio/poshfiles.git $env:userprofile\Documents\WindowsPowerShell
 git submodule update --init --recursive
 ````
