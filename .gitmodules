@@ -1,6 +1,6 @@
-[submodule "Modules\\posh-git"]
-	path = Modules\\posh-git
+[submodule "Modules/posh-git"]
+	path = Modules/posh-git
 	url = https://github.com/dahlbyk/posh-git.git
-[submodule ".\\Modules\\z"]
-	path = .\\Modules\\z
+[submodule "Modules/z"]
+	path = Modules/z
 	url = https://github.com/vincpa/z.git
