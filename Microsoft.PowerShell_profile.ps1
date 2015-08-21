@@ -1,9 +1,13 @@
+$root = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
 if (Test-Path "$env:ProgramFiles\Git\usr\bin") { #enable ssh-agent from posh-git
     $env:path="$env:path;$env:ProgramFiles\Git\usr\bin"
 }
-$root = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
+if (Test-Path "$root\Modules\psake") { #enable ssh-agent from posh-git
+    $env:path="$env:path;$root\Modules\psake"
+}
 . $root\Modules\posh-git\profile.example.ps1
 Import-Module z
+Import-Module psake
 
 #psake expansion
 Push-Location $root
