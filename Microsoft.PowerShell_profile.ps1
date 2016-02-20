@@ -29,11 +29,8 @@ function TabExpansion($line, $lastWord) {
 }
 #end of psake expansion
 
-function Set-MyAlias($name, $alias) {
-    "function global:$name { Invoke-Expression ('$alias ' + (`$args -join ' ')) }" | iex
-}
-
 #aliases:
+Set-Alias pester invoke-pester
 function add {
     if ($args) {
         Invoke-Expression ( "git add " + ($args -join ' ') )
@@ -41,18 +38,18 @@ function add {
         git add -A :/
     }
 }
-Set-MyAlias st 'git status'
-Set-MyAlias push 'git push'
-Set-MyAlias pull 'git pull'
-Set-MyAlias log 'git log'
-Set-MyAlias ci 'git commit'
-Set-MyAlias co 'git checkout'
-Set-MyAlias dif 'git diff'
-Set-MyAlias rs 'git reset'
-Set-MyAlias rb 'git rebase'
-Set-MyAlias fixup 'git fixup'
-Set-MyAlias l 'ls'
-Set-MyAlias ll 'ls -Force'
+Add-Alias st 'git status'
+Add-Alias push 'git push'
+Add-Alias pull 'git pull'
+Add-Alias log 'git log'
+Add-Alias ci 'git commit'
+Add-Alias co 'git checkout'
+Add-Alias dif 'git diff'
+Add-Alias rs 'git reset'
+Add-Alias rb 'git rebase'
+Add-Alias fixup 'git fixup'
+Add-Alias l 'ls'
+Add-Alias ll 'ls -Force'
 
 function time() {
     $sw = [Diagnostics.Stopwatch]::StartNew()

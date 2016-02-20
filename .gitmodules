@@ -7,3 +7,6 @@
 [submodule "Modules/psake"]
 	path = Modules/psake
 	url = https://github.com/psake/psake.git
+[submodule "Modules/posh-alias"]
+	path = Modules/posh-alias
+	url = https://github.com/giggio/posh-alias
