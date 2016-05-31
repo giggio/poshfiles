@@ -8,6 +8,7 @@ if (Test-Path "$root\Modules\psake") { #enable ssh-agent from posh-git
 . $root\Modules\posh-git\profile.example.ps1
 Import-Module z
 Import-Module psake
+Import-Module $root\Modules\posh-docker\posh-docker\posh-docker.psm1
 
 #psake expansion
 Push-Location $root
