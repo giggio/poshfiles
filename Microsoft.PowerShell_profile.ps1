@@ -51,6 +51,7 @@ Add-Alias rb 'git rebase'
 Add-Alias fixup 'git fixup'
 Add-Alias l 'ls'
 Add-Alias ll 'ls -Force'
+Add-Alias gitbash '. "C:\Program Files\Git\usr\bin\bash.exe"'
 
 function time() {
     $sw = [Diagnostics.Stopwatch]::StartNew()
