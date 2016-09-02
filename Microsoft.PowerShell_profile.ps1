@@ -67,3 +67,17 @@ if (Test-Path($ChocolateyProfile)) {
   Import-Module "$ChocolateyProfile"
 }
 Set-PSReadlineOption -EditMode Vi
+
+#log history
+$historyFilePath = Join-Path ([Environment]::GetFolderPath('UserProfile')) .ps_history
+if (Test-Path $historyFilePath) {
+    $numberOfPrevieousCommands = $(Get-Content C:\Users\giggio\.ps_history | Measure-Object -Line).Lines - 1
+} else {
+    $numberOfPrevieousCommands = 1
+}
+Register-EngineEvent PowerShell.Exiting -Action {
+    $history = Get-History
+    $filteredHistory = $history[($numberOfPrevieousCommands-1)..($history.Length - 2)]
+    $filteredHistory | Export-Csv $historyFilePath -Append
+} | Out-Null
+if (Test-path $historyFilePath) { Import-Csv $historyFilePath | Add-History }
