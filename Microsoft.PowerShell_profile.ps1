@@ -54,6 +54,7 @@ Add-Alias tag 'git tag'
 Add-Alias l 'ls'
 Add-Alias ll 'ls -Force'
 Add-Alias gitbash '. "C:\Program Files\Git\usr\bin\bash.exe"'
+Add-Alias ccat "pygmentize.exe -g -O style=vs -f console16m"
 
 function time() {
     $sw = [Diagnostics.Stopwatch]::StartNew()
