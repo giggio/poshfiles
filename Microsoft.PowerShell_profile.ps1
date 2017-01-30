@@ -84,3 +84,7 @@ Register-EngineEvent PowerShell.Exiting -Action {
     $filteredHistory | Export-Csv $historyFilePath -Append
 } | Out-Null
 if (Test-path $historyFilePath) { Import-Csv $historyFilePath | Add-History }
+
+if (gcm hub -ErrorAction SilentlyContinue) {
+    Add-Alias git "$($(gcm hub).Source)"
+}
