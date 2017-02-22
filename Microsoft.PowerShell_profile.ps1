@@ -88,3 +88,10 @@ if (Test-path $historyFilePath) { Import-Csv $historyFilePath | Add-History }
 if (gcm hub -ErrorAction SilentlyContinue) {
     Add-Alias git "$($(gcm hub).Source)"
 }
+
+function color ($lexer='javascript') {
+    Begin { $t = "" }
+    Process { $t = "$t
+    $_" }
+    End { $t | pygmentize.exe -l $lexer -O style=vs -f console16m; }
+} # call like: docker inspect foo | color
