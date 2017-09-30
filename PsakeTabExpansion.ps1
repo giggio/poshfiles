@@ -1,31 +1,15 @@
-$global:psakeSwitches = @('-docs', '-task', '-properties', '-parameters')
-
-function script:psakeSwitches($filter) {  
-  $psakeSwitches | where { $_ -like "$filter*" }
+$root = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
+. "$root/Modules/psake/tabexpansion/PsakeTabExpansion.ps1"
+if((Test-Path Function:\TabExpansion) -and (-not (Test-Path Function:\DefaultTabExpansion))) {
+    Rename-Item Function:\TabExpansion DefaultTabExpansion
 }
-
-function script:psakeDocs($filter, $file) {
-  if ($file -eq $null -or $file -eq '') { $file = 'default.ps1' }
-  psake $file -docs | out-string -Stream |% { if ($_ -match "^[^ ]*") { $matches[0]} } |? { $_ -ne "Name" -and $_ -ne "----" -and $_ -like "$filter*" }
-}
-
-function script:psakeFiles($filter) {
-    ls "$filter*.ps1" |% { $_.Name }
-}
-
-function PsakeTabExpansion($lastBlock) {
-  switch -regex ($lastBlock) {
-    '(invoke-psake|psake) ([^\.]*\.ps1)? ?.* ?\-ta?s?k? (\S*)$' { # tasks only
-      psakeDocs $matches[3] $matches[2] | sort
-    } 
-    '(invoke-psake|psake) ([^\.]*\.ps1)? ?.* ?(\-\S*)$' { # switches only
-      psakeSwitches $matches[3] | sort
-    } 
-    '(invoke-psake|psake) ([^\.]*\.ps1) ?.* ?(\S*)$' { # switches or tasks
-      @(psakeDocs $matches[3] $matches[2]) + @(psakeSwitches $matches[3]) | sort
+# Set up tab expansion and include psake expansion
+function TabExpansion($line, $lastWord) {
+    $lastBlock = [regex]::Split($line, '[|;]')[-1]
+    switch -regex ($lastBlock) {
+        # Execute psake tab completion for all psake-related commands
+        '(Invoke-psake|psake) (.*)' { PsakeTabExpansion $lastBlock }
+        # Fall back on existing tab expansion
+        default { DefaultTabExpansion $line $lastWord }
     }
-    '(invoke-psake|psake) (\S*)$' {
-      @(psakeFiles $matches[2]) + @(psakeDocs $matches[2] 'default.ps1') + @(psakeSwitches $matches[2]) | sort
-    }
-  }
 }

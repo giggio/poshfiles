@@ -17,24 +17,7 @@ Import-Module $root\Modules\posh-docker\posh-docker\posh-docker.psd1
 Set-PSReadlineOption -TokenKind Command -ForegroundColor Yellow
 Set-PSReadlineOption -TokenKind Keyword -ForegroundColor Cyan
 
-#psake expansion
-Push-Location $root
-. ./PsakeTabExpansion.ps1
-Pop-Location
-if((Test-Path Function:\TabExpansion) -and (-not (Test-Path Function:\DefaultTabExpansion))) {
-    Rename-Item Function:\TabExpansion DefaultTabExpansion
-}
-# Set up tab expansion and include psake expansion
-function TabExpansion($line, $lastWord) {
-    $lastBlock = [regex]::Split($line, '[|;]')[-1]
-    switch -regex ($lastBlock) {
-        # Execute psake tab completion for all psake-related commands
-        '(Invoke-psake|psake) (.*)' { PsakeTabExpansion $lastBlock }
-        # Fall back on existing tab expansion
-        default { DefaultTabExpansion $line $lastWord }
-    }
-}
-#end of psake expansion
+. "$root/PsakeTabExpansion.ps1"
 
 #aliases:
 Set-Alias pester invoke-pester
