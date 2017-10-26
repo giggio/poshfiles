@@ -44,3 +44,12 @@ function color ($lexer='javascript') {
     $_" }
     End { $t | pygmentize.exe -l $lexer -O style=vs -f console16m; }
 } # call like: `docker inspect foo | color`
+
+if (Get-Command dotnet -ErrorAction Ignore) {
+    Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
+        param($commandName, $wordToComplete, $cursorPosition)
+        dotnet complete --position $cursorPosition "$wordToComplete" | ForEach-Object {
+            [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_)
+        }
+    }
+}
