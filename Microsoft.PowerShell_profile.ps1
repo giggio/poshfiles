@@ -29,6 +29,7 @@ if (Test-Path $ChocolateyProfile) {
 
 Set-PSReadlineOption -EditMode Vi
 Set-PSReadlineKeyHandler -Key Ctrl+r -Function ReverseSearchHistory
+Set-PSReadlineKeyHandler -Key Ctrl+Shift+r -Function ForwardSearchHistory
 
 function time() {
     $sw = [Diagnostics.Stopwatch]::StartNew()
