@@ -44,7 +44,3 @@ function color ($lexer='javascript') {
     $_" }
     End { $t | pygmentize.exe -l $lexer -O style=vs -f console16m; }
 } # call like: `docker inspect foo | color`
-
-$OutputEncoding = New-Object -typename System.Text.UTF8Encoding
-[System.Console]::OutputEncoding = [Text.UTF8Encoding]::UTF8
-chcp 65001 | Out-Null
