@@ -12,6 +12,15 @@ I have several [aliases](https://github.com/giggio/poshfiles/blob/master/Microso
 as well as several [modules](https://github.com/giggio/poshfiles/tree/master/Modules).
 Check them out and see if you want to keep them all.
 
+
+## Notes on Vi mode
+
+I use "vi mode" on my shells. If you don't know what this is or don't want it
+you should disable it. Just comment the line that says `Set-PSReadlineOption
+-EditMode Vi`. If you want to be super fast on the command line and also when
+typing in a text editor, then you should learn vi, vim and vi mode. Just search
+for it and you will find more info.
+
 ## Notes on fonts
 You need a powerline enabled font to get everything to display properly. The only one I have found
 that works as expected so far is the
