@@ -19,6 +19,9 @@ I use "vi mode" on my shells. If you don't know what this is or don't want it
 you should disable it. Just comment the line that says `Set-PSReadlineOption
 -EditMode Vi` and the lines that follow it with `Set-PSReadlineKeyHandler`.
 
+Vim mode will enable **only** if you have `vim` available on your path. If you don't,
+then you don't need to worry, it will not enable.
+
 If you want to be super fast on the command line and also when typing in a text
 editor, then you should learn vi, vim and vi mode. Just search for it and you
 will find more info.

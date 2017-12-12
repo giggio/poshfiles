@@ -26,9 +26,11 @@ if (Test-Path $ChocolateyProfile) {
     Import-Module "$ChocolateyProfile"
 }
 
-Set-PSReadlineOption -EditMode Vi
-Set-PSReadlineKeyHandler -Key Ctrl+r -Function ReverseSearchHistory
-Set-PSReadlineKeyHandler -Key Ctrl+Shift+r -Function ForwardSearchHistory
+if (Get-Command vim -ErrorAction Ignore) {
+    Set-PSReadlineOption -EditMode Vi
+    Set-PSReadlineKeyHandler -Key Ctrl+r -Function ReverseSearchHistory
+    Set-PSReadlineKeyHandler -Key Ctrl+Shift+r -Function ForwardSearchHistory
+}
 
 function time() {
     $sw = [Diagnostics.Stopwatch]::StartNew()
