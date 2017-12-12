@@ -20,7 +20,6 @@ Set-PSReadlineOption -TokenKind Keyword -ForegroundColor Cyan
 
 . "$root/PsakeTabExpansion.ps1"
 . "$root/CreateAliases.ps1"
-. "$root/AddLogHistory.ps1"
 
 $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 if (Test-Path $ChocolateyProfile) {
