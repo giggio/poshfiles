@@ -12,7 +12,7 @@ Import-Module "$root\modules\oh-my-posh\oh-my-posh.psm1" #don't import the psd1,
 set-theme Mesh
 if (Get-Command colortool -ErrorAction Ignore) { colortool --quiet campbell }
 Import-Module z
-Import-Module psake
+Import-Module $root\Modules\psake\src\psake.psd1
 Import-Module $root\Modules\posh-docker\posh-docker\posh-docker.psd1
 
 Set-PSReadlineOption -TokenKind Command -ForegroundColor Yellow
