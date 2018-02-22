@@ -1,8 +1,9 @@
 $root = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
-if (Test-Path "$env:ProgramFiles\Git\usr\bin") { #enable ssh-agent from posh-git
+if ((Test-Path "$env:ProgramFiles\Git\usr\bin") -and ($env:path.IndexOf("$($env:ProgramFiles)\Git\usr\bin", [StringComparison]::CurrentCultureIgnoreCase) -lt 0)) { # enable ssh-agent from posh-git
     $env:path="$env:path;$env:ProgramFiles\Git\usr\bin"
 }
-if (Test-Path "$root\Modules\psake") {
+
+if ((Test-Path "$root\Modules\psake") -and ($env:path.IndexOf("$($root)\Modules\psake", [StringComparison]::CurrentCultureIgnoreCase) -lt 0)) {
     $env:path="$env:path;$root\Modules\psake"
 }
 Import-Module "$root\modules\posh-git\src\posh-git.psd1"
