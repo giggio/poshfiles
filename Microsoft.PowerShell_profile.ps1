@@ -7,7 +7,6 @@ if (Test-Path "$root\Modules\psake") {
 }
 Import-Module "$root\modules\posh-git\src\posh-git.psd1"
 Start-SshAgent -Quiet
-$env:ConEmuANSI = 'ON' # to fool oh-my-posh and get it to load without conemu
 Import-Module "$root\modules\oh-my-posh\oh-my-posh.psm1" #don't import the psd1, it has an incorrect string in the version field
 set-theme Mesh
 if (Get-Command colortool -ErrorAction Ignore) { colortool --quiet campbell }
