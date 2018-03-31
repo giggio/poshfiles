@@ -10,9 +10,9 @@ function Write-Theme {
     )
     Write-Prompt -Object $sl.PromptSymbols.StartSymbol -ForegroundColor $sl.Colors.PromptForegroundColor
 
-    $prompt = Get-FullPath -dir $pwd
+    $path = Get-FullPath -dir $pwd
 
-    Write-Prompt -Object $prompt -ForegroundColor $sl.Colors.PromptForegroundColor -BackgroundColor $sl.Colors.PromptBackgroundColor
+    Write-Prompt -Object $path -ForegroundColor $sl.Colors.PromptForegroundColor -BackgroundColor $sl.Colors.PromptBackgroundColor
 
     $status = Get-VCSStatus
     if ($status) {
@@ -39,17 +39,18 @@ function Write-Theme {
     $timestamp = "$clock $timeStamp | ${secondsSince}s"
     $Global:lastDate = $now
 
-    Set-CursorForRightBlockWrite -textLength $timestamp.Length
-    Write-Host $timeStamp -ForegroundColor $sl.Colors.PromptBackgroundColor
-
     if (Test-VirtualEnv) {
-        Write-Prompt -Object "$($sl.PromptSymbols.VirtualEnvSymbol) $(Get-VirtualEnvName) " -BackgroundColor $sl.Colors.VirtualEnvBackgroundColor -ForegroundColor $sl.Colors.VirtualEnvForegroundColor
+        Write-Prompt -Object " $($sl.PromptSymbols.VirtualEnvSymbol) $(Get-VirtualEnvName) " -BackgroundColor $sl.Colors.VirtualEnvBackgroundColor -ForegroundColor $sl.Colors.VirtualEnvForegroundColor
     }
 
     if ($with) {
-        Write-Prompt -Object "$($with.ToUpper()) " -BackgroundColor $sl.Colors.WithBackgroundColor -ForegroundColor $sl.Colors.WithForegroundColor
+        Write-Prompt -Object " $($with.ToUpper()) " -BackgroundColor $sl.Colors.WithBackgroundColor -ForegroundColor $sl.Colors.WithForegroundColor
     }
 
+    Write-Prompt $(Set-CursorForRightBlockWrite -textLength $timestamp.Length)
+    Write-Prompt $timeStamp -ForegroundColor $sl.Colors.PromptBackgroundColor
+
+    Write-Prompt $(Set-Newline)
     Write-Prompt -Object $sl.PromptSymbols.PromptIndicator -ForegroundColor $sl.Colors.PromptBackgroundColor
 }
 
