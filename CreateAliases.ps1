@@ -24,6 +24,9 @@ Add-Alias l 'ls'
 Add-Alias ll 'ls -Force'
 Add-Alias gitbash '. "C:\Program Files\Git\usr\bin\bash.exe"'
 Add-Alias ccat "pygmentize.exe -g -O style=vs -f console16m"
-if (gcm hub -ErrorAction SilentlyContinue) {
-    Add-Alias git "$($(gcm hub).Source)"
+if (Get-Command hub -ErrorAction Ignore) {
+    Add-Alias git "$($(Get-Command hub).Source)"
+}
+if (Get-Command curl -CommandType Application -ErrorAction Ignore) { #use system curl if available
+    Remove-Item alias:curl
 }
