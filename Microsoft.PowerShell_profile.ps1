@@ -56,3 +56,7 @@ if (Get-Command dotnet -ErrorAction Ignore) {
         }
     }
 }
+
+if (!(Test-Path "$root\Modules\VSSetup")) {
+    Install-Module VSSetup -Scope CurrentUser -Confirm -SkipPublisherCheck
+}
