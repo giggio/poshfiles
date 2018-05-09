@@ -1,4 +1,5 @@
 Set-Alias pester invoke-pester
+Set-Alias psake invoke-psake
 function add {
     if ($args) {
         Invoke-Expression ( "git add " + ($args -join ' ') )
