@@ -57,6 +57,11 @@ if (Get-Command dotnet -ErrorAction Ignore) {
     }
 }
 
+function pushsync() {
+    $branch = $(git rev-parse --abbrev-ref HEAD)
+    git push --set-upstream origin $branch
+}
+
 if (!(Test-Path "$root\Modules\VSSetup")) {
     Install-Module VSSetup -Scope CurrentUser -Confirm -SkipPublisherCheck
 }
