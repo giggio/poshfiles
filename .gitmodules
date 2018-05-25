@@ -19,3 +19,6 @@
 [submodule "Modules/pester"]
 	path = Modules/pester
 	url = https://github.com/pester/Pester
+[submodule "Modules/PowerShellGuard"]
+	path = Modules/PowerShellGuard
+	url = https://github.com/smurawski/PowerShellGuard
