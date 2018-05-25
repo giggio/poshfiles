@@ -16,3 +16,6 @@
 [submodule "Modules/oh-my-posh"]
 	path = Modules/oh-my-posh
 	url = https://github.com/JanJoris/oh-my-posh.git
+[submodule "Modules/pester"]
+	path = Modules/pester
+	url = https://github.com/pester/Pester
