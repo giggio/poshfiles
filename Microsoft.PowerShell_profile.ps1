@@ -3,16 +3,18 @@ if ((Test-Path "$env:ProgramFiles\Git\usr\bin") -and ($env:path.IndexOf("$($env:
     $env:path="$env:path;$env:ProgramFiles\Git\usr\bin"
 }
 
-if ((Test-Path "$root\Modules\psake") -and ($env:path.IndexOf("$($root)\Modules\psake", [StringComparison]::CurrentCultureIgnoreCase) -lt 0)) {
+if ((Test-Path "$root\Modules\psake") -and ($env:PATH.IndexOf("$root\Modules\psake", [StringComparison]::CurrentCultureIgnoreCase) -lt 0)) {
     $env:path="$env:path;$root\Modules\psake"
 }
-Import-Module "$root\modules\posh-git\src\posh-git.psd1"
+Import-Module "$root\Modules\posh-git\src\posh-git.psd1"
 Start-SshAgent -Quiet
-Import-Module "$root\modules\oh-my-posh\oh-my-posh.psm1" #don't import the psd1, it has an incorrect string in the version field
-Import-Module "$root\modules\PowerShellGuard\PowerShellGuard.psm1" #don't import the psd1, it has an incorrect string in the version field
-set-theme Mesh
+Import-Module "$root\Modules\oh-my-posh\oh-my-posh.psm1" #don't import the psd1, it has an incorrect string in the version field
+Import-Module "$root\Modules\PowerShellGuard\PowerShellGuard.psm1" #don't import the psd1, it has an incorrect string in the version field
+$ThemeSettings.MyThemesLocation="$root/PoshThemes"
+Set-Theme Mesh
 if (Get-Command colortool -ErrorAction Ignore) { colortool --quiet campbell }
-Import-Module z
+$isWin = [System.Environment]::OSVersion.Platform -eq 'Win32NT'
+if ($isWin) { Import-Module $root\Modules\z\z.psm1 }
 Import-Module $root\Modules\psake\src\psake.psd1
 Import-Module $root\Modules\posh-docker\posh-docker\posh-docker.psd1
 
