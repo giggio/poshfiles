@@ -78,3 +78,5 @@ if (Test-Path $kubeConfigHome) {
     Remove-Variable kubeConfig
 }
 Remove-Variable kubeConfigHome
+
+. "$root/Tools.ps1"
