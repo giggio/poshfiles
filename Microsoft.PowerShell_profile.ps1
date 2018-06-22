@@ -1,16 +1,17 @@
 $root = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
-if ((Test-Path "$env:ProgramFiles\Git\usr\bin") -and ($env:path.IndexOf("$($env:ProgramFiles)\Git\usr\bin", [StringComparison]::CurrentCultureIgnoreCase) -lt 0)) { # enable ssh-agent from posh-git
-    $env:path="$env:path;$env:ProgramFiles\Git\usr\bin"
+if ((Test-Path "$env:ProgramFiles\Git\usr\bin") -and ($env:path.IndexOf("$($env:ProgramFiles)\Git\usr\bin", [StringComparison]::CurrentCultureIgnoreCase) -lt 0)) {
+    # enable ssh-agent from posh-git
+    $env:path = "$env:path;$env:ProgramFiles\Git\usr\bin"
 }
 
 if ((Test-Path "$root\Modules\psake") -and ($env:PATH.IndexOf("$root\Modules\psake", [StringComparison]::CurrentCultureIgnoreCase) -lt 0)) {
-    $env:path="$env:path;$root\Modules\psake"
+    $env:path = "$env:path;$root\Modules\psake"
 }
 Import-Module "$root\Modules\posh-git\src\posh-git.psd1"
 Start-SshAgent -Quiet
 Import-Module "$root\Modules\oh-my-posh\oh-my-posh.psm1" #don't import the psd1, it has an incorrect string in the version field
 Import-Module "$root\Modules\PowerShellGuard\PowerShellGuard.psm1" #don't import the psd1, it has an incorrect string in the version field
-$ThemeSettings.MyThemesLocation="$root/PoshThemes"
+$ThemeSettings.MyThemesLocation = "$root/PoshThemes"
 Set-Theme Mesh
 if (Get-Command colortool -ErrorAction Ignore) { colortool --quiet campbell }
 $isWin = [System.Environment]::OSVersion.Platform -eq 'Win32NT'
@@ -44,10 +45,12 @@ function time() {
     $sw.elapsed
 } # call like: `time ls` or `time git log`
 
-function color ($lexer='javascript') {
+function color ($lexer = 'javascript') {
     Begin { $t = "" }
-    Process { $t = "$t
-    $_" }
+    Process {
+        $t = "$t
+    $_"
+    }
     End { $t | pygmentize.exe -l $lexer -O style=vs -f console16m; }
 } # call like: `docker inspect foo | color`
 
@@ -68,3 +71,10 @@ function pushsync() {
 if (!(Test-Path "$root\Modules\VSSetup")) {
     Install-Module VSSetup -Scope CurrentUser -Confirm -SkipPublisherCheck
 }
+
+$kubeConfigHome = Join-Path ($env:HOME, $env:USERPROFILE -ne $null)[0] '.kube'
+if (Test-Path $kubeConfigHome) {
+    $env:KUBECONFIG = Get-ChildItem $kubeConfigHome -File | ForEach-Object { $kubeConfig = '' } { $kubeConfig += "$($_.FullName)$([System.IO.Path]::PathSeparator)" } { $kubeConfig }
+    Remove-Variable kubeConfig
+}
+Remove-Variable kubeConfigHome

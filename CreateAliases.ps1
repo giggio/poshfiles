@@ -2,10 +2,12 @@ $root = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
 Import-Module "$root\Modules\posh-alias\Posh-Alias.psd1"
 Set-Alias pester invoke-pester
 Set-Alias psake invoke-psake
+Set-Alias k kubectl
 function add {
     if ($args) {
         Invoke-Expression ( "git add " + ($args -join ' ') )
-    } else {
+    }
+    else {
         git add -A :/
     }
 }
@@ -30,8 +32,9 @@ Add-Alias ccat "pygmentize.exe -g -O style=vs -f console16m"
 if (Get-Command hub -ErrorAction Ignore) {
     Add-Alias git "$($(Get-Command hub).Source)"
 }
-if (Get-Command curl -CommandType Application -ErrorAction Ignore) { #use system curl if available
+if (Get-Command curl -CommandType Application -ErrorAction Ignore) {
+    #use system curl if available
     if (Get-Alias curl -ErrorAction Ignore) {
-      Remove-Item alias:curl
+        Remove-Item alias:curl
     }
 }
