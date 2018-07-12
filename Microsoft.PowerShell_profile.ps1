@@ -17,7 +17,7 @@ if (Get-Command colortool -ErrorAction Ignore) { colortool --quiet campbell }
 $isWin = [System.Environment]::OSVersion.Platform -eq 'Win32NT'
 if ($isWin) { Import-Module $root\Modules\z\z.psm1 }
 Import-Module $root\Modules\psake\src\psake.psd1
-Import-Module $root\Modules\posh-docker\posh-docker\posh-docker.psd1
+Import-Module $root\Modules\DockerCompletion\DockerCompletion\DockerCompletion.psd1
 
 Set-PSReadlineOption -TokenKind Command -ForegroundColor Yellow
 Set-PSReadlineOption -TokenKind Keyword -ForegroundColor Cyan
