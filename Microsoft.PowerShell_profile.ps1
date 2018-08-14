@@ -72,15 +72,21 @@ function pushsync() {
     git push --set-upstream origin $branch
 }
 
-if (!(Test-Path "$root\Modules\VSSetup")) {
+function ModuleMissing($moduleName) {
+    ($env:PSModulePath.Split([System.IO.Path]::PathSeparator) | `
+            ForEach-Object { Join-Path $_ $moduleName } | `
+            ForEach-Object { Test-Path $_ }).Where( {$_} ).Count -eq 0
+}
+
+if (ModuleMissing VSSetup) {
     Install-Module VSSetup -Scope CurrentUser -Confirm -SkipPublisherCheck
 }
 
-if (!(Test-Path "$root\Modules\PowerShellGet")) {
+if (ModuleMissing PowerShellGet) {
     Install-Module PowerShellGet -Scope CurrentUser -Force -AllowClobber
 }
 
-if (!(Test-Path "$root\Modules\PSReadLine")) {
+if (ModuleMissing PSReadLine) {
     Install-Module PSReadLine -Scope CurrentUser -Confirm -AllowPrerelease -Force
 }
 
