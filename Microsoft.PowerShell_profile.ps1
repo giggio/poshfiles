@@ -19,9 +19,6 @@ if ($isWin) { Import-Module $root\Modules\z\z.psm1 }
 Import-Module $root\Modules\psake\src\psake.psd1
 Import-Module $root\Modules\DockerCompletion\DockerCompletion\DockerCompletion.psd1
 
-Set-PSReadlineOption -TokenKind Command -ForegroundColor Yellow
-Set-PSReadlineOption -TokenKind Keyword -ForegroundColor Cyan
-
 . "$root/PsakeTabExpansion.ps1"
 . "$root/CreateAliases.ps1"
 
@@ -77,6 +74,14 @@ function pushsync() {
 
 if (!(Test-Path "$root\Modules\VSSetup")) {
     Install-Module VSSetup -Scope CurrentUser -Confirm -SkipPublisherCheck
+}
+
+if (!(Test-Path "$root\Modules\PowerShellGet")) {
+    Install-Module PowerShellGet -Scope CurrentUser -Force -AllowClobber
+}
+
+if (!(Test-Path "$root\Modules\PSReadLine")) {
+    Install-Module PSReadLine -Scope CurrentUser -Confirm -AllowPrerelease -Force
 }
 
 $kubeConfigHome = Join-Path ($env:HOME, $env:USERPROFILE -ne $null)[0] '.kube'

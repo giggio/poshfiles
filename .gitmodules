@@ -22,3 +22,6 @@
 [submodule "Modules/DockerCompletion"]
 	path = Modules/DockerCompletion
 	url = https://github.com/matt9ucci/DockerCompletion.git
+[submodule "Modules/posh-sshell"]
+	path = Modules/posh-sshell
+	url = https://github.com/dahlbyk/posh-sshell.git
