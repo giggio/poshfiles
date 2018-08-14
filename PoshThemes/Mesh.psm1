@@ -22,8 +22,10 @@ function Write-Theme {
     }
 
     #check for elevated prompt
-    If (([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] 'Administrator')) {
-        Write-Prompt -Object " $($sl.PromptSymbols.ElevatedSymbol)" -ForegroundColor $sl.Colors.AdminIconForegroundColor
+    If ($IsWin) {
+        If (([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] 'Administrator')) {
+            Write-Prompt -Object " $($sl.PromptSymbols.ElevatedSymbol)" -ForegroundColor $sl.Colors.AdminIconForegroundColor
+        }
     }
 
     #check the last command state and indicate if failed
@@ -31,7 +33,7 @@ function Write-Theme {
         Write-Prompt -Object " $($sl.PromptSymbols.FailedCommandSymbol) " -ForegroundColor $sl.Colors.CommandFailedIconForegroundColor
     }
 
-    if ($Global:lastDate -eq $null) { $Global:lastDate = get-date }
+    if ($null -eq $Global:lastDate) { $Global:lastDate = get-date }
     $now = Get-Date
     $timeStamp = Get-Date $now -Format T
     $clock = [char]::ConvertFromUtf32(0x25F7)
