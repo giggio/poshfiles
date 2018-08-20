@@ -1,4 +1,32 @@
 $root = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
+$localModulesDirectory = "$root\Modules"
+
+function ModuleMissing($moduleName) {
+    ($env:PSModulePath.Split([System.IO.Path]::PathSeparator) | `
+            ForEach-Object { Join-Path $_ $moduleName } | `
+            ForEach-Object { Test-Path $_ }).Where( {$_} ).Count -eq 0
+}
+
+if (!($env:PSModulePath.Contains($localModulesDirectory))) {
+    $env:PSModulePath = "$localModulesDirectory;$env:PSModulePath"
+}
+
+if (!(Test-Path "$localModulesDirectory\PowerShellGet")) {
+    Save-Module -Name PowerShellGet -Path $localModulesDirectory -Confirm
+}
+
+if (ModuleMissing VSSetup) {
+    Save-Module VSSetup $localModulesDirectory -Confirm
+}
+
+if ((Get-Module PSReadLine).Version.Major -lt 2) {
+    if (!(Test-Path "$localModulesDirectory\PSReadLine")) {
+        Save-Module PSReadLine $localModulesDirectory -Confirm -AllowPrerelease -Force
+    }
+    Remove-Module PSReadline
+    Import-Module $localModulesDirectory\PSReadLine
+}
+
 if ((Test-Path "$env:ProgramFiles\Git\usr\bin") -and ($env:path.IndexOf("$($env:ProgramFiles)\Git\usr\bin", [StringComparison]::CurrentCultureIgnoreCase) -lt 0)) {
     # enable ssh-agent from posh-git
     $env:path = "$env:path;$env:ProgramFiles\Git\usr\bin"
@@ -70,24 +98,6 @@ if (Get-Command dotnet -ErrorAction Ignore) {
 function pushsync() {
     $branch = $(git rev-parse --abbrev-ref HEAD)
     git push --set-upstream origin $branch
-}
-
-function ModuleMissing($moduleName) {
-    ($env:PSModulePath.Split([System.IO.Path]::PathSeparator) | `
-            ForEach-Object { Join-Path $_ $moduleName } | `
-            ForEach-Object { Test-Path $_ }).Where( {$_} ).Count -eq 0
-}
-
-if (ModuleMissing VSSetup) {
-    Install-Module VSSetup -Scope CurrentUser -Confirm -SkipPublisherCheck
-}
-
-if (ModuleMissing PowerShellGet) {
-    Install-Module PowerShellGet -Scope CurrentUser -Force -AllowClobber
-}
-
-if (ModuleMissing PSReadLine) {
-    Install-Module PSReadLine -Scope CurrentUser -Confirm -AllowPrerelease -Force
 }
 
 $kubeConfigHome = Join-Path ($env:HOME, $env:USERPROFILE -ne $null)[0] '.kube'
