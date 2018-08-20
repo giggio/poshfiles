@@ -38,3 +38,8 @@ if (Get-Command curl -CommandType Application -ErrorAction Ignore) {
         Remove-Item alias:curl
     }
 }
+
+function pushsync() {
+    $branch = $(git rev-parse --abbrev-ref HEAD)
+    git push --set-upstream origin $branch
+}

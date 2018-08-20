@@ -1,4 +1,5 @@
-$localModulesDirectory = "$root\Modules"
+$root = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
+$localModulesDirectory = Join-Path $root Modules
 
 function ModuleMissing($moduleName) {
     ($env:PSModulePath.Split([System.IO.Path]::PathSeparator) | `
@@ -7,10 +8,10 @@ function ModuleMissing($moduleName) {
 }
 
 if (!($env:PSModulePath.Contains($localModulesDirectory))) {
-    $env:PSModulePath = "$localModulesDirectory;$env:PSModulePath"
+    $env:PSModulePath = "$localModulesDirectory$([System.IO.Path]::PathSeparator)$env:PSModulePath"
 }
 
-if (!(Test-Path "$localModulesDirectory\PowerShellGet")) {
+if (!(Test-Path (Join-Path $localModulesDirectory PowerShellGet))) {
     Save-Module -Name PowerShellGet -Path $localModulesDirectory -Confirm
 }
 
@@ -19,9 +20,9 @@ if (ModuleMissing VSSetup) {
 }
 
 if ((Get-Module PSReadLine).Version.Major -lt 2) {
-    if (!(Test-Path "$localModulesDirectory\PSReadLine")) {
+    if (!(Test-Path (Join-Path $localModulesDirectory PSReadLine))) {
         Save-Module PSReadLine $localModulesDirectory -Confirm -AllowPrerelease -Force
     }
-    Remove-Module PSReadline
-    Import-Module $localModulesDirectory\PSReadLine
+    Remove-Module PSReadLine
+    Import-Module (Join-Path $localModulesDirectory PSReadLine)
 }

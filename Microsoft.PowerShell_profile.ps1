@@ -1,33 +1,33 @@
 $root = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
+$isWin = [System.Environment]::OSVersion.Platform -eq 'Win32NT'
+if ($isWin -and $null -eq $env:HOME -and $null -ne $env:USERPROFILE) {
+    $env:HOME = $env:USERPROFILE
+}
 
 . "$root/InstallModules.ps1"
 
-if ((Test-Path "$env:ProgramFiles\Git\usr\bin") -and ($env:path.IndexOf("$($env:ProgramFiles)\Git\usr\bin", [StringComparison]::CurrentCultureIgnoreCase) -lt 0)) {
+if ($isWin -and (Test-Path "$env:ProgramFiles\Git\usr\bin") -and ($env:path.IndexOf("$($env:ProgramFiles)\Git\usr\bin", [StringComparison]::CurrentCultureIgnoreCase) -lt 0)) {
     # enable ssh-agent from posh-git
-    $env:path = "$env:path;$env:ProgramFiles\Git\usr\bin"
+    $env:PATH = "$env:PATH;$env:ProgramFiles\Git\usr\bin"
 }
 
-if ((Test-Path "$root\Modules\psake") -and ($env:PATH.IndexOf("$root\Modules\psake", [StringComparison]::CurrentCultureIgnoreCase) -lt 0)) {
-    $env:path = "$env:path;$root\Modules\psake"
-}
-Import-Module "$root\Modules\posh-git\src\posh-git.psd1"
+Import-Module "$root/Modules/posh-git/src/posh-git.psd1"
+Import-Module "$root/Modules/oh-my-posh/oh-my-posh.psm1" #don't import the psd1, it has an incorrect string in the version field
+Import-Module "$root/Modules/PowerShellGuard/PowerShellGuard.psm1" #don't import the psd1, it has an incorrect string in the version field
+Import-Module "$root/Modules/psake/src/psake.psd1"
+Import-Module "$root/Modules/DockerCompletion/DockerCompletion/DockerCompletion.psd1"
+if ($isWin) { Import-Module $root\Modules\z\z.psm1 }
+
 Start-SshAgent -Quiet
-Import-Module "$root\Modules\oh-my-posh\oh-my-posh.psm1" #don't import the psd1, it has an incorrect string in the version field
-Import-Module "$root\Modules\PowerShellGuard\PowerShellGuard.psm1" #don't import the psd1, it has an incorrect string in the version field
-$ThemeSettings.MyThemesLocation = "$root/PoshThemes"
+$ThemeSettings.MyThemesLocation = Join-Path $root PoshThemes
 Set-Theme Mesh
 if (Get-Command colortool -ErrorAction Ignore) { colortool --quiet campbell }
-$isWin = [System.Environment]::OSVersion.Platform -eq 'Win32NT'
-if ($isWin) { Import-Module $root\Modules\z\z.psm1 }
-Import-Module $root\Modules\psake\src\psake.psd1
-Import-Module $root\Modules\DockerCompletion\DockerCompletion\DockerCompletion.psd1
 
-. "$root/PsakeTabExpansion.ps1"
-. "$root/CreateAliases.ps1"
-
-$ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
-if (Test-Path $ChocolateyProfile) {
-    Import-Module "$ChocolateyProfile"
+if ($isWin) {
+    $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
+    if (Test-Path $ChocolateyProfile) {
+        Import-Module "$ChocolateyProfile"
+    }
 }
 
 if (Get-Command vim -ErrorAction Ignore) {
@@ -45,13 +45,14 @@ if (Get-Command vim -ErrorAction Ignore) {
     }
 }
 
-function time() {
-    $sw = [Diagnostics.Stopwatch]::StartNew()
-    Invoke-Expression $($args -join ' ')
-    $sw.Stop()
-    $sw.elapsed
-} # call like: `time ls` or `time git log`
-
+if ($isWin) {
+    function time() {
+        $sw = [Diagnostics.Stopwatch]::StartNew()
+        Invoke-Expression $($args -join ' ')
+        $sw.Stop()
+        $sw.elapsed
+    } # call like: `time ls` or `time git log`
+}
 function color ($lexer = 'javascript') {
     Begin { $t = "" }
     Process {
@@ -61,25 +62,15 @@ function color ($lexer = 'javascript') {
     End { $t | pygmentize.exe -l $lexer -O style=vs -f console16m; }
 } # call like: `docker inspect foo | color`
 
-if (Get-Command dotnet -ErrorAction Ignore) {
-    Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
-        param($commandName, $wordToComplete, $cursorPosition)
-        dotnet complete --position $cursorPosition "$wordToComplete" | ForEach-Object {
-            [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_)
-        }
-    }
-}
-
-function pushsync() {
-    $branch = $(git rev-parse --abbrev-ref HEAD)
-    git push --set-upstream origin $branch
-}
-
-$kubeConfigHome = Join-Path ($env:HOME, $env:USERPROFILE -ne $null)[0] '.kube'
+$kubeConfigHome = Join-Path $env:HOME '.kube'
 if (Test-Path $kubeConfigHome) {
     $env:KUBECONFIG = Get-ChildItem $kubeConfigHome -File | ForEach-Object { $kubeConfig = '' } { $kubeConfig += "$($_.FullName)$([System.IO.Path]::PathSeparator)" } { $kubeConfig }
     Remove-Variable kubeConfig
 }
 Remove-Variable kubeConfigHome
 
-. "$root/Tools.ps1"
+. "$root/InstallTools.ps1"
+. "$root/Completions.ps1"
+. "$root/CreateAliases.ps1"
+
+$root = $null
