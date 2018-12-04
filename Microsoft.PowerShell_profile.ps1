@@ -45,23 +45,6 @@ if (Get-Command vim -ErrorAction Ignore) {
     }
 }
 
-if ($isWin) {
-    function time() {
-        $sw = [Diagnostics.Stopwatch]::StartNew()
-        Invoke-Expression $($args -join ' ')
-        $sw.Stop()
-        $sw.elapsed
-    } # call like: `time ls` or `time git log`
-}
-function color ($lexer = 'javascript') {
-    Begin { $t = "" }
-    Process {
-        $t = "$t
-    $_"
-    }
-    End { $t | pygmentize.exe -l $lexer -O style=vs -f console16m; }
-} # call like: `docker inspect foo | color`
-
 $kubeConfigHome = Join-Path $env:HOME '.kube'
 if (Test-Path $kubeConfigHome) {
     $env:KUBECONFIG = Get-ChildItem $kubeConfigHome -File | ForEach-Object { $kubeConfig = '' } { $kubeConfig += "$($_.FullName)$([System.IO.Path]::PathSeparator)" } { $kubeConfig }
@@ -72,5 +55,6 @@ Remove-Variable kubeConfigHome
 . "$root/InstallTools.ps1"
 . "$root/Completions.ps1"
 . "$root/CreateAliases.ps1"
+. "$root/Functions.ps1"
 
 $root = $null
