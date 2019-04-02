@@ -1,5 +1,7 @@
 #requires -Version 2 -Modules posh-git
 
+# original theme: avid
+
 function Write-Theme {
 
     param(
@@ -8,65 +10,79 @@ function Write-Theme {
         [string]
         $with
     )
-    Write-Prompt -Object $sl.PromptSymbols.StartSymbol -ForegroundColor $sl.Colors.PromptForegroundColor
 
-    $path = Get-FullPath -dir $pwd
+    $prompt = Write-Prompt -Object $sl.PromptSymbols.StartSymbol -ForegroundColor $sl.Colors.PromptForegroundColor
 
-    Write-Prompt -Object $path -ForegroundColor $sl.Colors.PromptForegroundColor -BackgroundColor $sl.Colors.PromptBackgroundColor
+    $dir = Get-FullPath -dir $pwd
+
+    $prompt += Write-Prompt -Object $dir -ForegroundColor $sl.Colors.PromptForegroundColor -BackgroundColor $sl.Colors.PromptBackgroundColor
 
     $status = Get-VCSStatus
     if ($status) {
         $vcsInfo = Get-VcsInfo -status ($status)
         $info = $vcsInfo.VcInfo
-        Write-Prompt -Object " $info" -ForegroundColor $vcsInfo.BackgroundColor
+        $prompt += Write-Prompt -Object " $info" -ForegroundColor $vcsInfo.BackgroundColor
     }
 
     #check for elevated prompt
-    If ($IsWin) {
-        If (([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] 'Administrator')) {
-            Write-Prompt -Object " $($sl.PromptSymbols.ElevatedSymbol)" -ForegroundColor $sl.Colors.AdminIconForegroundColor
-        }
+    If (Test-Administrator) {
+        $prompt += Write-Prompt -Object " $($sl.PromptSymbols.ElevatedSymbol)" -ForegroundColor $sl.Colors.AdminIconForegroundColor
     }
 
     #check the last command state and indicate if failed
     If ($lastCommandFailed) {
-        Write-Prompt -Object " $($sl.PromptSymbols.FailedCommandSymbol) " -ForegroundColor $sl.Colors.CommandFailedIconForegroundColor
+        $prompt += Write-Prompt -Object " $($sl.PromptSymbols.FailedCommandSymbol)" -ForegroundColor $sl.Colors.CommandFailedIconForegroundColor
+    }
+
+    $timeStamp = Get-Date -Format T
+    $clock = [char]::ConvertFromUtf32(0x25F7)
+    $timestamp = "$clock $timeStamp"
+
+    if ($status) {
+        $timeStamp = Get-TimeSinceLastCommit
     }
 
     if ($null -eq $Global:lastDate) { $Global:lastDate = get-date }
     $now = Get-Date
     $timeStamp = Get-Date $now -Format T
-    $clock = [char]::ConvertFromUtf32(0x25F7)
     $secondsSince = [math]::floor($($now - $Global:lastDate).TotalSeconds)
     $timestamp = "$clock $timeStamp | ${secondsSince}s"
     $Global:lastDate = $now
 
+    $prompt += Set-CursorForRightBlockWrite -textLength $timestamp.Length
+    $prompt += Write-Prompt $timeStamp -ForegroundColor $sl.Colors.PromptBackgroundColor
+    $prompt += Set-Newline
+
     if (Test-VirtualEnv) {
-        Write-Prompt -Object " $($sl.PromptSymbols.VirtualEnvSymbol) $(Get-VirtualEnvName) " -BackgroundColor $sl.Colors.VirtualEnvBackgroundColor -ForegroundColor $sl.Colors.VirtualEnvForegroundColor
+        $prompt += Write-Prompt -Object "$($sl.PromptSymbols.VirtualEnvSymbol) $(Get-VirtualEnvName) " -BackgroundColor $sl.Colors.VirtualEnvBackgroundColor -ForegroundColor $sl.Colors.VirtualEnvForegroundColor
     }
 
     if ($with) {
-        Write-Prompt -Object " $($with.ToUpper()) " -BackgroundColor $sl.Colors.WithBackgroundColor -ForegroundColor $sl.Colors.WithForegroundColor
+        $prompt += Write-Prompt -Object "$($with.ToUpper()) " -BackgroundColor $sl.Colors.WithBackgroundColor -ForegroundColor $sl.Colors.WithForegroundColor
     }
 
-    Write-Prompt $(Set-CursorForRightBlockWrite -textLength $timestamp.Length)
-    Write-Prompt $timeStamp -ForegroundColor $sl.Colors.PromptBackgroundColor
+    $prompt += Write-Prompt -Object $sl.PromptSymbols.PromptIndicator -ForegroundColor $sl.Colors.PromptBackgroundColor
+    $prompt += ' '
+    $prompt
+}
 
-    Write-Prompt $(Set-Newline)
-    Write-Prompt -Object $sl.PromptSymbols.PromptIndicator -ForegroundColor $sl.Colors.PromptBackgroundColor
+function Get-TimeSinceLastCommit {
+    return (git log --pretty=format:'%cr' -1)
 }
 
 $sl = $global:ThemeSettings #local settings
 $sl.PromptSymbols.StartSymbol = ''
 $sl.PromptSymbols.PromptIndicator = [char]::ConvertFromUtf32(0x25B6)
-$sl.Colors.PromptForegroundColor = [ConsoleColor]::White
+$sl.Colors.PromptForegroundColor = [ConsoleColor]::DarkBlue
 $sl.Colors.WithForegroundColor = [ConsoleColor]::DarkRed
-$sl.Colors.PromptBackgroundColor = [ConsoleColor]::Blue
 $sl.Colors.PromptHighlightColor = [ConsoleColor]::DarkBlue
 $sl.Colors.WithBackgroundColor = [ConsoleColor]::Magenta
 $sl.Colors.PromptSymbolColor = [ConsoleColor]::White
 $sl.Colors.VirtualEnvBackgroundColor = [System.ConsoleColor]::Magenta
 $sl.Colors.VirtualEnvForegroundColor = [System.ConsoleColor]::Red
+
+$sl.Colors.PromptForegroundColor = [ConsoleColor]::White
+$sl.Colors.PromptBackgroundColor = [ConsoleColor]::Blue
 $sl.Colors.GitLocalChangesColor = [System.ConsoleColor]::Yellow
 $sl.Colors.GitNoLocalChangesAndAheadColor = [System.ConsoleColor]::Red
 #$sl.Colors.GitDefaultColor
