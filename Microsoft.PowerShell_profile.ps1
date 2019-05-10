@@ -23,13 +23,6 @@ $ThemeSettings.MyThemesLocation = Join-Path $root PoshThemes
 Set-Theme Mesh
 if (Get-Command colortool -ErrorAction Ignore) { colortool --quiet campbell }
 
-if ($isWin) {
-    $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
-    if (Test-Path $ChocolateyProfile) {
-        Import-Module "$ChocolateyProfile"
-    }
-}
-
 if (Get-Command vim -ErrorAction Ignore) {
     Set-PSReadlineOption -EditMode Vi
     Set-PSReadlineKeyHandler -Key Ctrl+r -Function ReverseSearchHistory
