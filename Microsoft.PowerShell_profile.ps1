@@ -10,7 +10,6 @@ if ($isWin -and (Test-Path "$env:ProgramFiles\Git\usr\bin") -and ($env:path.Inde
     # enable ssh-agent from posh-git
     $env:PATH = "$env:PATH;$env:ProgramFiles\Git\usr\bin"
 }
-
 Import-Module "$root/Modules/posh-git/src/posh-git.psd1"
 Import-Module "$root/Modules/oh-my-posh/oh-my-posh.psm1" #don't import the psd1, it has an incorrect string in the version field
 Import-Module "$root/Modules/PowerShellGuard/PowerShellGuard.psm1" #don't import the psd1, it has an incorrect string in the version field
@@ -21,7 +20,7 @@ if ($isWin) { Import-Module $root\Modules\z\z.psm1 }
 Start-SshAgent -Quiet
 $ThemeSettings.MyThemesLocation = Join-Path $root PoshThemes
 Set-Theme Mesh
-if (Get-Command colortool -ErrorAction Ignore) { colortool --quiet campbell }
+if (Get-Command colortool -ErrorAction Ignore) { colortool --quiet campbell.ini }
 
 if (Get-Command vim -ErrorAction Ignore) {
     Set-PSReadlineOption -EditMode Vi
