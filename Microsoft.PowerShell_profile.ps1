@@ -17,7 +17,9 @@ Import-Module "$root/Modules/psake/src/psake.psd1"
 Import-Module "$root/Modules/DockerCompletion/DockerCompletion/DockerCompletion.psd1"
 if ($isWin) { Import-Module $root\Modules\z\z.psm1 }
 
-Start-SshAgent -Quiet
+if (!(Get-Process ssh-agent -ErrorAction Ignore)) {
+    Start-SshAgent -Quiet
+}
 $ThemeSettings.MyThemesLocation = Join-Path $root PoshThemes
 Set-Theme Mesh
 if (Get-Command colortool -ErrorAction Ignore) { colortool --quiet campbell.ini }
