@@ -46,6 +46,26 @@ if (Test-Path $kubeConfigHome) {
 }
 Remove-Variable kubeConfigHome
 
+if ($PSVersionTable.PSEdition -eq 'Desktop') {
+    $vswhere = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"
+    if (Test-Path $vswhere) {
+        [array]$vss = . $vswhere -version 16 -property installationpath
+        if ($vss.Count -ne 0) {
+            $vsPath = $vss[0]
+            Import-Module "$vsPath\Common7\Tools\vsdevshell\Microsoft.VisualStudio.DevShell.dll"
+            Enter-VsDevShell -VsInstallPath $vsPath > $null
+        }
+    }
+    elseif (Get-Module VSSetup) {
+        [array]$vss = Get-VSSetupInstance | Where-Object { $_.InstallationVersion.Major -ge 17 } | Select-Object -Property InstallationPath -First 1
+        if ($vss.Count -ne 0) {
+            $vsPath = $vss[0].InstallationPath
+            Import-Module "$vsPath\Common7\Tools\vsdevshell\Microsoft.VisualStudio.DevShell.dll"
+            Enter-VsDevShell -VsInstallPath $vsPath > $null
+        }
+    }
+}
+
 . "$root/InstallTools.ps1"
 . "$root/Completions.ps1"
 . "$root/CreateAliases.ps1"
