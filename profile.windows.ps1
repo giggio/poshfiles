@@ -16,7 +16,13 @@ if ($PSVersionTable.PSEdition -eq 'Desktop') {
         }
     }
     if ($vsPath) {
-        Import-Module "$vsPath\Common7\Tools\vsdevshell\Microsoft.VisualStudio.DevShell.dll"
-        Enter-VsDevShell -VsInstallPath $vsPath > $null
+        $devshellDllPath = "$vsPath\Common7\Tools\Microsoft.VisualStudio.DevShell.dll"
+        if (Test-Path $devshellDllPath) {
+            Import-Module $devshellDllPath
+            Enter-VsDevShell -VsInstallPath $vsPath > $null
+        }
+        else {
+            Write-Host "DevShell dll not found at '$devshellDllPath'"
+        }
     }
 }
