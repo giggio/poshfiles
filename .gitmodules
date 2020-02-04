@@ -25,3 +25,6 @@
 [submodule "Modules/posh-sshell"]
 	path = Modules/posh-sshell
 	url = https://github.com/dahlbyk/posh-sshell.git
+[submodule "Modules/PSFzf"]
+	path = Modules/PSFzf
+	url = https://github.com/kelleyma49/PSFzf.git

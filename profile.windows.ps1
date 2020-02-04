@@ -29,3 +29,18 @@ if ($vsPath) {
         Write-Host "DevShell dll not found at '$devshellDllPath'"
     }
 }
+
+if (Get-Command fzf -ErrorAction Ignore) {
+    if (Test-Path "$root/Modules/PSFzf/PSFzf.dll") {
+        Import-Module "$root/Modules/PSFzf/PSFzf.psd1" -ArgumentList 'Ctrl+t','Ctrl+r' -Force
+    } else {
+        if (Get-Command dotnet -ErrorAction Ignore) {
+            $fzfTempDir = Join-Path "$([System.IO.Path]::GetTempPath())" fzf
+            New-Item -Type Directory $fzfTempDir -Force | Out-Null
+            dotnet build --nologo --verbosity quiet --configuration Release --output $fzfTempDir "$root/Modules/PSFzf/PSFzf-Binary/PSFzf-Binary.csproj"
+            copy-item $fzfTempDir/PSFzf.dll "$root/Modules/PSFzf/"
+            Import-Module "$root/Modules/PSFzf/PSFzf.psd1" -ArgumentList 'Ctrl+t','Ctrl+r' -Force
+            Remove-Item -Force -Recurse $fzfTempDir
+        }
+    }
+}
