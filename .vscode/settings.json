@@ -1,0 +1,8 @@
+{
+    "powershell.codeFormatting.useCorrectCasing": true,
+    "powershell.codeFormatting.preset": "OTBS",
+    "files.exclude": {
+        "bin/**": true,
+        "Modules/**": true
+    }
+}
