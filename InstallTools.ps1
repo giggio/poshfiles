@@ -6,8 +6,7 @@ if (!(Test-Path $bin)) { New-Item -Type Directory $bin | Out-Null }
 $os = ''
 if ($IsWin) {
     $os = 'windows'
-}
-elseif ($IsLinux) {
+} elseif ($IsLinux) {
     $os = 'linux'
     return # let's not support Linux yet, it blows up
 }

@@ -12,7 +12,6 @@ I have several [aliases](https://github.com/giggio/poshfiles/blob/master/Microso
 as well as several [modules](https://github.com/giggio/poshfiles/tree/master/Modules).
 Check them out and see if you want to keep them all.
 
-
 ## Notes on Vi mode
 
 I use "vi mode" on my shells. If you don't know what this is or don't want it
@@ -27,6 +26,7 @@ editor, then you should learn vi, vim and vi mode. Just search for it and you
 will find more info.
 
 ## Notes on fonts
+
 You need a powerline enabled font to get everything to display properly. The only one I have found
 that works as expected so far is the
 [Deja Vu](https://github.com/powerline/fonts/blob/master/DejaVuSansMono/DejaVu%20Sans%20Mono%20for%20Powerline.ttf)

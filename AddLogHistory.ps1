@@ -7,7 +7,7 @@ if (Test-Path $historyFilePath) {
 }
 Register-EngineEvent PowerShell.Exiting -Action {
     $history = Get-History
-    $filteredHistory = $history[($numberOfPreviousCommands-1)..($history.Length - 2)]
+    $filteredHistory = $history[($numberOfPreviousCommands - 1)..($history.Length - 2)]
     $filteredHistory | Export-Csv $historyFilePath -Append
 } | Out-Null
-if (Test-path $historyFilePath) { Import-Csv $historyFilePath | Add-History }
+if (Test-Path $historyFilePath) { Import-Csv $historyFilePath | Add-History }

@@ -46,7 +46,7 @@ if (Test-Path $kubeConfigHome) {
 Remove-Variable kubeConfigHome
 
 if ((Get-Command bat -CommandType Application -ErrorAction Ignore) -and (Get-Command less -CommandType Application -ErrorAction Ignore)) {
-    $env:BAT_PAGER="less -RF"
+    $env:BAT_PAGER = "less -RF"
 }
 
 . "$root/InstallTools.ps1"

@@ -6,8 +6,7 @@ Set-Alias k kubectl
 function add {
     if ($args) {
         Invoke-Expression ( "git add " + ($args -join ' ') )
-    }
-    else {
+    } else {
         git add -A :/
     }
 }

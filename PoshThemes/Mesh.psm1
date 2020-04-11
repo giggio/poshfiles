@@ -42,7 +42,7 @@ function Write-Theme {
         $timeStamp = Get-TimeSinceLastCommit
     }
 
-    if ($null -eq $Global:lastDate) { $Global:lastDate = get-date }
+    if ($null -eq $Global:lastDate) { $Global:lastDate = Get-Date }
     $now = Get-Date
     $timeStamp = Get-Date $now -Format T
     $secondsSince = [math]::floor($($now - $Global:lastDate).TotalSeconds)
