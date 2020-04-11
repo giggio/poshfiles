@@ -12,8 +12,7 @@ if (Test-Path $vswhere) {
     if ($vss.Count -ne 0) {
         $vsPath = $vss[0]
     }
-}
-elseif (Get-Module VSSetup) {
+} elseif (Get-Module VSSetup) {
     [array]$vss = Get-VSSetupInstance | Where-Object { $_.InstallationVersion.Major -ge 17 } | Select-Object -Property InstallationPath -First 1
     if ($vss.Count -ne 0) {
         $vsPath = $vss[0].InstallationPath
@@ -24,23 +23,23 @@ if ($vsPath) {
     if (Test-Path $devshellDllPath) {
         Import-Module $devshellDllPath
         Enter-VsDevShell -VsInstallPath $vsPath > $null
-    }
-    else {
+    } else {
         Write-Host "DevShell dll not found at '$devshellDllPath'"
     }
 }
 
 if (Get-Command fzf -ErrorAction Ignore) {
     if (Test-Path "$root/Modules/PSFzf/PSFzf.dll") {
-        Import-Module "$root/Modules/PSFzf/PSFzf.psd1" -ArgumentList 'Ctrl+t','Ctrl+r' -Force
+        Import-Module "$root/Modules/PSFzf/PSFzf.psd1" -ArgumentList 'Ctrl+t', 'Ctrl+r' -Force
     } else {
         if (Get-Command dotnet -ErrorAction Ignore) {
             $fzfTempDir = Join-Path "$([System.IO.Path]::GetTempPath())" fzf
             New-Item -Type Directory $fzfTempDir -Force | Out-Null
             dotnet build --nologo --verbosity quiet --configuration Release --output $fzfTempDir "$root/Modules/PSFzf/PSFzf-Binary/PSFzf-Binary.csproj"
-            copy-item $fzfTempDir/PSFzf.dll "$root/Modules/PSFzf/"
-            Import-Module "$root/Modules/PSFzf/PSFzf.psd1" -ArgumentList 'Ctrl+t','Ctrl+r' -Force
+            Copy-Item $fzfTempDir/PSFzf.dll "$root/Modules/PSFzf/"
+            Import-Module "$root/Modules/PSFzf/PSFzf.psd1" -ArgumentList 'Ctrl+t', 'Ctrl+r' -Force
             Remove-Item -Force -Recurse $fzfTempDir
         }
     }
+    Set-PsFzfOption -TabExpansion -GitKeyBindings
 }
