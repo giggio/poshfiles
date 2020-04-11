@@ -15,6 +15,7 @@ Import-Module "$root/Modules/oh-my-posh/oh-my-posh.psm1" #don't import the psd1,
 Import-Module "$root/Modules/PowerShellGuard/PowerShellGuard.psm1" #don't import the psd1, it has an incorrect string in the version field
 Import-Module "$root/Modules/psake/src/psake.psd1"
 Import-Module "$root/Modules/DockerCompletion/DockerCompletion/DockerCompletion.psd1"
+Import-Module "$root/Modules/posh-alias/Posh-Alias.psd1"
 
 if (!(Get-Process ssh-agent -ErrorAction Ignore)) {
     Start-SshAgent -Quiet
@@ -54,6 +55,9 @@ if ((Get-Command bat -CommandType Application -ErrorAction Ignore) -and (Get-Com
 . "$root/CreateAliases.ps1"
 . "$root/Functions.ps1"
 
-if ($isWin) { . "$root/profile.windows.ps1" }
+if ($isWin) {
+    . "$root/profile.windows.ps1"
+    . "$root/CreateAliases.windows.ps1"
+}
 
 $root = $null

@@ -1,5 +1,3 @@
-$root = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
-Import-Module "$root\Modules\posh-alias\Posh-Alias.psd1"
 Set-Alias pester invoke-pester
 Set-Alias psake invoke-psake
 Set-Alias k kubectl
@@ -24,10 +22,13 @@ Add-Alias branch 'git branch'
 Add-Alias tag 'git tag'
 Add-Alias up 'git up'
 Add-Alias sync 'git sync'
-Add-Alias l 'ls'
-Add-Alias ll 'ls -Force'
-Add-Alias gitbash '. "C:\Program Files\Git\usr\bin\bash.exe"'
-Add-Alias ccat "pygmentize.exe -g -O style=vs -f console16m"
+Set-Alias l 'ls'
+if ($lsApp = Get-Command ls -CommandType Application -ErrorAction Ignore) {
+    Add-Alias ll "$($lsApp.Source) -la"
+} else {
+    Add-Alias ll 'ls -Force'
+}
+Add-Alias ccat "pygmentize -g -O style=vs -f console16m"
 if (Get-Command hub -ErrorAction Ignore) {
     Set-Alias git "$($(Get-Command hub).Source)"
 }
