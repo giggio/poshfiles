@@ -15,6 +15,15 @@ if (!(Test-Path (Join-Path $localModulesDirectory PowerShellGet))) {
     Save-Module -Name PowerShellGet -Path $localModulesDirectory -Confirm
 }
 
+if (!(Test-Path (Join-Path $localModulesDirectory psake))) {
+    Save-Module -Name psake -Path $localModulesDirectory -Confirm
+}
+$psakeTabExpansionFile = Join-Path $localModulesDirectory psake PsakeTabExpansion.ps1
+if (!(Test-Path $psakeTabExpansionFile)) {
+    Invoke-WebRequest -Uri https://github.com/psake/psake/raw/master/tabexpansion/PsakeTabExpansion.ps1 -OutFile $psakeTabExpansionFile
+}
+
+
 if (ModuleMissing VSSetup) {
     Save-Module VSSetup $localModulesDirectory -Confirm
 }
@@ -24,5 +33,4 @@ if ((Get-Module PSReadLine).Version.Major -lt 2) {
         Save-Module PSReadLine $localModulesDirectory -Confirm -AllowPrerelease -Force
     }
     Remove-Module PSReadLine
-    Import-Module (Join-Path $localModulesDirectory PSReadLine)
 }
