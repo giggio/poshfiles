@@ -25,3 +25,6 @@
 [submodule "Modules/PSFzf"]
 	path = Modules/PSFzf
 	url = https://github.com/kelleyma49/PSFzf.git
+[submodule "Modules/git-status-cache-posh-client"]
+	path = Modules/git-status-cache-posh-client
+	url = https://github.com/cmarcusreid/git-status-cache-posh-client.git
