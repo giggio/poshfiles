@@ -12,7 +12,11 @@ Import-Module "$localModulesDirectory/DockerCompletion/DockerCompletion/DockerCo
 Import-Module "$localModulesDirectory/posh-alias/Posh-Alias.psd1"
 if ($isWin) {
     Import-Module "$root/Modules/PSFzf/PSFzf.psd1" -ArgumentList 'Ctrl+t', 'Ctrl+r' -Force
-    Set-PsFzfOption -TabExpansion -GitKeyBindings
+    if ($env:WT_SESSION) {
+        Set-PsFzfOption -TabExpansion -GitKeyBindings
+    } else {
+        Set-PsFzfOption -TabExpansion
+    }
     Import-Module "$localModulesDirectory/git-status-cache-posh-client/GitStatusCachePoshClient.psm1"
     if (!(Test-Path "$localModulesDirectory/git-status-cache-posh-client/bin/GitStatusCache.exe")) { Update-GitStatusCache }
 }
