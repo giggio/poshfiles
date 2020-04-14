@@ -11,6 +11,10 @@ if (!($env:PSModulePath.Contains($localModulesDirectory))) {
     $env:PSModulePath = "$localModulesDirectory$([System.IO.Path]::PathSeparator)$env:PSModulePath"
 }
 
+if ($env:PSAdditionalModulePath -and !($env:PSModulePath.Contains($env:PSAdditionalModulePath))) {
+    $env:PSModulePath = "$env:PSModulePath$([System.IO.Path]::PathSeparator)$env:PSAdditionalModulePath"
+}
+
 if (!(Test-Path (Join-Path $localModulesDirectory PowerShellGet))) {
     Save-Module -Name PowerShellGet -Path $localModulesDirectory -Confirm
 }
