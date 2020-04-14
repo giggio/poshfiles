@@ -1,7 +1,8 @@
 $root = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
 $localModulesDirectory = Join-Path $root Modules
 
-. (Join-Path $localModulesDirectory psake PsakeTabExpansion.ps1)
+$psakeTabExpansionFile = Join-Path (Join-Path $localModulesDirectory psake) PsakeTabExpansion.ps1
+. $psakeTabExpansionFile
 if ((Test-Path Function:\TabExpansion) -and (-not (Test-Path Function:\DefaultTabExpansion))) {
     Rename-Item Function:\TabExpansion DefaultTabExpansion
 }
