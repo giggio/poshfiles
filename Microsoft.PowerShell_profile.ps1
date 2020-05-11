@@ -31,6 +31,8 @@ if ((Get-Command bat -CommandType Application -ErrorAction Ignore) -and (Get-Com
     $env:BAT_PAGER = "less -RF"
 }
 
+$env:DOCKER_BUILDKIT = 1
+
 . "$root/InstallTools.ps1"
 . "$root/Completions.ps1"
 . "$root/CreateAliases.ps1"
