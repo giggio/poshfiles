@@ -22,7 +22,7 @@ if (!(Test-Path (Join-Path $localModulesDirectory PowerShellGet))) {
 if (!(Test-Path (Join-Path $localModulesDirectory psake))) {
     Save-Module -Name psake -Path $localModulesDirectory -Confirm
 }
-$psakeTabExpansionFile = Join-Path (Join-Path $localModulesDirectory psake) 'PsakeTabExpansion.ps1'
+$psakeTabExpansionFile = Join-Path (Join-Path $localModulesDirectory psake) PsakeTabExpansion.ps1
 if (!(Test-Path $psakeTabExpansionFile)) {
     Invoke-WebRequest -Uri https://github.com/psake/psake/raw/master/tabexpansion/PsakeTabExpansion.ps1 -OutFile $psakeTabExpansionFile
 }
