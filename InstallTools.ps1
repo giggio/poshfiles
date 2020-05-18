@@ -21,15 +21,23 @@ if (!(Test-Path $bin/tflint*)) {
 
 if ($IsWin) {
     if (Get-Command fzf -ErrorAction Ignore) {
+        function CreateFzfPsm1() {
+          if (!(Test-Path "$root/Modules/PSFzf/PSFzf.psm1")) {
+              Write-Host "Creating $root/Modules/PSFzf/PSFzf.psm1..."
+              . "$root/Modules/PSFzf/helpers/Join-ModuleFiles.ps1"
+          }
+        }
         if (!(Test-Path "$root/Modules/PSFzf/PSFzf.dll")) {
             if (Get-Command dotnet -ErrorAction Ignore) {
                 $fzfTempDir = Join-Path "$([System.IO.Path]::GetTempPath())" fzf
                 New-Item -Type Directory $fzfTempDir -Force | Out-Null
                 dotnet build --nologo --verbosity quiet --configuration Release --output $fzfTempDir "$root/Modules/PSFzf/PSFzf-Binary/PSFzf-Binary.csproj"
                 Copy-Item $fzfTempDir/PSFzf.dll "$root/Modules/PSFzf/"
+                CreateFzfPsm1
                 Import-Module "$root/Modules/PSFzf/PSFzf.psd1" -ArgumentList 'Ctrl+t', 'Ctrl+r' -Force
                 Remove-Item -Force -Recurse $fzfTempDir
             }
         }
+        CreateFzfPsm1
     }
 }

@@ -11,6 +11,7 @@ if ($isWin -and (Test-Path "$env:ProgramFiles\Git\usr\bin") -and ($env:path.Inde
     $env:PATH = "$env:PATH;$env:ProgramFiles\Git\usr\bin"
 }
 
+. "$root/InstallTools.ps1"
 . "$root/ImportModules.ps1"
 
 if (!(Get-Process ssh-agent -ErrorAction Ignore)) {
@@ -33,7 +34,6 @@ if ((Get-Command bat -CommandType Application -ErrorAction Ignore) -and (Get-Com
 
 $env:DOCKER_BUILDKIT = 1
 
-. "$root/InstallTools.ps1"
 . "$root/Completions.ps1"
 . "$root/CreateAliases.ps1"
 . "$root/Functions.ps1"
