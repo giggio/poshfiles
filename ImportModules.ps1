@@ -11,7 +11,7 @@ Import-Module "$localModulesDirectory/PowerShellGuard/PowerShellGuard.psm1" #don
 Import-Module "$localModulesDirectory/DockerCompletion/DockerCompletion/DockerCompletion.psd1"
 Import-Module "$localModulesDirectory/posh-alias/Posh-Alias.psd1"
 if ($isWin) {
-    Import-Module "$root/Modules/PSFzf/PSFzf.psd1" -ArgumentList 'Ctrl+t', 'Ctrl+r' -Force
+    Import-Module "$localModulesDirectory/PSFzf/PSFzf.psd1" -ArgumentList 'Ctrl+t', 'Ctrl+r' -Force
     if ($env:WT_SESSION) {
         Set-PsFzfOption -TabExpansion -GitKeyBindings
     } else {
