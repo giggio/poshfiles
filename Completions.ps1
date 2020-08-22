@@ -43,3 +43,7 @@ if (Get-Command dotnet -ErrorAction Ignore) {
         }
     }
 }
+
+if (Get-Command deno -ErrorAction Ignore) {
+    Invoke-Expression -Command $(deno completions powershell | Out-String)
+}
