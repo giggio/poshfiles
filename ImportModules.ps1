@@ -1,10 +1,6 @@
 $root = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
 $localModulesDirectory = Join-Path $root Modules
 
-if ((Get-Module PSReadLine).Version.Major -lt 2) {
-    Remove-Module PSReadLine
-    Import-Module "$localModulesDirectory/PSReadLine"
-}
 Import-Module "$localModulesDirectory/posh-git/src/posh-git.psd1" # slow
 Import-Module "$localModulesDirectory/oh-my-posh/oh-my-posh.psm1" #don't import the psd1, it has an incorrect string in the version field
 Import-Module "$localModulesDirectory/PowerShellGuard/PowerShellGuard.psm1" #don't import the psd1, it has an incorrect string in the version field

@@ -31,10 +31,3 @@ if (!(Test-Path $psakeTabExpansionFile)) {
 if (ModuleMissing VSSetup) {
     Save-Module VSSetup $localModulesDirectory -Confirm
 }
-
-if ((Get-Module PSReadLine).Version.Major -lt 2) {
-    if (!(Test-Path (Join-Path $localModulesDirectory PSReadLine))) {
-        Save-Module PSReadLine $localModulesDirectory -Confirm -AllowPrerelease -Force
-    }
-    Remove-Module PSReadLine
-}
