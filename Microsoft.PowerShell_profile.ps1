@@ -32,6 +32,12 @@ if ((Get-Command bat -CommandType Application -ErrorAction Ignore) -and (Get-Com
     $env:BAT_PAGER = "less -RF"
 }
 
+if (Get-Module PSReadLine) {
+    if ($(Get-PSReadLineOption).PredictionSource -eq 'None') {
+        Set-PSReadLineOption -PredictionSource History
+    }
+}
+
 $env:DOCKER_BUILDKIT = 1
 
 . "$root/Completions.ps1"
