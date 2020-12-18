@@ -17,4 +17,9 @@ if ($isWin) {
     }
     Import-Module "$localModulesDirectory/git-status-cache-posh-client/GitStatusCachePoshClient.psm1"
     if (!(Test-Path "$localModulesDirectory/git-status-cache-posh-client/bin/GitStatusCache.exe")) { Update-GitStatusCache }
+    # Chocolatey profile
+    $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
+    if (Test-Path($ChocolateyProfile)) {
+        Import-Module "$ChocolateyProfile"
+    }
 }
