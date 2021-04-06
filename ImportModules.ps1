@@ -6,6 +6,7 @@ Import-Module "$localModulesDirectory/oh-my-posh/oh-my-posh.psm1" #don't import 
 Import-Module "$localModulesDirectory/PowerShellGuard/PowerShellGuard.psm1" #don't import the psd1, it has an incorrect string in the version field
 Import-Module "$localModulesDirectory/DockerCompletion/DockerCompletion/DockerCompletion.psd1"
 Import-Module "$localModulesDirectory/posh-alias/Posh-Alias.psd1"
+Import-Module Terminal-Icons
 if ($isWin) {
     if (Test-Path "$root/Modules/PSFzf/PSFzf.dll") {
         Import-Module "$localModulesDirectory/PSFzf/PSFzf.psd1" -ArgumentList 'Ctrl+t', 'Ctrl+r' -Force

@@ -2,4 +2,5 @@ Modules/VSSetup
 Modules/PackageManagement
 Modules/PowerShellGet
 Modules/psake
+Modules/Terminal-Icons
 bin

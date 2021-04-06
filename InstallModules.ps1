@@ -27,7 +27,10 @@ if (!(Test-Path $psakeTabExpansionFile)) {
     Invoke-WebRequest -Uri https://github.com/psake/psake/raw/master/tabexpansion/PsakeTabExpansion.ps1 -OutFile $psakeTabExpansionFile
 }
 
-
 if (ModuleMissing VSSetup) {
     Save-Module VSSetup $localModulesDirectory -Confirm
+}
+
+if (ModuleMissing Terminal-Icons) {
+    Save-Module Terminal-Icons $localModulesDirectory -Confirm
 }
