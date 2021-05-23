@@ -7,9 +7,6 @@
 [submodule "Modules/posh-alias"]
 	path = Modules/posh-alias
 	url = https://github.com/giggio/posh-alias
-[submodule "Modules/oh-my-posh"]
-	path = Modules/oh-my-posh
-	url = https://github.com/JanJoris/oh-my-posh.git
 [submodule "Modules/pester"]
 	path = Modules/pester
 	url = https://github.com/pester/Pester
@@ -25,6 +22,3 @@
 [submodule "Modules/PSFzf"]
 	path = Modules/PSFzf
 	url = https://github.com/kelleyma49/PSFzf.git
-[submodule "Modules/git-status-cache-posh-client"]
-	path = Modules/git-status-cache-posh-client
-	url = https://github.com/cmarcusreid/git-status-cache-posh-client.git

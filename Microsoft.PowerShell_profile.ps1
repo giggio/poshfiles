@@ -17,8 +17,6 @@ if ($isWin -and (Test-Path "$env:ProgramFiles\Git\usr\bin") -and ($env:path.Inde
 if (!(Get-Process ssh-agent -ErrorAction Ignore)) {
     Start-SshAgent -Quiet
 }
-$ThemeSettings.MyThemesLocation = Join-Path $root PoshThemes
-Set-Theme Mesh
 if (Get-Command colortool -ErrorAction Ignore) { colortool --quiet campbell.ini }
 
 $kubeConfigHome = Join-Path $env:HOME '.kube'
@@ -47,6 +45,12 @@ $env:DOCKER_BUILDKIT = 1
 if ($isWin) {
     . "$root/profile.windows.ps1"
     . "$root/CreateAliases.windows.ps1"
+}
+
+if (Get-Command starship -ErrorAction Ignore) {
+    Invoke-Expression (&starship init powershell)
+} else {
+    Write-Output "Install Starship to get a nice theme. Go to: https://starship.rs/"
 }
 
 $root = $null
