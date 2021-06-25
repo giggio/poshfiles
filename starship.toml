@@ -1,0 +1,104 @@
+add_newline = true
+
+format = """
+$username\
+$hostname\
+$shlvl\
+$kubernetes\
+$directory\
+$vcsh\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$hg_branch\
+$docker_context\
+$package\
+$cmake\
+$dart\
+$deno\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$golang\
+$helm\
+$java\
+$julia\
+$kotlin\
+$nim\
+$nodejs\
+$ocaml\
+$perl\
+$php\
+$purescript\
+$python\
+$red\
+$ruby\
+$rust\
+$scala\
+$swift\
+$terraform\
+$vlang\
+$vagrant\
+$zig\
+$nix_shell\
+$conda\
+$memory_usage\
+$aws\
+$gcloud\
+$openstack\
+$env_var\
+$crystal\
+$cmd_duration\
+$time\
+$line_break\
+$lua\
+$jobs\
+$battery\
+$status\
+$shell\
+$character"""
+
+[character]
+success_symbol = "[❯](bold green)"
+
+[directory]
+truncate_to_repo = false
+truncation_length = 12
+truncation_symbol = "…/"
+
+[kubernetes]
+disabled = true
+symbol = "⎈ "
+
+[git_branch]
+only_attached = true
+
+[git_commit]
+format = "[ \\($hash\\)]($style) [\\($tag\\)]($style) "
+tag_disabled = false
+tag_symbol = "🔖"
+
+[git_status]
+format = '([$all_status$ahead_behind]($style) )'
+style = "bold purple"
+ahead = "⇡${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+behind = "⇣${count}"
+untracked = "🤷${count}"
+modified = "📝${count}"
+deleted = "${count}"
+staged = "➕${count}"
+
+[status]
+disabled = false
+map_symbol = true
+
+[time]
+disabled = false
+
+[dotnet]
+symbol = " "
+format = "[$symbol($version )(with $tfm )]($style)"
+heuristic = true

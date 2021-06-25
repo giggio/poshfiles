@@ -48,6 +48,7 @@ if ($isWin) {
 }
 
 if (Get-Command starship -ErrorAction Ignore) {
+    $env:STARSHIP_CONFIG = Join-Path $root "starship.toml"
     Invoke-Expression (&starship init powershell)
 } else {
     Write-Output "Install Starship to get a nice theme. Go to: https://starship.rs/"
