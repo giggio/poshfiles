@@ -50,9 +50,11 @@ $gcloud\
 $openstack\
 $env_var\
 $crystal\
+$custom\
 $cmd_duration\
 $time\
 $line_break\
+${custom.sudo}\
 $lua\
 $jobs\
 $battery\
@@ -98,7 +100,12 @@ map_symbol = true
 [time]
 disabled = false
 
+[custom.sudo]
+#when = "sudo -n true"
+style = "bold red"
+format = "[!]($style)"
+os = "linux"
+
 [dotnet]
 symbol = " "
 format = "[$symbol($version )(with $tfm )]($style)"
-heuristic = true
