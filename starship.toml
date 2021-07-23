@@ -101,7 +101,7 @@ map_symbol = true
 disabled = false
 
 [custom.sudo]
-#when = "sudo -n true"
+when = "sudo -n true"
 style = "bold red"
 format = "[!]($style)"
 os = "linux"
