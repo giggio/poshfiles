@@ -3,8 +3,8 @@ $localModulesDirectory = Join-Path $root Modules
 
 function ModuleMissing($moduleName) {
     ($env:PSModulePath.Split([System.IO.Path]::PathSeparator) | `
-            ForEach-Object { Join-Path $_ $moduleName } | `
-            ForEach-Object { Test-Path $_ }).Where( { $_ } ).Count -eq 0
+        ForEach-Object { Join-Path $_ $moduleName } | `
+        ForEach-Object { Test-Path $_ }).Where( { $_ } ).Count -eq 0
 }
 
 if (!($env:PSModulePath.Contains($localModulesDirectory))) {
@@ -33,4 +33,13 @@ if (ModuleMissing VSSetup) {
 
 if (ModuleMissing Terminal-Icons) {
     Save-Module Terminal-Icons $localModulesDirectory -Confirm
+}
+
+if ($PSVersionTable.PSEdition -eq 'Desktop') {
+    if (ModuleMissing AzureADPreview) {
+        Save-Module AzureADPreview $localModulesDirectory -Confirm
+    }
+    if (ModuleMissing ExchangeOnlineManagement) {
+        Save-Module ExchangeOnlineManagement $localModulesDirectory -Confirm
+    }
 }

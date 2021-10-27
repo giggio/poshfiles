@@ -6,15 +6,15 @@ Installation instructions:
 
 Windows:
 
-````powershell
+```powershell
 git clone --recursive https://github.com/giggio/poshfiles.git $env:userprofile\Documents\WindowsPowerShell
-````
+```
 
 Linux:
 
-````powershell
+```powershell
 git clone --recursive https://github.com/giggio/poshfiles.git $env:HOME\Documents\WindowsPowerShell
-````
+```
 
 I have several [aliases](https://github.com/giggio/poshfiles/blob/master/CreateAliases.ps1) configured
 as well as several [modules](https://github.com/giggio/poshfiles/tree/master/Modules).
@@ -47,3 +47,9 @@ You don't need either to have a nice display if you are on Windows 10. Simply do
 and set it as default on the PowerShell properties window and everything should work.
 If you decide to use Conemu, you have more options for fonts, but remember to set the main console font
 and the alternative font to the same font with the symbols.
+
+## Notes on PowerShell Modules
+
+You might not want some administrations modules I use, such as `AzureADPreview` and `ExchangeOnlineManagement`,
+if that is the case you can simply remove their installation in the `InstallModules.ps1`. They will only
+install in Windows PowerShell, so only in Windows.

@@ -3,4 +3,6 @@ Modules/PackageManagement
 Modules/PowerShellGet
 Modules/psake
 Modules/Terminal-Icons
+Modules/AzureADPreview
+Modules/ExchangeOnlineManagement
 bin
