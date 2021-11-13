@@ -28,3 +28,6 @@ if ($vsPath) {
         Write-Host "DevShell dll not found at '$devshellDllPath'"
     }
 }
+
+$env:ChocolateyToolsRoot = "c:\tools\"
+$env:ChocolateyBinRoot = "c:\tools\"
