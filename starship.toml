@@ -51,6 +51,7 @@ $openstack\
 $env_var\
 $crystal\
 $custom\
+$fill\
 $cmd_duration\
 $time\
 $line_break\
@@ -109,3 +110,6 @@ os = "linux"
 [dotnet]
 symbol = " "
 format = "[$symbol($version )(with $tfm )]($style)"
+
+[fill]
+symbol = " "
