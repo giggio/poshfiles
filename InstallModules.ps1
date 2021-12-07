@@ -1,5 +1,11 @@
 $root = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
 $localModulesDirectory = Join-Path $root Modules
+if (!($env:PSAdditionalModulePath)) {
+    $env:PSAdditionalModulePath = Join-Path $root AdditionalModules
+}
+if (!(Test-Path $env:PSAdditionalModulePath)) {
+    New-Item -Type Directory $env:PSAdditionalModulePath -Force | Out-Null
+}
 
 function ModuleMissing($moduleName) {
     ($env:PSModulePath.Split([System.IO.Path]::PathSeparator) | `
@@ -11,7 +17,7 @@ if (!($env:PSModulePath.Contains($localModulesDirectory))) {
     $env:PSModulePath = "$localModulesDirectory$([System.IO.Path]::PathSeparator)$env:PSModulePath"
 }
 
-if ($env:PSAdditionalModulePath -and !($env:PSModulePath.Contains($env:PSAdditionalModulePath))) {
+if (!($env:PSModulePath.Contains($env:PSAdditionalModulePath))) {
     $env:PSModulePath = "$env:PSModulePath$([System.IO.Path]::PathSeparator)$env:PSAdditionalModulePath"
 }
 
