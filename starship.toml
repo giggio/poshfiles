@@ -55,7 +55,7 @@ $fill\
 $cmd_duration\
 $time\
 $line_break\
-${custom.sudo}\
+$sudo\
 $lua\
 $jobs\
 $battery\
@@ -101,11 +101,11 @@ map_symbol = true
 [time]
 disabled = false
 
-[custom.sudo]
-when = "sudo -n true"
+[sudo]
+disabled = false
+symbol = "!"
+format = "[$symbol]($style)"
 style = "bold red"
-format = "[!]($style)"
-os = "linux"
 
 [dotnet]
 symbol = " "
