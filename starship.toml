@@ -113,3 +113,7 @@ format = "[$symbol($version )(with $tfm )]($style)"
 
 [fill]
 symbol = " "
+
+[cmd_duration]
+show_notifications = true
+min_time_to_notify = 45_000
