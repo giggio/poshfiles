@@ -5,5 +5,6 @@ Modules/psake
 Modules/Terminal-Icons
 Modules/AzureADPreview
 Modules/ExchangeOnlineManagement
+Modules/Pester
 bin
 AdditionalModules
