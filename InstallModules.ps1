@@ -41,7 +41,7 @@ if (ModuleMissing Terminal-Icons) {
     Save-Module Terminal-Icons $localModulesDirectory -Confirm
 }
 
-if ((ModuleMissing Pester) -or (Get-Module Pester -ListAvailable).Version.Major -lt 5) {
+if ((ModuleMissing Pester) -or (((Get-Module Pester -ListAvailable).Version.Major | Measure-Object -Maximum).Maximum -lt 5)) {
     Save-Module Pester $localModulesDirectory -Confirm
 }
 
