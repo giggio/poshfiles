@@ -45,6 +45,7 @@ $env:DOCKER_BUILDKIT = 1
 if ($isWin) {
     . "$root/profile.windows.ps1"
     . "$root/CreateAliases.windows.ps1"
+    . "$root/WindowsDefenderExclusions.ps1"
 }
 
 if (Get-Command starship -ErrorAction Ignore) {
