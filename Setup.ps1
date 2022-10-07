@@ -7,7 +7,7 @@ $script:setupDir = Join-Path $PSScriptRoot Setup
 
 if ($isWin) {
     . "$setupDir/WindowsDefenderExclusions.ps1"
-    Add-WindowsDefenderExclusions
+    Add-WindowsDefenderExclusions -Quiet
 
     $ssha = Get-Service ssh-agent -ErrorAction SilentlyContinue
     if ($null -ne $ssha) {
@@ -38,5 +38,7 @@ if ($isWin) {
     }
 }
 $script:setupControl = Join-Path (Join-Path $PSScriptRoot ..) .setupran
-New-Item -ItemType File "$setupControl" | Out-Null
-if ($isWin) { (Get-Item $setupControl).Attributes += 'Hidden' }
+if (!(Test-Path $setupControl)) {
+    New-Item -ItemType File "$setupControl" | Out-Null
+    if ($isWin) { (Get-Item $setupControl).Attributes += 'Hidden' }
+}

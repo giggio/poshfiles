@@ -2,11 +2,13 @@ function Add-WindowsDefenderExclusions {
     [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseSingularNouns", "")]
     [CmdletBinding()]
     param (
-        [switch] $DryRun
+        [switch] $DryRun,
+        [switch] $Quiet
     )
     if (!(Test-Elevated)) {
         Write-Error "Cannot add exclusions, needs to be elevated."
     }
+    if ($PSCmdlet.MyInvocation.BoundParameters['Verbose']) { $Quiet = $false }
     $projectsDir = (Get-Item $PSScriptRoot).Parent.Parent.FullName
     $pathExclusions = New-Object System.Collections.ArrayList
     $processExclusions = New-Object System.Collections.ArrayList
@@ -78,7 +80,7 @@ function Add-WindowsDefenderExclusions {
     $processExclusions.Add("nvm.exe") | Out-Null
     $processExclusions.Add("wsl.exe") | Out-Null
 
-    Write-Output "Adding exclusions to Windows Defender$(if ($DryRun) { " (dry run)." } else { "." })"
+    if (!$Quiet) { Write-Output "Adding exclusions to Windows Defender$(if ($DryRun) { " (dry run)." } else { "." })" }
 
     $prefs = Get-MpPreference
     $exclusionPaths = $prefs.ExclusionPath | Sort-Object
@@ -90,24 +92,24 @@ function Add-WindowsDefenderExclusions {
 
     if ($newExclusionPaths.Count) {
         foreach ($pathExclusion in $newExclusionPaths) {
-            Write-Output "Adding Path Exclusion: $pathExclusion"
+            if (!$Quiet) { Write-Output "Adding Path Exclusion: $pathExclusion" }
             if (!$DryRun) {
                 Add-MpPreference -ExclusionPath $pathExclusion
             }
         }
     } else {
-        Write-Host "No Path exclusions to add."
+        if (!$Quiet) { Write-Output "No Path exclusions to add." }
     }
 
     if ($newExclusionProcesses.Count) {
         foreach ($processExclusion in $newExclusionProcesses) {
-            Write-Output "Adding Process Exclusion: $processExclusion"
+            if (!$Quiet) { Write-Output "Adding Process Exclusion: $processExclusion" }
             if (!$DryRun) {
                 Add-MpPreference -ExclusionProcess $processExclusion
             }
         }
     } else {
-        Write-Host "No Process exclusions to add."
+        if (!$Quiet) { Write-Output "No Process exclusions to add." }
     }
 
     if ($PSCmdlet.MyInvocation.BoundParameters['Verbose']) {
@@ -131,7 +133,7 @@ function Get-WindowsDefenderExclusions {
         if ($PSCmdlet.MyInvocation.BoundParameters['Verbose']) {
             Write-Verbose $text
         } else {
-            Write-Host $text
+            Write-Output $text
         }
 
     }
