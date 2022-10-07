@@ -53,3 +53,7 @@ if ($PSVersionTable.PSEdition -eq 'Desktop') {
         Save-Module ExchangeOnlineManagement $localModulesDirectory -Confirm
     }
 }
+
+if (ModuleMissing PSScriptAnalyzer) {
+    Save-Module PSScriptAnalyzer $localModulesDirectory -Confirm
+}

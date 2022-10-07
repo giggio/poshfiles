@@ -6,5 +6,6 @@ Modules/Terminal-Icons
 Modules/AzureADPreview
 Modules/ExchangeOnlineManagement
 Modules/Pester
+Modules/PSScriptAnalyzer
 bin
 AdditionalModules
