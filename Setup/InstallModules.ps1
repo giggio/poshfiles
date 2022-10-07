@@ -1,24 +1,15 @@
-$root = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
-$localModulesDirectory = Join-Path $root Modules
+$localModulesDirectory = Resolve-Path (Join-Path (Join-Path $PSScriptRoot ..) Modules)
 if (!($env:PSAdditionalModulePath)) {
-    $env:PSAdditionalModulePath = Join-Path $root AdditionalModules
+    $env:PSAdditionalModulePath = Resolve-Path (Join-Path (Join-Path $PSScriptRoot ..) AdditionalModules)
 }
 if (!(Test-Path $env:PSAdditionalModulePath)) {
     New-Item -Type Directory $env:PSAdditionalModulePath -Force | Out-Null
 }
 
 function ModuleMissing($moduleName) {
-    ($env:PSModulePath.Split([System.IO.Path]::PathSeparator) | `
+    ($env:PSModulePath.Split([System.IO.Path]::PathSeparator, [System.StringSplitOptions]::RemoveEmptyEntries) | `
         ForEach-Object { Join-Path $_ $moduleName } | `
         ForEach-Object { Test-Path $_ }).Where( { $_ } ).Count -eq 0
-}
-
-if (!($env:PSModulePath.Contains($localModulesDirectory))) {
-    $env:PSModulePath = "$localModulesDirectory$([System.IO.Path]::PathSeparator)$env:PSModulePath"
-}
-
-if (!($env:PSModulePath.Contains($env:PSAdditionalModulePath))) {
-    $env:PSModulePath = "$env:PSModulePath$([System.IO.Path]::PathSeparator)$env:PSAdditionalModulePath"
 }
 
 if (!(Test-Path (Join-Path $localModulesDirectory PowerShellGet))) {

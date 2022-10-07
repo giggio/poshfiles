@@ -7,7 +7,7 @@ function Add-WindowsDefenderExclusions {
     if (!(Test-Elevated)) {
         Write-Error "Cannot add exclusions, needs to be elevated."
     }
-    $projectsDir = (Get-Item $PSScriptRoot).Parent.FullName
+    $projectsDir = (Get-Item $PSScriptRoot).Parent.Parent.FullName
     $pathExclusions = New-Object System.Collections.ArrayList
     $processExclusions = New-Object System.Collections.ArrayList
 

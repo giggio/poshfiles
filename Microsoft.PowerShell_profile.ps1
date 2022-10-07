@@ -1,18 +1,12 @@
-$root = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
+Set-StrictMode -Version 3.0
+
 $isWin = [System.Environment]::OSVersion.Platform -eq 'Win32NT'
 if ($isWin -and $null -eq $env:HOME -and $null -ne $env:USERPROFILE) {
     $env:HOME = $env:USERPROFILE
 }
-. "$root/InstallModules.ps1"
-. "$root/SetViMode.ps1"
-
-if ($isWin -and (Test-Path "$env:ProgramFiles\Git\usr\bin") -and ($env:path.IndexOf("$($env:ProgramFiles)\Git\usr\bin", [StringComparison]::CurrentCultureIgnoreCase) -lt 0)) {
-    # enable ssh-agent from posh-git
-    $env:PATH = "$env:PATH;$env:ProgramFiles\Git\usr\bin"
-}
-
-. "$root/InstallTools.ps1"
-. "$root/ImportModules.ps1"
+$script:profileDir = Join-Path $PSScriptRoot Profile
+. "$profileDir/SetViMode.ps1"
+. "$profileDir/ImportModules.ps1"
 
 if (!(Get-Process ssh-agent -ErrorAction Ignore) -and (Test-Path (Join-Path (Join-Path $(if ($env:HOME) { $env:HOME } else { $env:USERPROFILE }) .ssh) id_rsa))) {
     Start-SshAgent -Quiet
@@ -38,21 +32,19 @@ if (Get-Module PSReadLine) {
 
 $env:DOCKER_BUILDKIT = 1
 
-. "$root/Completions.ps1"
-. "$root/CreateAliases.ps1"
-. "$root/Functions.ps1"
+. "$profileDir/Completions.ps1"
+. "$profileDir/CreateAliases.ps1"
+. "$profileDir/Functions.ps1"
 
 if ($isWin) {
-    . "$root/profile.windows.ps1"
-    . "$root/CreateAliases.windows.ps1"
-    . "$root/WindowsDefenderExclusions.ps1"
+    . "$profileDir/profile.windows.ps1"
+    . "$profileDir/CreateAliases.windows.ps1"
+    . "$profileDir/WindowsDefenderExclusions.ps1"
 }
 
 if (Get-Command starship -ErrorAction Ignore) {
-    $env:STARSHIP_CONFIG = Join-Path $root "starship.toml"
+    $env:STARSHIP_CONFIG = Join-Path $profileDir "starship.toml"
     Invoke-Expression (&starship init powershell)
 } else {
     Write-Output "Install Starship to get a nice theme. Go to: https://starship.rs/"
 }
-
-$root = $null

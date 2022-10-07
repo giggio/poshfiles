@@ -1,5 +1,4 @@
-$root = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
-$localModulesDirectory = Join-Path $root Modules
+$localModulesDirectory = Resolve-Path (Join-Path (Join-Path $PSScriptRoot ..) Modules)
 
 $psakeTabExpansionFile = Join-Path (Join-Path $localModulesDirectory psake) PsakeTabExpansion.ps1
 . $psakeTabExpansionFile
