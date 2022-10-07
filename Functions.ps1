@@ -24,3 +24,8 @@ function Remove-FromPath {
     }
     $env:path = ($env:path.Split(';') | Where-Object { $_ -ne $pathToRemove }) -join ';'
 }
+
+function Test-Elevated {
+    $currentPrincipal = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
+    $currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+}

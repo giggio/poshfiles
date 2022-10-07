@@ -1,4 +1,12 @@
-function Add-WindowsDefenderExclusions ([switch] $DryRun) {
+function Add-WindowsDefenderExclusions {
+    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseSingularNouns", "")]
+    [CmdletBinding()]
+    param (
+        [switch] $DryRun
+    )
+    if (!(Test-Elevated)) {
+        Write-Error "Cannot add exclusions, needs to be elevated."
+    }
     $projectsDir = (Get-Item $PSScriptRoot).Parent.FullName
     $pathExclusions = New-Object System.Collections.ArrayList
     $processExclusions = New-Object System.Collections.ArrayList
@@ -70,34 +78,64 @@ function Add-WindowsDefenderExclusions ([switch] $DryRun) {
     $processExclusions.Add("nvm.exe") | Out-Null
     $processExclusions.Add("wsl.exe") | Out-Null
 
-    Write-Host -NoNewline "Adding exclusions to Windows Defender"
-    if ($DryRun) {
-        Write-Host " (dry run)."
-    } else {
-        Write-Host "."
-    }
+    Write-Output "Adding exclusions to Windows Defender$(if ($DryRun) { " (dry run)." } else { "." })"
+
     $prefs = Get-MpPreference
     $exclusionPaths = $prefs.ExclusionPath | Sort-Object
     $exclusionProcesses = $prefs.ExclusionProcess | Sort-Object
     $newExclusionPaths = $pathExclusions | Where-Object { $exclusionPaths -notcontains $_ }
     $newExclusionProcesses = $processExclusions | Where-Object { $exclusionProcesses -notcontains $_ }
-    foreach ($pathExclusion in $newExclusionPaths) {
-        Write-Host "Adding Path Exclusion: $pathExclusion"
-        if (!$DryRun) {
-            Add-MpPreference -ExclusionPath $pathExclusion
+
+    if ($newExclusionPaths.Count) {
+        foreach ($pathExclusion in $newExclusionPaths) {
+            Write-Output "Adding Path Exclusion: $pathExclusion"
+            if (!$DryRun) {
+                Add-MpPreference -ExclusionPath $pathExclusion
+            }
         }
+    } else {
+        Write-Host "No Path exclusions to add."
     }
 
-    foreach ($processExclusion in $newExclusionProcesses) {
-        Write-Host "Adding Process Exclusion: $processExclusion"
-        if (!$DryRun) {
-            Add-MpPreference -ExclusionProcess $processExclusion
+    if ($newExclusionProcesses.Count) {
+        foreach ($processExclusion in $newExclusionProcesses) {
+            Write-Output "Adding Process Exclusion: $processExclusion"
+            if (!$DryRun) {
+                Add-MpPreference -ExclusionProcess $processExclusion
+            }
         }
+    } else {
+        Write-Host "No Process exclusions to add."
     }
 
-    Write-Host "`nYour Exclusions:"
-    Write-Host "Paths:"
-    $exclusionPaths
-    Write-Host "`nProcesses:"
-    $exclusionProcesses
+    if ($PSCmdlet.MyInvocation.BoundParameters.Verbose) {
+        Get-WindowsDefenderExclusions -Verbose
+    }
+}
+
+function Get-WindowsDefenderExclusions {
+    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseSingularNouns", "")]
+    [CmdletBinding()]
+    param ()
+    if (!(Test-Elevated)) {
+        Write-Error "Cannot get exclusions, needs to be elevated."
+    }
+
+    $prefs = Get-MpPreference
+    $exclusionPaths = $prefs.ExclusionPath | Sort-Object
+    $exclusionProcesses = $prefs.ExclusionProcess | Sort-Object
+
+    function Write-Exact($text) {
+        if ($PSCmdlet.MyInvocation.BoundParameters.Verbose) {
+            Write-Verbose $text
+        } else {
+            Write-Host $text
+        }
+
+    }
+    Write-Exact "Your Exclusions:"
+    Write-Exact "Paths:"
+    foreach ($e in $exclusionPaths) { Write-Exact "$e" }
+    Write-Exact "`nProcesses:"
+    foreach ($e in $exclusionProcesses) { Write-Exact "$e" }
 }
