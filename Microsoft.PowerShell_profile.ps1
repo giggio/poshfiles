@@ -14,7 +14,7 @@ if ($isWin -and (Test-Path "$env:ProgramFiles\Git\usr\bin") -and ($env:path.Inde
 . "$root/InstallTools.ps1"
 . "$root/ImportModules.ps1"
 
-if (!(Get-Process ssh-agent -ErrorAction Ignore)) {
+if (!(Get-Process ssh-agent -ErrorAction Ignore) -and (Test-Path (Join-Path $(if ($env:HOME) { $env:HOME } else { $env:USERPROFILE }) .ssh id_rsa))) {
     Start-SshAgent -Quiet
 }
 if (Get-Command colortool -ErrorAction Ignore) { colortool --quiet campbell.ini }
