@@ -8,27 +8,29 @@ function add {
         git add -A :/
     }
 }
-Add-Alias st 'git status'
-Add-Alias push 'git push'
-Add-Alias pull 'git pull'
-Add-Alias log 'git log'
-Add-Alias ci 'git commit'
-Add-Alias co 'git checkout'
-Add-Alias dif 'git diff'
-Add-Alias rs 'git reset'
-Add-Alias rb 'git rebase'
-Add-Alias fixup 'git fixup'
-Add-Alias branch 'git branch'
-Add-Alias tag 'git tag'
-Add-Alias up 'git up'
-Add-Alias sync 'git sync'
-Set-Alias l 'ls'
-if ($lsApp = Get-Command ls -CommandType Application -ErrorAction Ignore) {
-    Add-Alias ll "$($lsApp.Source) -la"
-} else {
-    Add-Alias ll 'ls -Force'
+if (Get-Command Add-Alias -ErrorAction Ignore) {
+    Add-Alias st 'git status'
+    Add-Alias push 'git push'
+    Add-Alias pull 'git pull'
+    Add-Alias log 'git log'
+    Add-Alias ci 'git commit'
+    Add-Alias co 'git checkout'
+    Add-Alias dif 'git diff'
+    Add-Alias rs 'git reset'
+    Add-Alias rb 'git rebase'
+    Add-Alias fixup 'git fixup'
+    Add-Alias branch 'git branch'
+    Add-Alias tag 'git tag'
+    Add-Alias up 'git up'
+    Add-Alias sync 'git sync'
+    if ($lsApp = Get-Command ls -CommandType Application -ErrorAction Ignore) {
+        Add-Alias ll "$($lsApp.Source) -la"
+    } else {
+        Add-Alias ll 'ls -Force'
+    }
+    Add-Alias ccat "pygmentize -g -O style=vs -f console16m"
 }
-Add-Alias ccat "pygmentize -g -O style=vs -f console16m"
+Set-Alias l 'ls'
 if (Get-Command hub -ErrorAction Ignore) {
     Set-Alias git "$($(Get-Command hub).Source)"
 }

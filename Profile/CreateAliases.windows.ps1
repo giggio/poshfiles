@@ -1,2 +1,4 @@
 Set-Alias gitbash "$env:ProgramFiles\Git\usr\bin\bash.exe"
-Add-Alias ll 'ls -Force'
+if (Get-Command Add-Alias -ErrorAction Ignore) {
+    Add-Alias ll 'ls -Force'
+}

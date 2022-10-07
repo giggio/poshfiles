@@ -1,6 +1,10 @@
 #Requires -RunAsAdministrator
 Set-StrictMode -Version 3.0
 
+Push-Location $PSScriptRoot | Out-Null
+git submodule update --init --recursive
+Pop-Location
+
 $script:setupDir = Join-Path $PSScriptRoot Setup
 . "$setupDir/InstallModules.ps1"
 . "$setupDir/InstallTools.ps1"
@@ -37,7 +41,7 @@ if ($isWin) {
         }
     }
 }
-$script:setupControl = Join-Path (Join-Path $PSScriptRoot ..) .setupran
+$script:setupControl = Join-Path $PSScriptRoot .setupran
 if (!(Test-Path $setupControl)) {
     New-Item -ItemType File "$setupControl" | Out-Null
     if ($isWin) { (Get-Item $setupControl).Attributes += 'Hidden' }
