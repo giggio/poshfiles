@@ -9,3 +9,5 @@ Modules/Pester
 Modules/PSScriptAnalyzer
 bin
 AdditionalModules
+.setupran
+.setupdonotrun

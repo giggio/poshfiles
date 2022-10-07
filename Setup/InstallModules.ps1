@@ -13,11 +13,11 @@ function ModuleMissing($moduleName) {
 }
 
 if (!(Test-Path (Join-Path $localModulesDirectory PowerShellGet))) {
-    Save-Module -Name PowerShellGet -Path $localModulesDirectory -Confirm
+    Save-Module -Name PowerShellGet -Path $localModulesDirectory -Confirm:$false
 }
 
 if (!(Test-Path (Join-Path $localModulesDirectory psake))) {
-    Save-Module -Name psake -Path $localModulesDirectory -Confirm
+    Save-Module -Name psake -Path $localModulesDirectory -Confirm:$false
 }
 $psakeTabExpansionFile = Join-Path (Join-Path $localModulesDirectory psake) PsakeTabExpansion.ps1
 if (!(Test-Path $psakeTabExpansionFile)) {
@@ -25,26 +25,26 @@ if (!(Test-Path $psakeTabExpansionFile)) {
 }
 
 if (ModuleMissing VSSetup) {
-    Save-Module VSSetup $localModulesDirectory -Confirm
+    Save-Module VSSetup $localModulesDirectory -Confirm:$false
 }
 
 if (ModuleMissing Terminal-Icons) {
-    Save-Module Terminal-Icons $localModulesDirectory -Confirm
+    Save-Module Terminal-Icons $localModulesDirectory -Confirm:$false
 }
 
 if ((ModuleMissing Pester) -or (((Get-Module Pester -ListAvailable).Version.Major | Measure-Object -Maximum).Maximum -lt 5)) {
-    Save-Module Pester $localModulesDirectory -Confirm
+    Save-Module Pester $localModulesDirectory -Confirm:$false
 }
 
 if ($PSVersionTable.PSEdition -eq 'Desktop') {
     if (ModuleMissing AzureADPreview) {
-        Save-Module AzureADPreview $localModulesDirectory -Confirm
+        Save-Module AzureADPreview $localModulesDirectory -Confirm:$false
     }
     if (ModuleMissing ExchangeOnlineManagement) {
-        Save-Module ExchangeOnlineManagement $localModulesDirectory -Confirm
+        Save-Module ExchangeOnlineManagement $localModulesDirectory -Confirm:$false
     }
 }
 
 if (ModuleMissing PSScriptAnalyzer) {
-    Save-Module PSScriptAnalyzer $localModulesDirectory -Confirm
+    Save-Module PSScriptAnalyzer $localModulesDirectory -Confirm:$false
 }

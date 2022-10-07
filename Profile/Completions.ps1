@@ -1,7 +1,9 @@
 $localModulesDirectory = Resolve-Path (Join-Path (Join-Path $PSScriptRoot ..) Modules)
 
 $psakeTabExpansionFile = Join-Path (Join-Path $localModulesDirectory psake) PsakeTabExpansion.ps1
-. $psakeTabExpansionFile
+if (Test-Path $psakeTabExpansionFile) {
+    . $psakeTabExpansionFile
+}
 if ((Test-Path Function:\TabExpansion) -and (-not (Test-Path Function:\DefaultTabExpansion))) {
     Rename-Item Function:\TabExpansion DefaultTabExpansion
 }

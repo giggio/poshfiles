@@ -83,8 +83,10 @@ function Add-WindowsDefenderExclusions {
     $prefs = Get-MpPreference
     $exclusionPaths = $prefs.ExclusionPath | Sort-Object
     $exclusionProcesses = $prefs.ExclusionProcess | Sort-Object
-    $newExclusionPaths = $pathExclusions | Where-Object { $exclusionPaths -notcontains $_ }
-    $newExclusionProcesses = $processExclusions | Where-Object { $exclusionProcesses -notcontains $_ }
+    $newExclusionPaths = @($pathExclusions | Where-Object { $exclusionPaths -notcontains $_ })
+    $newExclusionProcesses = @($processExclusions | Where-Object { $exclusionProcesses -notcontains $_ })
+    $newExclusionPaths
+    $newExclusionProcesses
 
     if ($newExclusionPaths.Count) {
         foreach ($pathExclusion in $newExclusionPaths) {
@@ -108,7 +110,7 @@ function Add-WindowsDefenderExclusions {
         Write-Host "No Process exclusions to add."
     }
 
-    if ($PSCmdlet.MyInvocation.BoundParameters.Verbose) {
+    if ($PSCmdlet.MyInvocation.BoundParameters['Verbose']) {
         Get-WindowsDefenderExclusions -Verbose
     }
 }
@@ -126,7 +128,7 @@ function Get-WindowsDefenderExclusions {
     $exclusionProcesses = $prefs.ExclusionProcess | Sort-Object
 
     function Write-Exact($text) {
-        if ($PSCmdlet.MyInvocation.BoundParameters.Verbose) {
+        if ($PSCmdlet.MyInvocation.BoundParameters['Verbose']) {
             Write-Verbose $text
         } else {
             Write-Host $text

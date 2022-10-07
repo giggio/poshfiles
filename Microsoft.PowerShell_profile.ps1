@@ -1,10 +1,42 @@
 Set-StrictMode -Version 3.0
+$ErrorActionPreference = 'Stop'
 
 $isWin = [System.Environment]::OSVersion.Platform -eq 'Win32NT'
 if ($isWin -and $null -eq $env:HOME -and $null -ne $env:USERPROFILE) {
     $env:HOME = $env:USERPROFILE
 }
 $script:profileDir = Join-Path $PSScriptRoot Profile
+$script:setupDir = Join-Path $PSScriptRoot Setup
+. "$profileDir/Functions.ps1"
+
+$script:setupControl = Join-Path $PSScriptRoot .setupran
+if (!(Test-Path $setupControl)) {
+    $script:setupControlDoNotRun = Join-Path $PSScriptRoot .setupdonotrun
+    if (!(Test-Path $setupControlDoNotRun )) {
+        if (Test-Elevated) {
+            $choices = @(
+                [System.Management.Automation.Host.ChoiceDescription]::new("&Yes", "Run setup")
+                [System.Management.Automation.Host.ChoiceDescription]::new("&No", "Do not run setup at this time")
+                [System.Management.Automation.Host.ChoiceDescription]::new("&Don't ask again", "Don't ask to run setup again")
+            )
+            $script:runSetup = $Host.UI.PromptForChoice("Run setup?", "Setup has not ran yet, do you want to run it now?", $choices, 1)
+            switch ($runSetup) {
+                0 {
+                    . "$PSScriptRoot/Setup.ps1"
+                }
+                2 {
+                    New-Item -ItemType File "$setupControlDoNotRun" | Out-Null
+                    if ($isWin) { (Get-Item $setupControlDoNotRun).Attributes += 'Hidden' }
+                    Write-Host "You will not be asked to run setup again. If you want to run it, run $(Join-Path $PSScriptRoot Setup.ps1), or delete the file '$setupControlDoNotRun' and restart PowerShell."
+                }
+                Default {}
+            }
+        } else {
+            Write-Warning "Setup has not ran yet. Run this script as administrator to run setup."
+        }
+    }
+}
+
 . "$profileDir/SetViMode.ps1"
 . "$profileDir/ImportModules.ps1"
 
@@ -34,12 +66,10 @@ $env:DOCKER_BUILDKIT = 1
 
 . "$profileDir/Completions.ps1"
 . "$profileDir/CreateAliases.ps1"
-. "$profileDir/Functions.ps1"
 
 if ($isWin) {
     . "$profileDir/profile.windows.ps1"
     . "$profileDir/CreateAliases.windows.ps1"
-    . "$profileDir/WindowsDefenderExclusions.ps1"
 }
 
 if (Get-Command starship -ErrorAction Ignore) {
