@@ -7,7 +7,7 @@ function color ($lexer = 'javascript') {
     End { $t | pygmentize.exe -l $lexer -O style=vs -f console16m; }
 } # call like: `docker inspect foo | color`
 
-if ($isWin) {
+if ($IsWindows) {
     function time() {
         $sw = [Diagnostics.Stopwatch]::StartNew()
         Invoke-Expression $($args -join ' ')

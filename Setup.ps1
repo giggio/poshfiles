@@ -6,10 +6,12 @@ git submodule update --init --recursive
 Pop-Location
 
 $script:setupDir = Join-Path $PSScriptRoot Setup
+$script:profileDir = Join-Path $PSScriptRoot Profile
+. "$profileDir/Common.ps1"
 . "$setupDir/InstallModules.ps1"
 . "$setupDir/InstallTools.ps1"
 
-if ($isWin) {
+if ($IsWindows) {
     . "$setupDir/WindowsDefenderExclusions.ps1"
     Add-WindowsDefenderExclusions -Quiet
 
@@ -44,5 +46,5 @@ if ($isWin) {
 $script:setupControl = Join-Path $PSScriptRoot .setupran
 if (!(Test-Path $setupControl)) {
     New-Item -ItemType File "$setupControl" | Out-Null
-    if ($isWin) { (Get-Item $setupControl).Attributes += 'Hidden' }
+    if ($IsWindows) { (Get-Item $setupControl).Attributes += 'Hidden' }
 }

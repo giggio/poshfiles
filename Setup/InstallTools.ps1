@@ -1,10 +1,10 @@
 $ErrorActionPreference = 'stop'
-$localModulesDirectory = Resolve-Path (Join-Path (Join-Path $PSScriptRoot ..) Modules)
+$script:localModulesDirectory = Resolve-Path (Join-Path (Join-Path $PSScriptRoot ..) Modules)
 $bin = Resolve-Path (Join-Path (Join-Path $PSScriptRoot ..) bin)
 $env:PATH += $([System.IO.Path]::PathSeparator) + $bin
 if (!(Test-Path $bin/tflint*)) {
     $os = ''
-    if ($IsWin) {
+    if ($IsWindows) {
         $os = 'windows'
     } elseif ($IsLinux) {
         $os = 'linux'
@@ -18,7 +18,7 @@ if (!(Test-Path $bin/tflint*)) {
     Remove-Item $tmpFile
 }
 
-if ($IsWin) {
+if ($IsWindows) {
     if (Get-Command fzf -ErrorAction Ignore) {
         function CreateFzfPsm1() {
             if (!(Test-Path "$localModulesDirectory/PSFzf/PSFzf.psm1")) {

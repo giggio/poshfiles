@@ -1,12 +1,11 @@
 Set-StrictMode -Version 3.0
 $ErrorActionPreference = 'Stop'
 
-$isWin = [System.Environment]::OSVersion.Platform -eq 'Win32NT'
-if ($isWin -and $null -eq $env:HOME -and $null -ne $env:USERPROFILE) {
+$script:profileDir = Join-Path $PSScriptRoot Profile
+. "$profileDir/Common.ps1"
+if ($IsWindows -and $null -eq $env:HOME -and $null -ne $env:USERPROFILE) {
     $env:HOME = $env:USERPROFILE
 }
-$script:profileDir = Join-Path $PSScriptRoot Profile
-$script:setupDir = Join-Path $PSScriptRoot Setup
 . "$profileDir/Functions.ps1"
 
 $script:setupControl = Join-Path $PSScriptRoot .setupran
@@ -26,7 +25,7 @@ if (!(Test-Path $setupControl)) {
                 }
                 2 {
                     New-Item -ItemType File "$setupControlDoNotRun" | Out-Null
-                    if ($isWin) { (Get-Item $setupControlDoNotRun).Attributes += 'Hidden' }
+                    if ($IsWindows) { (Get-Item $setupControlDoNotRun).Attributes += 'Hidden' }
                     Write-Host "You will not be asked to run setup again. If you want to run it, run $(Join-Path $PSScriptRoot Setup.ps1), or delete the file '$setupControlDoNotRun' and restart PowerShell."
                 }
                 Default {}
@@ -67,7 +66,7 @@ $env:DOCKER_BUILDKIT = 1
 . "$profileDir/Completions.ps1"
 . "$profileDir/CreateAliases.ps1"
 
-if ($isWin) {
+if ($IsWindows) {
     . "$profileDir/profile.windows.ps1"
     . "$profileDir/CreateAliases.windows.ps1"
 }

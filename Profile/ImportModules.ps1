@@ -1,9 +1,12 @@
-$localModulesDirectory = Resolve-Path (Join-Path (Join-Path $PSScriptRoot ..) Modules)
+$script:localModulesDirectory = Resolve-Path (Join-Path (Join-Path $PSScriptRoot ..) Modules)
 
 if (!($env:PSModulePath.Contains($localModulesDirectory))) {
     $env:PSModulePath = "$localModulesDirectory$([System.IO.Path]::PathSeparator)$env:PSModulePath"
 }
 
+if (!($env:PSAdditionalModulePath)) {
+    $env:PSAdditionalModulePath = Resolve-Path (Join-Path (Join-Path $PSScriptRoot ..) AdditionalModules)
+}
 if (!($env:PSModulePath.Contains($env:PSAdditionalModulePath))) {
     $env:PSModulePath = "$env:PSModulePath$([System.IO.Path]::PathSeparator)$env:PSAdditionalModulePath"
 }
@@ -22,7 +25,7 @@ Import-ModuleIfExists "DockerCompletion/DockerCompletion/DockerCompletion.psd1"
 Import-ModuleIfExists "posh-alias/Posh-Alias.psd1"
 Import-ModuleIfExists Terminal-Icons
 
-if ($isWin) {
+if ($IsWindows) {
     if (Test-Path "$localModulesDirectory/PSFzf/PSFzf.dll") {
         Import-Module "$localModulesDirectory/PSFzf/PSFzf.psd1" -ArgumentList 'Ctrl+t', 'Ctrl+r' -Force
         if ($env:WT_SESSION) {

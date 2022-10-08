@@ -1,4 +1,4 @@
-$localModulesDirectory = Resolve-Path (Join-Path (Join-Path $PSScriptRoot ..) Modules)
+$script:localModulesDirectory = Resolve-Path (Join-Path (Join-Path $PSScriptRoot ..) Modules)
 if (!($env:PSAdditionalModulePath)) {
     $env:PSAdditionalModulePath = Resolve-Path (Join-Path (Join-Path $PSScriptRoot ..) AdditionalModules)
 }
