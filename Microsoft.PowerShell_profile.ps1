@@ -36,8 +36,8 @@ if (!(Test-Path $setupControl)) {
     }
 }
 
-. "$profileDir/SetViMode.ps1"
 . "$profileDir/ImportModules.ps1"
+. "$profileDir/SetViMode.ps1"
 
 if (!(Get-Process ssh-agent -ErrorAction Ignore) -and (Test-Path (Join-Path (Join-Path $(if ($env:HOME) { $env:HOME } else { $env:USERPROFILE }) .ssh) id_rsa))) {
     Start-SshAgent -Quiet

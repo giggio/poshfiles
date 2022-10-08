@@ -26,6 +26,16 @@ function Remove-FromPath {
 }
 
 function Test-Elevated {
-    $currentPrincipal = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
-    $currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+    if ($IsWindows) {
+        $currentPrincipal = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
+        $currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+    } elseif ($IsLinux) {
+        $(id -u) -eq 0
+    } elseif ($IsMacOS) {
+        Write-Warning "Test-Elevated is not implemented for MacOS (send a PR!)"
+        $false
+    } else {
+        Write-Warning "Test-Elevated is not implemented for this platform '$([System.Environment]::OSVersion.Platform)' (send a PR!)"
+        $false
+    }
 }
