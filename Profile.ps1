@@ -88,7 +88,7 @@ if ($IsWindows) {
 }
 
 function Add-Starship {
-    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingInvokeExpression', Scope = 'function', Justification = 'This is how you setup starship')]
+    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingInvokeExpression', "", Scope = 'function', Justification = 'This is how you setup starship')]
     param()
     if (Get-Command starship -ErrorAction Ignore) {
         $env:STARSHIP_CONFIG = Join-Path $profileDir "starship.toml"
