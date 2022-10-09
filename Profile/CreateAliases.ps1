@@ -25,6 +25,7 @@ if (Get-Command Add-Alias -ErrorAction Ignore) {
     Add-Alias sync 'git sync'
     if ($lsApp = Get-Command ls -CommandType Application -ErrorAction Ignore) {
         Add-Alias ll "$($lsApp.Source) -la"
+        Remove-Variable lsApp
     } else {
         Add-Alias ll 'ls -Force'
     }

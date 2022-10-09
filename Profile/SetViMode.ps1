@@ -1,5 +1,6 @@
 if (Get-Module PSReadLine) {
-    if (Get-Command vim -ErrorAction Ignore) {
+    $vimCommand = Get-Command vim -ErrorAction Ignore
+    if ($vimCommand) {
         Set-PSReadLineOption -EditMode Vi
         #Set-PSReadlineKeyHandler -Key Ctrl+r -Function ReverseSearchHistory
         #Set-PSReadlineKeyHandler -Key Ctrl+Shift+r -Function ForwardSearchHistory
@@ -9,8 +10,8 @@ if (Get-Module PSReadLine) {
             $env:VISUAL = "vim"
         }
         if (!($env:GIT_EDITOR)) {
-            $vimPath = (Get-Command vim).Path
-            $env:GIT_EDITOR = "'$vimPath'"
+            $env:GIT_EDITOR = "'$($vimCommand.Path)'"
         }
     }
+    Remove-Variable vimCommand
 }

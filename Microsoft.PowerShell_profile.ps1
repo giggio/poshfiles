@@ -8,8 +8,7 @@ if ($IsWindows -and $null -eq $env:HOME -and $null -ne $env:USERPROFILE) {
 }
 . "$profileDir/Functions.ps1"
 
-$script:setupControl = Join-Path $PSScriptRoot .setupran
-if (!(Test-Path $setupControl)) {
+if (!(Test-Path (Join-Path $PSScriptRoot .setupran))) {
     $script:setupControlDoNotRun = Join-Path $PSScriptRoot .setupdonotrun
     $script:setupControlForceRun = Join-Path $PSScriptRoot .setupforcerun
     if (!(Test-Path $setupControlDoNotRun )) {
@@ -93,4 +92,9 @@ if (Get-Command starship -ErrorAction Ignore) {
     Write-Output "Install Starship to get a nice theme. Go to: https://starship.rs/"
 }
 
+# cleanup:
 Set-StrictMode -Off
+Remove-Variable localModulesDirectory
+Remove-Variable localAdditionalModulesDirectory
+Remove-Variable profileDir
+$ErrorActionPreference = 'Continue'
