@@ -39,7 +39,7 @@ but at `$HOME/OneDrive/Documents`.
 So, all you need to do is add to the `$PROFILE` file:
 
 ```powershell
-. <path to this repository>\Profile.ps1
+. <path to this repository>\Microsoft.PowerShell_profile.ps1
 ```
 
 If you want to setup only in Windows PowerShell or PowerShell core, simply run (in the respective shell):
