@@ -13,7 +13,7 @@ if (!(Test-Path (Join-Path $PSScriptRoot .setupran))) {
     $script:setupControlForceRun = Join-Path $PSScriptRoot .setupforcerun
     if (!(Test-Path $setupControlDoNotRun )) {
         if ($PSEdition -ne 'Core' -and ($null -eq (Get-Command pwsh -ErrorAction SilentlyContinue))) {
-            Write-Host "PowerShell Core is not available and Setup cannot run. Install it from https://aka.ms/PSWindows, and then start PowerShell again."
+            Write-Output "PowerShell Core is not available and Setup cannot run. Install it from https://aka.ms/PSWindows, and then start PowerShell again."
         } else {
             if (Test-Elevated) {
                 $choices = @(
@@ -38,7 +38,7 @@ if (!(Test-Path (Join-Path $PSScriptRoot .setupran))) {
                         2 {
                             New-Item -ItemType File "$setupControlDoNotRun" | Out-Null
                             if ($IsWindows) { (Get-Item $setupControlDoNotRun).Attributes += 'Hidden' }
-                            Write-Host "You will not be asked to run setup again. If you want to run it, run $(Join-Path $PSScriptRoot Setup.ps1), or delete the file '$setupControlDoNotRun' and restart PowerShell."
+                            Write-Output "You will not be asked to run setup again. If you want to run it, run $(Join-Path $PSScriptRoot Setup.ps1), or delete the file '$setupControlDoNotRun' and restart PowerShell."
                         }
                         Default {}
                     }
@@ -60,8 +60,10 @@ if (Get-Command colortool -ErrorAction Ignore) { colortool --quiet campbell.ini 
 
 $kubeConfigHome = Join-Path $env:HOME '.kube'
 if (Test-Path $kubeConfigHome) {
-    $env:KUBECONFIG = Get-ChildItem $kubeConfigHome -File | ForEach-Object { $kubeConfig = '' } { $kubeConfig += "$($_.FullName)$([System.IO.Path]::PathSeparator)" } { $kubeConfig }
-    Remove-Variable kubeConfig
+    & {
+        $kubeConfig = ''
+        $env:KUBECONFIG = Get-ChildItem $kubeConfigHome -File | ForEach-Object {} { $kubeConfig += "$($_.FullName)$([System.IO.Path]::PathSeparator)" } { $kubeConfig }
+    }
 }
 Remove-Variable kubeConfigHome
 
@@ -85,12 +87,18 @@ if ($IsWindows) {
     . "$profileDir/CreateAliases.windows.ps1"
 }
 
-if (Get-Command starship -ErrorAction Ignore) {
-    $env:STARSHIP_CONFIG = Join-Path $profileDir "starship.toml"
-    Invoke-Expression (&starship init powershell)
-} else {
-    Write-Output "Install Starship to get a nice theme. Go to: https://starship.rs/"
+function Add-Starship {
+    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingInvokeExpression', Scope = 'function', Justification = 'This is how you setup starship')]
+    param()
+    if (Get-Command starship -ErrorAction Ignore) {
+        $env:STARSHIP_CONFIG = Join-Path $profileDir "starship.toml"
+        Invoke-Expression (&starship init powershell --print-full-init | Out-String)
+    } else {
+        Write-Output "Install Starship to get a nice theme. Go to: https://starship.rs/"
+    }
 }
+Add-Starship
+Remove-Item -Path Function:\Add-Starship
 
 # cleanup:
 Set-StrictMode -Off

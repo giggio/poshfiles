@@ -6,15 +6,15 @@ if ($IsWindows) {
     function FixPSModulePath($path, $messageSuffix) {
         if ($null -eq $path) { $path = '' }
         if (!($path.Contains($localModulesDirectory))) {
-            Write-Host "Adding modules directory '$localModulesDirectory' to PSModulePath for $messageSuffix."
+            Write-Output "Adding modules directory '$localModulesDirectory' to PSModulePath for $messageSuffix."
             $path = "$localModulesDirectory;$path"
         }
         if (!($path.Contains($localAdditionalModulesDirectory))) {
-            Write-Host "Adding modules directory '$localAdditionalModulesDirectory' to PSModulePath for $messageSuffix."
+            Write-Output "Adding modules directory '$localAdditionalModulesDirectory' to PSModulePath for $messageSuffix."
             $path = "$localAdditionalModulesDirectory;$path"
         }
         if ($path.IndexOf($localModulesDirectory) -lt ($path.IndexOf($localAdditionalModulesDirectory))) {
-            Write-Host "Fixing the order of PSModulePath for $messageSuffix."
+            Write-Output "Fixing the order of PSModulePath for $messageSuffix."
             $path = $path.Replace("$localModulesDirectory;", "")
             $path = $path.Replace("$localAdditionalModulesDirectory", "")
             $path = $path.Replace(";;", ";")
@@ -30,7 +30,7 @@ if ($IsWindows) {
     $oldUserPSModulePathForRegistry = [Environment]::GetEnvironmentVariable('PSModulePath', 'User')
     $newUserPSModulePathForRegistry = FixPSModulePath $oldUserPSModulePathForRegistry  "USER scope on Registry"
     if ($oldUserPSModulePathForRegistry -ne $newUserPSModulePathForRegistry) {
-        Write-Host "Setting USER scope PSModulePath on Registry."
+        Write-Output "Setting USER scope PSModulePath on Registry."
         [Environment]::SetEnvironmentVariable('PSModulePath', $newUserPSModulePathForRegistry, 'User')
     }
 
@@ -45,7 +45,7 @@ if ($IsWindows) {
     $oldPsModulePathForConfigFile = $pwshConfig['PSModulePath']
     $newPSModulePathForConfigFile = FixPSModulePath $oldPsModulePathForConfigFile "config file '$pwshConfigFile'"
     if ($oldPsModulePathForConfigFile -ne $newPSModulePathForConfigFile) {
-        Write-Host "Setting PSModulePath in config file '$pwshConfigFile'."
+        Write-Output "Setting PSModulePath in config file '$pwshConfigFile'."
         $pwshConfig.PSModulePath = $newPSModulePathForConfigFile
         $pwshConfigText = ConvertTo-Json $pwshConfig
         Set-Content $pwshConfigFile $pwshConfigText
