@@ -10,8 +10,8 @@ Pop-Location
 $script:setupDir = Join-Path $PSScriptRoot Setup
 $script:profileDir = Join-Path $PSScriptRoot Profile
 . "$profileDir/Common.ps1"
-. "$setupDir/InstallModules.ps1"
-. "$setupDir/InstallTools.ps1"
+& "$setupDir/InstallModules.ps1"
+& "$setupDir/InstallTools.ps1"
 
 if ($IsWindows) {
     . "$setupDir/WindowsDefenderExclusions.ps1"

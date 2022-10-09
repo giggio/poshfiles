@@ -2,38 +2,35 @@ Set-StrictMode -Version 3
 $script:localModulesDirectory = Resolve-Path (Join-Path (Join-Path $PSScriptRoot ..) Modules)
 $script:localAdditionalModulesDirectory = Resolve-Path (Join-Path (Join-Path $PSScriptRoot ..) AdditionalModules)
 
-if ($IsWindows) {
-    function FixPSModulePath($path, $messageSuffix) {
-        if ($null -eq $path) { $path = '' }
-        if (!($path.Contains($localModulesDirectory))) {
-            Write-Output "Adding modules directory '$localModulesDirectory' to PSModulePath for $messageSuffix."
-            $path = "$localModulesDirectory;$path"
+function FixPSModulePath($path, $messageSuffix) {
+    if ($null -eq $path) { $path = '' }
+    if (!($path.Contains($localModulesDirectory))) {
+        if ($null -ne $messageSuffix) {
+            Write-Host "Adding modules directory '$localModulesDirectory' to PSModulePath for $messageSuffix."
         }
-        if (!($path.Contains($localAdditionalModulesDirectory))) {
-            Write-Output "Adding modules directory '$localAdditionalModulesDirectory' to PSModulePath for $messageSuffix."
-            $path = "$localAdditionalModulesDirectory;$path"
-        }
-        if ($path.IndexOf($localModulesDirectory) -lt ($path.IndexOf($localAdditionalModulesDirectory))) {
-            Write-Output "Fixing the order of PSModulePath for $messageSuffix."
-            $path = $path.Replace("$localModulesDirectory;", "")
-            $path = $path.Replace("$localAdditionalModulesDirectory", "")
-            $path = $path.Replace(";;", ";")
-            if ($path.StartsWith(";")) {
-                $path = $path.Substring(1)
-            }
-            $path = "$localAdditionalModulesDirectory;$localModulesDirectory;$path"
-        }
-        return $path
+        $path = "$localModulesDirectory$([System.IO.Path]::PathSeparator)$path"
     }
-    # this is for Windows PowerShell, see PowerShell Core bellow
-    # also see: https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_psmodulepath#powershell-psmodulepath-construction
-    $oldUserPSModulePathForRegistry = [Environment]::GetEnvironmentVariable('PSModulePath', 'User')
-    $newUserPSModulePathForRegistry = FixPSModulePath $oldUserPSModulePathForRegistry  "USER scope on Registry"
-    if ($oldUserPSModulePathForRegistry -ne $newUserPSModulePathForRegistry) {
-        Write-Output "Setting USER scope PSModulePath on Registry."
-        [Environment]::SetEnvironmentVariable('PSModulePath', $newUserPSModulePathForRegistry, 'User')
+    if (!($path.Contains($localAdditionalModulesDirectory))) {
+        if ($null -ne $messageSuffix) {
+            Write-Host "Adding modules directory '$localAdditionalModulesDirectory' to PSModulePath for $messageSuffix."
+        }
+        $path = "$localAdditionalModulesDirectory$([System.IO.Path]::PathSeparator)$path"
     }
-
+    if ($path.IndexOf($localModulesDirectory) -lt ($path.IndexOf($localAdditionalModulesDirectory))) {
+        if ($null -ne $messageSuffix) {
+            Write-Host "Fixing the order of PSModulePath for $messageSuffix."
+        }
+        $path = $path.Replace("$localModulesDirectory$([System.IO.Path]::PathSeparator)", "")
+        $path = $path.Replace("$localAdditionalModulesDirectory", "")
+        $path = $path.Replace("$([System.IO.Path]::PathSeparator)$([System.IO.Path]::PathSeparator)", [System.IO.Path]::PathSeparator)
+        if ($path.StartsWith($([System.IO.Path]::PathSeparator))) {
+            $path = $path.Substring(1)
+        }
+        $path = "$localAdditionalModulesDirectory$([System.IO.Path]::PathSeparator)$localModulesDirectory$([System.IO.Path]::PathSeparator)$path"
+    }
+    return $path
+}
+function FixJsonConfigFile {
     # this is for PowerShell Core which is be done via config file
     # see: help about_powershell_config
     # https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_powershell_config
@@ -45,16 +42,26 @@ if ($IsWindows) {
     $oldPsModulePathForConfigFile = $pwshConfig['PSModulePath']
     $newPSModulePathForConfigFile = FixPSModulePath $oldPsModulePathForConfigFile "config file '$pwshConfigFile'"
     if ($oldPsModulePathForConfigFile -ne $newPSModulePathForConfigFile) {
-        Write-Output "Setting PSModulePath in config file '$pwshConfigFile'."
+        Write-Host "Setting PSModulePath in config file '$pwshConfigFile'."
         $pwshConfig.PSModulePath = $newPSModulePathForConfigFile
         $pwshConfigText = ConvertTo-Json $pwshConfig
         Set-Content $pwshConfigFile $pwshConfigText
     }
+}
+if ($IsWindows) {
+    # this is for Windows PowerShell, see PowerShell Core bellow
+    # also see: https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_psmodulepath#powershell-psmodulepath-construction
+    $oldUserPSModulePathForRegistry = [Environment]::GetEnvironmentVariable('PSModulePath', 'User')
+    $newUserPSModulePathForRegistry = FixPSModulePath $oldUserPSModulePathForRegistry  "USER scope on Registry"
+    if ($oldUserPSModulePathForRegistry -ne $newUserPSModulePathForRegistry) {
+        Write-Output "Setting USER scope PSModulePath on Registry."
+        [Environment]::SetEnvironmentVariable('PSModulePath', $newUserPSModulePathForRegistry, 'User')
+    }
+    FixJsonConfigFile
 } elseif ($IsLinux) {
-    # todo
+    FixJsonConfigFile
 } elseif ($IsMacOS) {
-    Write-Warning "PSModule setup is not implemented for MacOS (send a PR!)"
-    $false
+    FixJsonConfigFile
 } else {
     Write-Warning "PSModule setup is not implemented for this platform '$([System.Environment]::OSVersion.Platform)' (send a PR!)"
     $false
@@ -115,3 +122,5 @@ if (ModuleMissing PSScriptAnalyzer) {
 if (ModuleMissing PSReadLine '2.2.6') {
     Save-Module PSReadLine $localModulesDirectory -Confirm:$false
 }
+
+Remove-Item -Path Function:\FixPSModulePath

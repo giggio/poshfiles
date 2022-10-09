@@ -15,7 +15,7 @@ if (!(Test-Path (Join-Path $PSScriptRoot .setupran))) {
         if ($PSEdition -ne 'Core' -and ($null -eq (Get-Command pwsh -ErrorAction SilentlyContinue))) {
             Write-Output "PowerShell Core is not available and Setup cannot run. Install it from https://aka.ms/PSWindows, and then start PowerShell again."
         } else {
-            if (Test-Elevated) {
+            if ($IsLinux -or $IsMacOS -or (Test-Elevated)) {
                 $choices = @(
                     [System.Management.Automation.Host.ChoiceDescription]::new("&Yes", "Run setup")
                     [System.Management.Automation.Host.ChoiceDescription]::new("&No", "Do not run setup at this time")
