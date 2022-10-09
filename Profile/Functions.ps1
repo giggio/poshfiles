@@ -39,3 +39,16 @@ function Test-Elevated {
         $false
     }
 }
+
+function Get-StrictMode {
+    try { $x = @(1); $null = ($null -eq $x[2]) }
+    catch { return 3 }
+
+    try { "x".Year }
+    catch { return 2 }
+
+    try { $null = ($y -gt 1) }
+    catch { return 1 }
+
+    return 0
+}

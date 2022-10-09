@@ -1,14 +1,19 @@
 $script:localModulesDirectory = Resolve-Path (Join-Path (Join-Path $PSScriptRoot ..) Modules)
+$script:localAdditionalModulesDirectory = Resolve-Path (Join-Path (Join-Path $PSScriptRoot ..) AdditionalModules)
 
+$script:setupScriptPath = Resolve-Path (Join-Path (Join-Path $PSScriptRoot ..) Setup.ps1)
 if (!($env:PSModulePath.Contains($localModulesDirectory))) {
+    Write-Warning "PSModulePath does not contain local module PATH '$localModulesDirectory'. Adding it now, but modules may not work as expected. Run the Setup Script ($setupScriptPath) so your PSModulePath registry and/or config file is set correctly."
     $env:PSModulePath = "$localModulesDirectory$([System.IO.Path]::PathSeparator)$env:PSModulePath"
 }
 
-if (!($env:PSAdditionalModulePath)) {
-    $env:PSAdditionalModulePath = Resolve-Path (Join-Path (Join-Path $PSScriptRoot ..) AdditionalModules)
+if (!($env:PSModulePath.Contains($localAdditionalModulesDirectory))) {
+    Write-Warning "PSModulePath does not contain local additional module PATH '$localAdditionalModulesDirectory'. Adding it now, but modules may not work as expected. Run the Setup Script ($setupScriptPath) so your PSModulePath registry and/or config file is set correctly."
+    $env:PSModulePath = "$localAdditionalModulesDirectory$([System.IO.Path]::PathSeparator)$env:PSModulePath"
 }
-if (!($env:PSModulePath.Contains($env:PSAdditionalModulePath))) {
-    $env:PSModulePath = "$env:PSModulePath$([System.IO.Path]::PathSeparator)$env:PSAdditionalModulePath"
+
+if (!$env:PSModulePath.StartsWith("$localAdditionalModulesDirectory$([System.IO.Path]::PathSeparator)$localModulesDirectory")) {
+    Write-Warning "PSModulePath does not have the module directories in correct order and PowerShell modules may have incorrect versions. Run the Setup Script ($setupScriptPath) so your PSModulePath registry and/or config file is set correctly."
 }
 
 function Import-ModuleIfExists($moduleNameOrPath) {

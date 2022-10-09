@@ -7,6 +7,7 @@ Modules/AzureADPreview
 Modules/ExchangeOnlineManagement
 Modules/Pester
 Modules/PSScriptAnalyzer
+Modules/PSReadLine
 bin
 AdditionalModules
 .setupran

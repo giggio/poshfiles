@@ -11,27 +11,42 @@ if ($IsWindows -and $null -eq $env:HOME -and $null -ne $env:USERPROFILE) {
 $script:setupControl = Join-Path $PSScriptRoot .setupran
 if (!(Test-Path $setupControl)) {
     $script:setupControlDoNotRun = Join-Path $PSScriptRoot .setupdonotrun
+    $script:setupControlForceRun = Join-Path $PSScriptRoot .setupforcerun
     if (!(Test-Path $setupControlDoNotRun )) {
-        if (Test-Elevated) {
-            $choices = @(
-                [System.Management.Automation.Host.ChoiceDescription]::new("&Yes", "Run setup")
-                [System.Management.Automation.Host.ChoiceDescription]::new("&No", "Do not run setup at this time")
-                [System.Management.Automation.Host.ChoiceDescription]::new("&Don't ask again", "Don't ask to run setup again")
-            )
-            $script:runSetup = $Host.UI.PromptForChoice("Run setup?", "Setup has not ran yet, do you want to run it now?", $choices, 1)
-            switch ($runSetup) {
-                0 {
-                    . "$PSScriptRoot/Setup.ps1"
-                }
-                2 {
-                    New-Item -ItemType File "$setupControlDoNotRun" | Out-Null
-                    if ($IsWindows) { (Get-Item $setupControlDoNotRun).Attributes += 'Hidden' }
-                    Write-Host "You will not be asked to run setup again. If you want to run it, run $(Join-Path $PSScriptRoot Setup.ps1), or delete the file '$setupControlDoNotRun' and restart PowerShell."
-                }
-                Default {}
-            }
+        if ($PSEdition -ne 'Core' -and ($null -eq (Get-Command pwsh -ErrorAction SilentlyContinue))) {
+            Write-Host "PowerShell Core is not available and Setup cannot run. Install it from https://aka.ms/PSWindows, and then start PowerShell again."
         } else {
-            Write-Warning "Setup has not ran yet. Run this script as administrator to run setup."
+            if (Test-Elevated) {
+                $choices = @(
+                    [System.Management.Automation.Host.ChoiceDescription]::new("&Yes", "Run setup")
+                    [System.Management.Automation.Host.ChoiceDescription]::new("&No", "Do not run setup at this time")
+                    [System.Management.Automation.Host.ChoiceDescription]::new("&Don't ask again", "Don't ask to run setup again")
+                )
+                if ((Test-Path $setupControlForceRun) -and $PSEdition -eq 'Core') {
+                    Remove-Item -Force $setupControlForceRun
+                    & "$PSScriptRoot/Setup.ps1"
+                } else {
+                    $script:runSetup = $Host.UI.PromptForChoice("Run setup?", "Setup has not ran yet, do you want to run it now?", $choices, 1)
+                    switch ($runSetup) {
+                        0 {
+                            if ($PSEdition -ne 'Core') {
+                                New-Item -ItemType File "$setupControlForceRun" | Out-Null
+                                pwsh -File "$PSScriptRoot/Setup.ps1"
+                            } else {
+                                & "$PSScriptRoot/Setup.ps1"
+                            }
+                        }
+                        2 {
+                            New-Item -ItemType File "$setupControlDoNotRun" | Out-Null
+                            if ($IsWindows) { (Get-Item $setupControlDoNotRun).Attributes += 'Hidden' }
+                            Write-Host "You will not be asked to run setup again. If you want to run it, run $(Join-Path $PSScriptRoot Setup.ps1), or delete the file '$setupControlDoNotRun' and restart PowerShell."
+                        }
+                        Default {}
+                    }
+                }
+            } else {
+                Write-Warning "Setup has not ran yet. Run this script as administrator in PowerShell Core to run setup."
+            }
         }
     }
 }
@@ -77,3 +92,5 @@ if (Get-Command starship -ErrorAction Ignore) {
 } else {
     Write-Output "Install Starship to get a nice theme. Go to: https://starship.rs/"
 }
+
+Set-StrictMode -Off
