@@ -50,8 +50,8 @@ if (!(Test-Path (Join-Path $PSScriptRoot .setupran))) {
     }
 }
 
+. "$profileDir/SetViMode.ps1" # always set vi mode before loading modules because of keybindings conflict with PSFzf
 . "$profileDir/ImportModules.ps1"
-. "$profileDir/SetViMode.ps1"
 
 if (!(Get-Process ssh-agent -ErrorAction Ignore) -and (Test-Path (Join-Path (Join-Path $(if ($env:HOME) { $env:HOME } else { $env:USERPROFILE }) .ssh) id_rsa))) {
     Start-SshAgent -Quiet
