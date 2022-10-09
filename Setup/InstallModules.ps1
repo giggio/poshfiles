@@ -65,13 +65,13 @@ function ModuleMissing([Parameter(Mandatory = $true)][string]$moduleName, [Syste
         ([array]($env:PSModulePath.Split([System.IO.Path]::PathSeparator, [System.StringSplitOptions]::RemoveEmptyEntries) | `
                 ForEach-Object { Join-Path $_ $moduleName } | `
                 Where-Object { Test-Path $_ }
-        )).Count -eq 0
+        ))?.Count -eq 0
     } else {
         ([array]($env:PSModulePath.Split([System.IO.Path]::PathSeparator, [System.StringSplitOptions]::RemoveEmptyEntries) | `
                 ForEach-Object { Join-Path $_ $moduleName } | `
                 Where-Object { Test-Path $_ } | `
                 Where-Object { (Get-Module -ListAvailable $_).Version -ge $minimumVersion } `
-        )).Count -eq 0
+        ))?.Count -eq 0
     }
 }
 
@@ -95,7 +95,7 @@ if (ModuleMissing Terminal-Icons) {
     Save-Module Terminal-Icons $localModulesDirectory -Confirm:$false
 }
 
-if ((ModuleMissing Pester) -or (((Get-Module Pester -ListAvailable).Version.Major | Measure-Object -Maximum).Maximum -lt 5)) {
+if (ModuleMissing Pester '5.0.0') {
     Save-Module Pester $localModulesDirectory -Confirm:$false
 }
 
