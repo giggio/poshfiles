@@ -1,3 +1,8 @@
+#Requires -RunAsAdministrator
+#Requires -PSEdition Core
+#Requires -Version 7.2
+Set-StrictMode -Version 3.0
+
 $ErrorActionPreference = 'stop'
 $script:localModulesDirectory = Resolve-Path (Join-Path (Join-Path $PSScriptRoot ..) Modules)
 $bin = Resolve-Path (Join-Path (Join-Path $PSScriptRoot ..) bin)
@@ -38,4 +43,61 @@ if ($IsWindows) {
         }
         CreateFzfPsm1
     }
+    function Add-Scoop {
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingInvokeExpression', "", Scope = 'function', Justification = 'This is how you setup scoop')]
+        param()
+        if (!(Get-Command scoop -ErrorAction Ignore)) {
+            Invoke-RestMethod get.scoop.sh | Invoke-Expression
+        }
+    }
+    Add-Scoop
+    Remove-Item -Path Function:\Add-Scoop
+
+    function Invoke-ScoopSetup {
+        $choices = @(
+            [System.Management.Automation.Host.ChoiceDescription]::new("&Yes", "Run scoop setup")
+            [System.Management.Automation.Host.ChoiceDescription]::new("&No", "Do not run scoop setup")
+            [System.Management.Automation.Host.ChoiceDescription]::new("&View", "View scoop apps")
+        )
+        $script:runScoop = $Host.UI.PromptForChoice("Run scoop setup?", "Review the scoop file before you import it. Do you want to run it now?", $choices, 1)
+        switch ($runScoop) {
+            0 {
+                #run
+                scoop import $PSScriptRoot\scoopfile.json
+            }
+            2 {
+                #view
+                Write-Host "Scoop apps:"
+                (Get-Content $PSScriptRoot\scoopfile.json | ConvertFrom-Json).Apps.Name | Format-Table | Out-String | ForEach-Object { Write-Host $_ }
+                Invoke-ScoopSetup
+            }
+            Default {}
+        }
+    }
+    Invoke-ScoopSetup
+    Remove-Item -Path Function:\Invoke-ScoopSetup
+
+    function Invoke-WingetSetup {
+        $choices = @(
+            [System.Management.Automation.Host.ChoiceDescription]::new("&Yes", "Run winget setup, agreeing with source and packcage agreements")
+            [System.Management.Automation.Host.ChoiceDescription]::new("&No", "Do not run winget setup")
+            [System.Management.Automation.Host.ChoiceDescription]::new("&View", "View winget apps")
+        )
+        $script:runWinget = $Host.UI.PromptForChoice("Run winget setup?", "Review the winget file before you import it. Do you want to run it now?", $choices, 1)
+        switch ($runWinget) {
+            0 {
+                #run
+                winget import --import-file $PSScriptRoot\winget.json --accept-source-agreements --accept-package-agreements
+            }
+            2 {
+                #view
+                Write-Host "Winget apps:"
+                (Get-Content $PSScriptRoot\winget.json | ConvertFrom-Json).Sources.Packages.PackageIdentifier | Format-Table | Out-String | ForEach-Object { Write-Host $_ }
+                Invoke-WingetSetup
+            }
+            Default {}
+        }
+    }
+    Invoke-WingetSetup
+    Remove-Item -Path Function:\Invoke-WingetSetup
 }

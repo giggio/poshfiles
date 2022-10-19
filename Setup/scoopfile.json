@@ -1,0 +1,311 @@
+{
+    "apps": [
+        {
+            "Name": "7zip",
+            "Updated": "2022-07-23T01:28:39.1460724-03:00",
+            "Version": "22.01",
+            "Source": "main",
+            "Info": ""
+        },
+        {
+            "Name": "act",
+            "Updated": "2022-10-19T09:50:01.6658223-03:00",
+            "Version": "0.2.32",
+            "Source": "main",
+            "Info": ""
+        },
+        {
+            "Name": "ag",
+            "Updated": "2022-10-19T12:58:02.2610225-03:00",
+            "Version": "2.2.5",
+            "Source": "main",
+            "Info": ""
+        },
+        {
+            "Name": "bat",
+            "Updated": "2022-10-19T09:50:02.5155033-03:00",
+            "Version": "0.22.1",
+            "Source": "main",
+            "Info": ""
+        },
+        {
+            "Name": "dark",
+            "Updated": "2022-07-23T01:28:44.6100088-03:00",
+            "Version": "3.11.2",
+            "Source": "main",
+            "Info": ""
+        },
+        {
+            "Name": "delta",
+            "Updated": "2022-09-05T15:35:53.8592588-03:00",
+            "Version": "0.14.0",
+            "Source": "main",
+            "Info": ""
+        },
+        {
+            "Name": "deno",
+            "Updated": "2022-10-19T09:50:06.3828264-03:00",
+            "Version": "1.26.2",
+            "Source": "main",
+            "Info": ""
+        },
+        {
+            "Name": "ffmpeg",
+            "Updated": "2022-10-19T09:50:32.5398882-03:00",
+            "Version": "5.1.2",
+            "Source": "main",
+            "Info": ""
+        },
+        {
+            "Name": "ffmpeg-shared",
+            "Updated": "2022-10-19T09:50:50.4528281-03:00",
+            "Version": "5.1.2",
+            "Source": "main",
+            "Info": ""
+        },
+        {
+            "Name": "fzf",
+            "Updated": "2022-10-19T09:50:51.3200413-03:00",
+            "Version": "0.34.0",
+            "Source": "main",
+            "Info": ""
+        },
+        {
+            "Name": "go",
+            "Updated": "2022-10-19T09:51:21.3452751-03:00",
+            "Version": "1.19.2",
+            "Source": "main",
+            "Info": ""
+        },
+        {
+            "Name": "gsudo",
+            "Updated": "2022-10-19T09:51:24.1730075-03:00",
+            "Version": "1.7.1",
+            "Source": "main",
+            "Info": ""
+        },
+        {
+            "Name": "hub",
+            "Updated": "2022-07-23T01:29:29.1445148-03:00",
+            "Version": "2.14.2",
+            "Source": "main",
+            "Info": ""
+        },
+        {
+            "Name": "innounp",
+            "Updated": "2022-10-19T13:05:21.4032054-03:00",
+            "Version": "0.50",
+            "Source": "main",
+            "Info": ""
+        },
+        {
+            "Name": "iperf3",
+            "Updated": "2022-08-27T16:14:41.9031005-03:00",
+            "Version": "3.1.3",
+            "Source": "main",
+            "Info": ""
+        },
+        {
+            "Name": "jq",
+            "Updated": "2022-07-23T01:29:29.8475656-03:00",
+            "Version": "1.6",
+            "Source": "main",
+            "Info": ""
+        },
+        {
+            "Name": "less",
+            "Updated": "2022-09-05T15:36:28.5969489-03:00",
+            "Version": "608",
+            "Source": "main",
+            "Info": ""
+        },
+        {
+            "Name": "lessmsi",
+            "Updated": "2022-07-23T01:29:32.4570656-03:00",
+            "Version": "1.10.0",
+            "Source": "main",
+            "Info": ""
+        },
+        {
+            "Name": "lua",
+            "Updated": "2022-07-23T01:29:35.6509497-03:00",
+            "Version": "5.4.2",
+            "Source": "main",
+            "Info": ""
+        },
+        {
+            "Name": "msys2",
+            "Updated": "2022-09-05T15:36:53.563089-03:00",
+            "Version": "2022-09-04",
+            "Source": "main",
+            "Info": ""
+        },
+        {
+            "Name": "neovim",
+            "Updated": "2022-10-19T09:51:31.1042841-03:00",
+            "Version": "0.8.0",
+            "Source": "main",
+            "Info": ""
+        },
+        {
+            "Name": "npiperelay",
+            "Updated": "2022-10-05T17:44:46.5140294-03:00",
+            "Version": "0.1.0",
+            "Source": "extras",
+            "Info": ""
+        },
+        {
+            "Name": "ntop",
+            "Updated": "2022-07-23T01:30:08.9916488-03:00",
+            "Version": "0.3.4",
+            "Source": "main",
+            "Info": ""
+        },
+        {
+            "Name": "nuget",
+            "Updated": "2022-10-19T09:51:32.2040149-03:00",
+            "Version": "6.3.1",
+            "Source": "main",
+            "Info": ""
+        },
+        {
+            "Name": "nunit-console",
+            "Updated": "2022-08-11T10:29:43.4733286-03:00",
+            "Version": "3.15.2",
+            "Source": "main",
+            "Info": ""
+        },
+        {
+            "Name": "osquery",
+            "Updated": "2022-09-05T15:36:55.9581206-03:00",
+            "Version": "5.5.1",
+            "Source": "main",
+            "Info": ""
+        },
+        {
+            "Name": "protobuf312",
+            "Updated": "2022-10-19T09:51:34.4696332-03:00",
+            "Version": "21.7",
+            "Source": "versions",
+            "Info": ""
+        },
+        {
+            "Name": "python",
+            "Updated": "2022-10-19T09:51:54.0688263-03:00",
+            "Version": "3.10.8",
+            "Source": "main",
+            "Info": ""
+        },
+        {
+            "Name": "python27",
+            "Updated": "2022-08-15T19:41:10.9034466-03:00",
+            "Version": "2.7.18",
+            "Source": "versions",
+            "Info": ""
+        },
+        {
+            "Name": "python310",
+            "Updated": "2022-10-19T09:52:12.6600024-03:00",
+            "Version": "3.10.8",
+            "Source": "versions",
+            "Info": ""
+        },
+        {
+            "Name": "python36",
+            "Updated": "2022-07-23T01:32:10.811451-03:00",
+            "Version": "3.6.8",
+            "Source": "versions",
+            "Info": ""
+        },
+        {
+            "Name": "python39",
+            "Updated": "2022-07-23T01:32:33.0083615-03:00",
+            "Version": "3.9.13",
+            "Source": "versions",
+            "Info": ""
+        },
+        {
+            "Name": "rustup",
+            "Updated": "2022-07-23T01:30:51.1651821-03:00",
+            "Version": "1.25.1",
+            "Source": "main",
+            "Info": ""
+        },
+        {
+            "Name": "scriptcs",
+            "Updated": "2022-07-23T01:30:53.0868508-03:00",
+            "Version": "0.17.1",
+            "Source": "main",
+            "Info": ""
+        },
+        {
+            "Name": "speedtest-cli",
+            "Updated": "2022-08-13T11:47:09.5070076-03:00",
+            "Version": "1.2.0",
+            "Source": "main",
+            "Info": ""
+        },
+        {
+            "Name": "starship",
+            "Updated": "2022-10-19T09:52:14.0528783-03:00",
+            "Version": "1.11.0",
+            "Source": "main",
+            "Info": ""
+        },
+        {
+            "Name": "terraform",
+            "Updated": "2022-10-19T09:52:15.2811543-03:00",
+            "Version": "1.3.2",
+            "Source": "main",
+            "Info": ""
+        },
+        {
+            "Name": "unzip",
+            "Updated": "2022-07-23T01:30:56.0056136-03:00",
+            "Version": "6.00",
+            "Source": "main",
+            "Info": ""
+        },
+        {
+            "Name": "wsl-ssh-pageant",
+            "Updated": "2022-10-06T14:36:00.0891128-03:00",
+            "Version": "20201121.2",
+            "Source": "extras",
+            "Info": ""
+        },
+        {
+            "Name": "yori",
+            "Updated": "2022-07-23T01:31:14.7026176-03:00",
+            "Version": "1.80",
+            "Source": "main",
+            "Info": ""
+        },
+        {
+            "Name": "zip",
+            "Updated": "2022-07-23T01:31:15.1869313-03:00",
+            "Version": "3.0",
+            "Source": "main",
+            "Info": ""
+        }
+    ],
+    "buckets": [
+        {
+            "Name": "extras",
+            "Source": "https://github.com/ScoopInstaller/Extras",
+            "Updated": "2022-10-19T09:31:37-03:00",
+            "Manifests": 1708
+        },
+        {
+            "Name": "main",
+            "Source": "https://github.com/ScoopInstaller/Main",
+            "Updated": "2022-10-19T09:33:37-03:00",
+            "Manifests": 1100
+        },
+        {
+            "Name": "versions",
+            "Source": "https://github.com/ScoopInstaller/Versions",
+            "Updated": "2022-10-19T10:25:48-03:00",
+            "Manifests": 378
+        }
+    ]
+}

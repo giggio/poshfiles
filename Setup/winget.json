@@ -1,0 +1,287 @@
+{
+	"$schema" : "https://aka.ms/winget-packages.schema.2.0.json",
+	"CreationDate" : "2022-10-19T13:14:09.586-00:00",
+	"Sources" : 
+	[
+		{
+			"Packages" : 
+			[
+				{
+					"PackageIdentifier" : "Bitwarden.Bitwarden"
+				},
+				{
+					"PackageIdentifier" : "JackieLiu.NotepadsApp"
+				},
+				{
+					"PackageIdentifier" : "ObinsKit.ObinsKit"
+				},
+				{
+					"PackageIdentifier" : "CoreyButler.NVMforWindows"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.VisualStudio.2022.Enterprise"
+				},
+				{
+					"PackageIdentifier" : "7zip.7zip"
+				},
+				{
+					"PackageIdentifier" : "Audacity.Audacity"
+				},
+				{
+					"PackageIdentifier" : "Lexikos.AutoHotkey"
+				},
+				{
+					"PackageIdentifier" : "Canonical.Ubuntu"
+				},
+				{
+					"PackageIdentifier" : "Discord.Discord"
+				},
+				{
+					"PackageIdentifier" : "Docker.DockerDesktop"
+				},
+				{
+					"PackageIdentifier" : "Telerik.Fiddler.Classic"
+				},
+				{
+					"PackageIdentifier" : "Git.Git"
+				},
+				{
+					"PackageIdentifier" : "GnuPG.GnuPG"
+				},
+				{
+					"PackageIdentifier" : "acaudwell.Gource"
+				},
+				{
+					"PackageIdentifier" : "GnuPG.Gpg4win"
+				},
+				{
+					"PackageIdentifier" : "Graphviz.Graphviz"
+				},
+				{
+					"PackageIdentifier" : "REALiX.HWiNFO"
+				},
+				{
+					"PackageIdentifier" : "JetBrains.IntelliJIDEA.Ultimate"
+				},
+				{
+					"PackageIdentifier" : "kalilinux.kalilinux"
+				},
+				{
+					"PackageIdentifier" : "Logitech.CameraSettings"
+				},
+				{
+					"PackageIdentifier" : "KirillOsenkov.MSBuildStructuredLogViewer"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.Teams"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.EdgeWebView2Runtime"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.MouseandKeyboardCenter"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.WindowsTerminal.Preview"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.WindowsTerminal"
+				},
+				{
+					"PackageIdentifier" : "Mozilla.Firefox"
+				},
+				{
+					"PackageIdentifier" : "Notepad++.Notepad++"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.Office"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.OneDrive"
+				},
+				{
+					"PackageIdentifier" : "Rufus.Rufus"
+				},
+				{
+					"PackageIdentifier" : "SublimeHQ.SublimeText.3"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.Teams"
+				},
+				{
+					"PackageIdentifier" : "vim.vim"
+				},
+				{
+					"PackageIdentifier" : "WinDirStat.WinDirStat"
+				},
+				{
+					"PackageIdentifier" : "AntibodySoftware.WizTree"
+				},
+				{
+					"PackageIdentifier" : "code52.Carnac"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.VisualStudio.2022.Enterprise-Preview"
+				},
+				{
+					"PackageIdentifier" : "PeterDaveHello.TransmissionRemoteGUI"
+				},
+				{
+					"PackageIdentifier" : "Yubico.YubikeyManager"
+				},
+				{
+					"PackageIdentifier" : "Keybase.Keybase"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.SQLServerManagementStudio"
+				},
+				{
+					"PackageIdentifier" : "SoftDeluxe.FreeDownloadManager"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.WebDeploy"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.OpenJDK.11"
+				},
+				{
+					"PackageIdentifier" : "Intel.IntelDriverAndSupportAssistant"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.WindowsInstallationAssistant"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.DotNet.SDK.Preview"
+				},
+				{
+					"PackageIdentifier" : "clsid2.mpc-hc"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.DotNet.Runtime.3_1"
+				},
+				{
+					"PackageIdentifier" : "GlavSoft.TightVNC"
+				},
+				{
+					"PackageIdentifier" : "Zoom.Zoom"
+				},
+				{
+					"PackageIdentifier" : "JohnMacFarlane.Pandoc"
+				},
+				{
+					"PackageIdentifier" : "Win32diskimager.win32diskimager"
+				},
+				{
+					"PackageIdentifier" : "Softerra.LDAPBrowser"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.WindowsSDK"
+				},
+				{
+					"PackageIdentifier" : "OpenVPNTechnologies.OpenVPNConnect"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x86"
+				},
+				{
+					"PackageIdentifier" : "WiresharkFoundation.Wireshark"
+				},
+				{
+					"PackageIdentifier" : "JetBrains.ReSharper"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.CLRTypesSQLServer.2019"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.WindowsPCHealthCheck"
+				},
+				{
+					"PackageIdentifier" : "LINQPad.LINQPad.6"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.VisualStudioCode"
+				},
+				{
+					"PackageIdentifier" : "Logitech.LogiTune"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.DotNet.SDK.3_1"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.AzureStorageExplorer"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.SQLServer2012NativeClient"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.DotNet.DesktopRuntime.6"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.VCRedist.2013.x86"
+				},
+				{
+					"PackageIdentifier" : "icsharpcode.ILSpy"
+				},
+				{
+					"PackageIdentifier" : "Adobe.Acrobat.Reader.64-bit"
+				},
+				{
+					"PackageIdentifier" : "GitHub.cli"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.AzureCLI"
+				},
+				{
+					"PackageIdentifier" : "VideoLAN.VLC"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.OpenJDK.11"
+				},
+				{
+					"PackageIdentifier" : "Dell.CommandUpdate"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x64"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.DotNet.AspNetCore.6"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.PowerToys"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.WindowsSDK"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.DotNet.DesktopRuntime.6"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.PowerShell"
+				}
+			],
+			"SourceDetails" : 
+			{
+				"Argument" : "https://cdn.winget.microsoft.com/cache",
+				"Identifier" : "Microsoft.Winget.Source_8wekyb3d8bbwe",
+				"Name" : "winget",
+				"Type" : "Microsoft.PreIndexed.Package"
+			}
+		},
+		{
+			"Packages" : 
+			[
+				{
+					"PackageIdentifier" : "9PKJV6319QTL"
+				}
+			],
+			"SourceDetails" : 
+			{
+				"Argument" : "https://storeedgefd.dsx.mp.microsoft.com/v9.0",
+				"Identifier" : "StoreEdgeFD",
+				"Name" : "msstore",
+				"Type" : "Microsoft.Rest"
+			}
+		}
+	],
+	"WinGetVersion" : "1.4.2161-preview"
+}

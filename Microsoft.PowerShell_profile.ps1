@@ -16,15 +16,15 @@ if (!(Test-Path (Join-Path $PSScriptRoot .setupran))) {
             Write-Output "PowerShell Core is not available and Setup cannot run. Install it from https://aka.ms/PSWindows, and then start PowerShell again."
         } else {
             if ($IsLinux -or $IsMacOS -or (Test-Elevated)) {
-                $choices = @(
-                    [System.Management.Automation.Host.ChoiceDescription]::new("&Yes", "Run setup")
-                    [System.Management.Automation.Host.ChoiceDescription]::new("&No", "Do not run setup at this time")
-                    [System.Management.Automation.Host.ChoiceDescription]::new("&Don't ask again", "Don't ask to run setup again")
-                )
                 if ((Test-Path $setupControlForceRun) -and $PSEdition -eq 'Core') {
                     Remove-Item -Force $setupControlForceRun
                     & "$PSScriptRoot/Setup.ps1"
                 } else {
+                    $choices = @(
+                        [System.Management.Automation.Host.ChoiceDescription]::new("&Yes", "Run setup")
+                        [System.Management.Automation.Host.ChoiceDescription]::new("&No", "Do not run setup at this time")
+                        [System.Management.Automation.Host.ChoiceDescription]::new("&Don't ask again", "Don't ask to run setup again")
+                    )
                     $script:runSetup = $Host.UI.PromptForChoice("Run setup?", "Setup has not ran yet, do you want to run it now?", $choices, 1)
                     switch ($runSetup) {
                         0 {
@@ -95,6 +95,9 @@ function Add-Starship {
         Invoke-Expression (&starship init powershell --print-full-init | Out-String)
     } else {
         Write-Output "Install Starship to get a nice theme. Go to: https://starship.rs/"
+        if ($IsWindows) {
+            Write-Output "Run .\Setup.ps1 and it will be installed with Scoop."
+        }
     }
 }
 Add-Starship

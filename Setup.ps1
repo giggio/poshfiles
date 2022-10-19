@@ -16,6 +16,7 @@ $script:profileDir = Join-Path $PSScriptRoot Profile
 if ($IsWindows) {
     . "$setupDir/WindowsDefenderExclusions.ps1"
     Add-WindowsDefenderExclusions -Quiet
+    . "$setupDir/Configure-Windows.ps1"
 
     $ssha = Get-Service ssh-agent -ErrorAction SilentlyContinue
     if ($null -ne $ssha) {
