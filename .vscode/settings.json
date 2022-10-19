@@ -3,6 +3,7 @@
     "powershell.codeFormatting.preset": "OTBS",
     "files.exclude": {
         "bin/**": true,
-        "Modules/**": true
+        "Modules/**": true,
+        ".setupran": true,
     }
 }
