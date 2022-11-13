@@ -8,46 +8,12 @@ if ($IsWindows -and $null -eq $env:HOME -and $null -ne $env:USERPROFILE) {
 }
 . "$profileDir/Functions.ps1"
 
-if (!(Test-Path (Join-Path $PSScriptRoot .setupran))) {
-    $script:setupControlDoNotRun = Join-Path $PSScriptRoot .setupdonotrun
-    $script:setupControlForceRun = Join-Path $PSScriptRoot .setupforcerun
-    if (!(Test-Path $setupControlDoNotRun )) {
-        if ($PSEdition -ne 'Core' -and ($null -eq (Get-Command pwsh -ErrorAction SilentlyContinue))) {
-            Write-Output "PowerShell Core is not available and Setup cannot run. Install it from https://aka.ms/PSWindows, and then start PowerShell again."
-        } else {
-            if ($IsLinux -or $IsMacOS -or (Test-Elevated)) {
-                if ((Test-Path $setupControlForceRun) -and $PSEdition -eq 'Core') {
-                    Remove-Item -Force $setupControlForceRun
-                    & "$PSScriptRoot/Setup.ps1"
-                } else {
-                    $choices = @(
-                        [System.Management.Automation.Host.ChoiceDescription]::new("&Yes", "Run setup")
-                        [System.Management.Automation.Host.ChoiceDescription]::new("&No", "Do not run setup at this time")
-                        [System.Management.Automation.Host.ChoiceDescription]::new("&Don't ask again", "Don't ask to run setup again")
-                    )
-                    $script:runSetup = $Host.UI.PromptForChoice("Run setup?", "Setup has not ran yet, do you want to run it now?", $choices, 1)
-                    switch ($runSetup) {
-                        0 {
-                            if ($PSEdition -ne 'Core') {
-                                New-Item -ItemType File "$setupControlForceRun" | Out-Null
-                                pwsh -File "$PSScriptRoot/Setup.ps1"
-                            } else {
-                                & "$PSScriptRoot/Setup.ps1"
-                            }
-                        }
-                        2 {
-                            New-Item -ItemType File "$setupControlDoNotRun" | Out-Null
-                            if ($IsWindows) { (Get-Item $setupControlDoNotRun).Attributes += 'Hidden' }
-                            Write-Output "You will not be asked to run setup again. If you want to run it, run $(Join-Path $PSScriptRoot Setup.ps1), or delete the file '$setupControlDoNotRun' and restart PowerShell."
-                        }
-                        Default {}
-                    }
-                }
-            } else {
-                Write-Warning "Setup has not ran yet. Run this script as administrator in PowerShell Core to run setup."
-            }
-        }
-    }
+if (Test-Elevated) {
+    . "$PSScriptRoot/Setup.ps1"
+    CheckSetup
+} else {
+    . "$PSScriptRoot/Setup-NonElevated.ps1"
+    CheckSetupNonElevated
 }
 
 . "$profileDir/SetViMode.ps1" # always set vi mode before loading modules because of keybindings conflict with PSFzf
@@ -71,7 +37,7 @@ if ((Get-Command bat -CommandType Application -ErrorAction Ignore) -and (Get-Com
     $env:BAT_PAGER = "less -RF"
 }
 
-if (Get-Module PSReadLine) {
+if ((Get-Module PSReadLine) -and ([bool]($(Get-PSReadLineOption).PSobject.Properties.name -match "PredictionSource"))) {
     if ($(Get-PSReadLineOption).PredictionSource -eq 'None') {
         Set-PSReadLineOption -PredictionSource History
     }
@@ -96,7 +62,7 @@ function Add-Starship {
     } else {
         Write-Output "Install Starship to get a nice theme. Go to: https://starship.rs/"
         if ($IsWindows) {
-            Write-Output "Run .\Setup.ps1 and it will be installed with Scoop."
+            Write-Output "Run $PSScriptRoot\Setup-NonElevated.ps1 and it will be installed with Scoop."
         }
     }
 }

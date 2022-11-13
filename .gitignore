@@ -12,4 +12,5 @@ bin
 AdditionalModules
 .setupran
 .setupdonotrun
+.setupran-nonelevated
 powershell.config.json

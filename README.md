@@ -4,11 +4,28 @@ These are my personal poshfiles.
 
 ## Installation instructions
 
-Install PowerShell first, then, from PowerShell itself, run:
+Install Git and PowerShell Core first, then, from PowerShell Core itself, run:
 
 ```powershell
 git clone --recursive https://github.com/giggio/poshfiles.git $(Split-Path $Profile)
 ```
+
+### Installing PowerShell Core and Git
+
+#### Windows
+
+From cmd or Windows PowerShell run:
+
+```cmd
+winget install git.git
+winget install Microsoft.PowerShell
+```
+
+#### Linux
+
+Check your distro recommendations.
+
+### Setting up
 
 The first time you start PowerShell you will be prompted to run the setup, which will install modules and tools.
 If you dismiss it, only part of the tools will work. It will remind you again next time you start it. If you
