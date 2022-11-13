@@ -1,6 +1,6 @@
 {
 	"$schema" : "https://aka.ms/winget-packages.schema.2.0.json",
-	"CreationDate" : "2022-10-19T13:14:09.586-00:00",
+	"CreationDate" : "2022-11-10T20:28:43.645-00:00",
 	"Sources" : 
 	[
 		{
@@ -115,6 +115,9 @@
 					"PackageIdentifier" : "WinDirStat.WinDirStat"
 				},
 				{
+					"PackageIdentifier" : "WiresharkFoundation.Wireshark"
+				},
+				{
 					"PackageIdentifier" : "AntibodySoftware.WizTree"
 				},
 				{
@@ -139,25 +142,19 @@
 					"PackageIdentifier" : "SoftDeluxe.FreeDownloadManager"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.WebDeploy"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.OpenJDK.11"
-				},
-				{
-					"PackageIdentifier" : "Intel.IntelDriverAndSupportAssistant"
+					"PackageIdentifier" : "Microsoft.DotNet.SDK.3_1"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.WindowsInstallationAssistant"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.DotNet.SDK.Preview"
+					"PackageIdentifier" : "Intel.IntelDriverAndSupportAssistant"
 				},
 				{
 					"PackageIdentifier" : "clsid2.mpc-hc"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.DotNet.Runtime.3_1"
+					"PackageIdentifier" : "Microsoft.AzureCLI"
 				},
 				{
 					"PackageIdentifier" : "GlavSoft.TightVNC"
@@ -175,16 +172,10 @@
 					"PackageIdentifier" : "Softerra.LDAPBrowser"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.WindowsSDK"
-				},
-				{
 					"PackageIdentifier" : "OpenVPNTechnologies.OpenVPNConnect"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x86"
-				},
-				{
-					"PackageIdentifier" : "WiresharkFoundation.Wireshark"
+					"PackageIdentifier" : "Microsoft.DotNet.AspNetCore.6"
 				},
 				{
 					"PackageIdentifier" : "JetBrains.ReSharper"
@@ -205,16 +196,16 @@
 					"PackageIdentifier" : "Logitech.LogiTune"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.DotNet.SDK.3_1"
+					"PackageIdentifier" : "Microsoft.DotNet.Runtime.3_1"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.WebDeploy"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.AzureStorageExplorer"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.SQLServer2012NativeClient"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.DotNet.DesktopRuntime.6"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.VCRedist.2013.x86"
@@ -226,37 +217,40 @@
 					"PackageIdentifier" : "Adobe.Acrobat.Reader.64-bit"
 				},
 				{
+					"PackageIdentifier" : "Microsoft.PowerShell"
+				},
+				{
 					"PackageIdentifier" : "GitHub.cli"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.AzureCLI"
-				},
-				{
-					"PackageIdentifier" : "VideoLAN.VLC"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.OpenJDK.11"
 				},
 				{
+					"PackageIdentifier" : "VideoLAN.VLC"
+				},
+				{
 					"PackageIdentifier" : "Dell.CommandUpdate"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x64"
+					"PackageIdentifier" : "Microsoft.DotNet.Runtime.3_1"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.DotNet.AspNetCore.6"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.PowerToys"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.WindowsSDK"
+					"PackageIdentifier" : "Microsoft.DotNet.SDK.7"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.DotNet.DesktopRuntime.6"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.PowerShell"
+					"PackageIdentifier" : "Microsoft.WindowsSDK"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.PowerToys"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.DotNet.AspNetCore.6"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.DotNet.DesktopRuntime.6"
 				}
 			],
 			"SourceDetails" : 
