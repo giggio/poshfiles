@@ -28,6 +28,9 @@ function RunSetup {
             }
         }
 
+        & "$setupDir/wsl-ssh-pageant-installer/install.ps1"
+        & "$setupDir/wsl-ssh-pageant-installer/start.ps1"
+
         if (Test-Path "$env:ProgramFiles\Git\usr\bin") {
             # git tools
             if ($env:path.IndexOf("$($env:ProgramFiles)\Git\usr\bin", [StringComparison]::CurrentCultureIgnoreCase) -lt 0) {

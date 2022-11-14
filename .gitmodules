@@ -19,3 +19,6 @@
 [submodule "Modules/PSFzf"]
 	path = Modules/PSFzf
 	url = https://github.com/kelleyma49/PSFzf.git
+[submodule "Setup/wsl-ssh-pageant-installer"]
+	path = Setup/wsl-ssh-pageant-installer
+	url = https://github.com/giggio/wsl-ssh-pageant-installer.git
