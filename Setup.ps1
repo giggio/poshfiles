@@ -13,23 +13,18 @@ function RunSetup {
         Add-WindowsDefenderExclusions
         . "$setupDir/Configure-Windows.ps1"
 
-        $ssha = Get-Service ssh-agent -ErrorAction SilentlyContinue
-        if ($null -ne $ssha) {
-            if ($null -ne $env:SSH_AUTH_SOCK) {
-                if ($ssha.StartType -eq 'Automatic') {
-                    Write-Output "Setting ssh-agent to manual."
-                    Set-Service $ssha -StartMode Manual
-                }
-            } else {
-                if ($ssha.StartType -eq 'Manual') {
-                    Write-Output "Setting ssh-agent to automatic."
-                    Set-Service $ssha -StartMode Automatic
-                }
-            }
-        }
-
         & "$setupDir/wsl-ssh-pageant-installer/install.ps1"
         & "$setupDir/wsl-ssh-pageant-installer/start.ps1"
+        $env:SSH_AUTH_SOCK = '\\.\pipe\ssh-pageant'
+
+        $ssha = Get-Service ssh-agent -ErrorAction SilentlyContinue
+        if ($null -ne $ssha) {
+            # set ssh-agent to start manually, as we're using wsl-ssh-pageant
+            if ($ssha.StartType -ne 'Manual') {
+                Write-Output "Setting ssh-agent to manual."
+                Set-Service $ssha -StartMode Manual
+            }
+        }
 
         if (Test-Path "$env:ProgramFiles\Git\usr\bin") {
             # git tools

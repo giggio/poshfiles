@@ -17,7 +17,7 @@ $dockerConfig | ConvertTo-Json | Out-File $dockerConfigFilePath
 # windows explorer, show file extensions
 Set-ItemProperty -Path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced' -Name HideFileExt -Value 0
 
-#gpg/pgp
+#gpg/pgp import public key, so it works with yubikey
 $gpgPublicKeyFile = "$env:temp/key.asc"
 $gpgOwnerTrustFile = "$env:temp/ownertrust.txt"
 Invoke-WebRequest "https://links.giggio.net/pgp" -OutFile $gpgPublicKeyFile
@@ -26,3 +26,11 @@ gpg --import $gpgPublicKeyFile
 gpg --import-ownertrust $gpgOwnerTrustFile
 Remove-Item $gpgPublicKeyFile
 Remove-Item $gpgOwnerTrustFile
+# set gpg-config so it works with wsl-ssh-pageant
+Write-Output 'enable-ssh-support:0:1' | gpgconf --change-options gpg-agent
+Write-Output 'enable-putty-support:0:1' | gpgconf --change-options gpg-agent
+$gpgAgentConfigPath = "$env:APPDATA/gnupg/gpg-agent.conf"
+Get-Content $gpgAgentConfigPath
+gpgconf --reload
+gpgconf --kill gpg-agent
+gpg-connect-agent /bye
