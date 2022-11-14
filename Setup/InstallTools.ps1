@@ -5,6 +5,8 @@ Set-StrictMode -Version 3.0
 
 $ErrorActionPreference = 'stop'
 $script:localModulesDirectory = Resolve-Path (Join-Path (Join-Path $PSScriptRoot ..) Modules)
+. $PSScriptRoot\Utils.ps1
+
 $bin = Resolve-Path (Join-Path (Join-Path $PSScriptRoot ..) bin)
 $env:PATH += $([System.IO.Path]::PathSeparator) + $bin
 if (!(Test-Path $bin/tflint*)) {
@@ -55,6 +57,14 @@ if ($IsWindows) {
             0 {
                 #run
                 winget import --import-file $PSScriptRoot\winget.json --accept-source-agreements --accept-package-agreements
+                # not all apps are installed, so we'll just install manually parsing the file
+                winget export -o $env:temp/winget-installed.json
+                $installed = (Get-Content $env:temp/winget-installed.json | ConvertFrom-Json).Sources.Packages.PackageIdentifier
+                $toInstall = (Get-Content $PSScriptRoot/winget.json | ConvertFrom-Json).Sources.Packages.PackageIdentifier `
+                | Where-Object { ! $installed.Contains($_) }
+                Write-Host "Going to install $($toInstall.Count) apps: $($toInstall -join ', ')"
+                $toInstall | ForEach-Object { winget install --accept-package-agreements --id $_ }
+                Remove-Item $env:temp/winget-installed.json
             }
             2 {
                 #view
@@ -67,4 +77,9 @@ if ($IsWindows) {
     }
     Invoke-WingetSetup
     Remove-Item -Path Function:\Invoke-WingetSetup
+
+    # download and install caskaydia cove font
+    Invoke-WebRequest 'https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/CascadiaCode/Regular/complete/Caskaydia%20Cove%20Nerd%20Font%20Complete%20Windows%20Compatible%20Regular.otf' -OutFile $env:temp/CaskaydiaCove.otf
+    Install-FontWindows $env:temp/CaskaydiaCove.otf
+    Remove-Item $env:temp/CaskaydiaCove.otf
 }
