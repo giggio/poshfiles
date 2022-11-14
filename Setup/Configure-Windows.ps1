@@ -16,3 +16,13 @@ $dockerConfig | ConvertTo-Json | Out-File $dockerConfigFilePath
 
 # windows explorer, show file extensions
 Set-ItemProperty -Path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced' -Name HideFileExt -Value 0
+
+#gpg/pgp
+$gpgPublicKeyFile = "$env:temp/key.asc"
+$gpgOwnerTrustFile = "$env:temp/ownertrust.txt"
+Invoke-WebRequest "https://links.giggio.net/pgp" -OutFile $gpgPublicKeyFile
+Set-Content -Path $gpgOwnerTrustFile -Value "275F6749AFD2379D1033548C1237AB122E6F4761:6:"
+gpg --import $gpgPublicKeyFile
+gpg --import-ownertrust $gpgOwnerTrustFile
+Remove-Item $gpgPublicKeyFile
+Remove-Item $gpgOwnerTrustFile
