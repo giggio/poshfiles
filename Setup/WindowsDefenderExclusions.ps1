@@ -74,6 +74,7 @@ function Add-WindowsDefenderExclusions {
     $processExclusions.Add("dotnet.exe") | Out-Null
     $processExclusions.Add("Code.exe") | Out-Null
     $processExclusions.Add("gpg-agent.exe") | Out-Null
+    $processExclusions.Add("gpg-connect-agent.exe") | Out-Null
     $processExclusions.Add("ssh-agent.exe") | Out-Null
     $processExclusions.Add("vsls-agent.exe") | Out-Null
     $processExclusions.Add("iisexpress.exe") | Out-Null
@@ -142,4 +143,9 @@ function Get-WindowsDefenderExclusions {
     foreach ($e in $exclusionPaths) { Write-Exact "$e" }
     Write-Exact "`nProcesses:"
     foreach ($e in $exclusionProcesses) { Write-Exact "$e" }
+}
+
+$script:isDotSourced = $MyInvocation.InvocationName -eq '.' -or $MyInvocation.Line -eq ''
+if (!$isDotSourced) {
+    Add-WindowsDefenderExclusions
 }
