@@ -41,7 +41,6 @@ function Invoke-ScoopSetup {
         0 {
             #run
             scoop import $PSScriptRoot\scoopfile.json
-            scoop install ((Get-Content $PSScriptRoot/scoopfile.json | ConvertFrom-Json).apps.Name) # todo: remove when https://github.com/ScoopInstaller/Scoop/issues/5208 is fixed
         }
         2 {
             #view
