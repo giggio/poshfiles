@@ -29,6 +29,8 @@ Remove-Item $gpgOwnerTrustFile
 # set gpg-config so it works with wsl-ssh-pageant
 Write-Output 'enable-ssh-support:0:1' | gpgconf --change-options gpg-agent
 Write-Output 'enable-putty-support:0:1' | gpgconf --change-options gpg-agent
+Write-Output 'max-cache-ttl:0:34560000' | gpgconf --change-options gpg-agent
+Write-Output 'default-cache-ttl:0:34560000' | gpgconf --change-options gpg-agent
 $gpgAgentConfigPath = "$env:APPDATA/gnupg/gpg-agent.conf"
 Get-Content $gpgAgentConfigPath
 gpgconf --reload
