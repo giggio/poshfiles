@@ -81,5 +81,5 @@ if ($IsWindows) {
     Invoke-WingetSetup
     Remove-Item -Path Function:\Invoke-WingetSetup
 
-    powershell.exe -File $PSScriptRoot\InstallTools-Windows-Powershell.ps1
+    powershell.exe -NoProfile -File $PSScriptRoot\InstallTools-Windows-Powershell.ps1
 }

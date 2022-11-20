@@ -1,3 +1,5 @@
+. "$PSScriptRoot/Common.ps1"
+
 function color ($lexer = 'javascript') {
     Begin { $t = "" }
     Process {
