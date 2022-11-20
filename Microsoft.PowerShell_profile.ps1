@@ -14,6 +14,13 @@ if (Test-Elevated) {
 } else {
     . "$PSScriptRoot/Setup-NonElevated.ps1"
     CheckSetupNonElevated
+    if (Get-Command sudo -ErrorAction Ignore) {
+        if (Get-Command pwsh -ErrorAction Ignore) {
+            sudo pwsh.exe -File "$PSScriptRoot/Setup.ps1"
+        } else {
+            sudo powershell.exe -File "$PSScriptRoot/Setup.ps1"
+        }
+    }
 }
 
 . "$profileDir/SetViMode.ps1" # always set vi mode before loading modules because of keybindings conflict with PSFzf
