@@ -1,3 +1,7 @@
+if (!(Test-Path Function:\Test-Elevated)) {
+    $script:profile = Join-Path (Join-Path $PSScriptRoot ..) Profile
+    . $profile/Functions.ps1
+}
 function Add-WindowsDefenderExclusions {
     [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseSingularNouns", "")]
     [CmdletBinding()]
