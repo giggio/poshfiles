@@ -151,5 +151,11 @@ function Get-WindowsDefenderExclusions {
 
 $script:isDotSourced = $MyInvocation.InvocationName -eq '.' -or $MyInvocation.Line -eq ''
 if (!$isDotSourced) {
-    Add-WindowsDefenderExclusions
+    if (Test-Elevated) {
+        Add-WindowsDefenderExclusions
+    } else {
+        sudo powershell.exe -File "$PSCommandPath"
+        Write-Error "Cannot run $PSCommandPath, needs to be elevated."
+        exit 1
+    }
 }
