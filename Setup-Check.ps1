@@ -2,8 +2,8 @@ Set-StrictMode -Version 3.0
 
 $script:setupControl = Join-Path $PSScriptRoot .setupran
 
-function CheckSetup {
-    if (!(Test-Path $setupControl)) {
+function CheckSetup([switch]$BypassCheck = $false) {
+    if (!(Test-Path $setupControl) -or $bypassCheck) {
         $script:setupControlDoNotRun = Join-Path $PSScriptRoot .setupdonotrun
         if (!(Test-Path $setupControlDoNotRun)) {
             if ($PSEdition -ne 'Core' -and ($null -eq (Get-Command pwsh -ErrorAction SilentlyContinue))) {
@@ -45,9 +45,6 @@ function CheckSetup {
 $script:isDotSourced = $MyInvocation.InvocationName -eq '.' -or $MyInvocation.Line -eq ''
 if (!$isDotSourced) {
     if ((Test-Elevated) -or (Get-Command sudo -ErrorAction Ignore)) {
-        if (Test-Path $script:setupControl) {
-            Remove-Item $script:setupControl -Force
-        }
-        CheckSetup
+        CheckSetup -BypassCheck
     }
 }
