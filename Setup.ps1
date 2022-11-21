@@ -12,6 +12,7 @@ function RunSetup {
     & "$setupDir/InstallTools.ps1"
 
     if ($IsWindows) {
+        Sync-Path
         . "$setupDir/WindowsDefenderExclusions.ps1"
         Add-WindowsDefenderExclusions
         . "$setupDir/Configure-Windows.ps1"
