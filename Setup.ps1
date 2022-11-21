@@ -3,6 +3,9 @@
 param([switch]$RunNow)
 
 Set-StrictMode -Version 3.0
+$script:profileDir = Join-Path $PSScriptRoot Profile
+. "$profileDir/Common.ps1"
+. "$profileDir/Functions.ps1"
 
 $script:setupControl = Join-Path $PSScriptRoot .setupran
 function RunSetup {

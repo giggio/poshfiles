@@ -72,5 +72,8 @@ function CheckSetupNonElevated {
 
 $script:isDotSourced = $MyInvocation.InvocationName -eq '.' -or $MyInvocation.Line -eq ''
 if (!$isDotSourced) {
+    if (Test-Path $script:setupControl) {
+        Remove-Item $script:setupControl -Force
+    }
     RunSetupNonElevated
 }

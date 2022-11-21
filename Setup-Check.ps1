@@ -31,7 +31,7 @@ function CheckSetup {
                         2 {
                             New-Item -ItemType File "$setupControlDoNotRun" | Out-Null
                             if ($IsWindows) { (Get-Item $setupControlDoNotRun).Attributes += 'Hidden' }
-                            Write-Output "You will not be asked to run setup again. If you want to run it, run $(Join-Path $PSScriptRoot Setup.ps1), or delete the file '$setupControlDoNotRun' and restart PowerShell."
+                            Write-Output "You will not be asked to run setup again. If you want to run it, run $(Join-Path $PSScriptRoot Setup-Check.ps1), or delete the file '$setupControlDoNotRun' and restart PowerShell."
                         }
                         Default {}
                     }
@@ -42,10 +42,12 @@ function CheckSetup {
         }
     }
 }
-
 $script:isDotSourced = $MyInvocation.InvocationName -eq '.' -or $MyInvocation.Line -eq ''
 if (!$isDotSourced) {
-    if (Test-Elevated -or (Get-Command sudo -ErrorAction Ignore)) {
+    if ((Test-Elevated) -or (Get-Command sudo -ErrorAction Ignore)) {
+        if (Test-Path $script:setupControl) {
+            Remove-Item $script:setupControl -Force
+        }
         CheckSetup
     }
 }
