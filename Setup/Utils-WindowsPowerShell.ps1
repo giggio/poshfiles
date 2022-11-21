@@ -8,7 +8,7 @@ if (!$isDotSourced) {
     exit 1
 }
 
-$script:profileDir = Join-Path $PSScriptRoot .. Profile
+$script:profileDir = Join-Path (Join-Path $PSScriptRoot ..) Profile
 . "$profileDir/Functions.ps1"
 
 function Install-FontWindows {
