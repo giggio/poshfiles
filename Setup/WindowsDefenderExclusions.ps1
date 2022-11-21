@@ -1,5 +1,5 @@
 if (!(Test-Path Function:\Test-Elevated)) {
-    $script:profile = Join-Path (Join-Path $PSScriptRoot ..) Profile
+    $script:profile = Join-Path $PSScriptRoot .. Profile
     . $profile/Functions.ps1
 }
 function Add-WindowsDefenderExclusions {
@@ -92,8 +92,6 @@ function Add-WindowsDefenderExclusions {
     $exclusionProcesses = $prefs.ExclusionProcess | Sort-Object
     $newExclusionPaths = @($pathExclusions | Where-Object { $exclusionPaths -notcontains $_ })
     $newExclusionProcesses = @($processExclusions | Where-Object { $exclusionProcesses -notcontains $_ })
-    $newExclusionPaths
-    $newExclusionProcesses
 
     if ($newExclusionPaths.Count) {
         foreach ($pathExclusion in $newExclusionPaths) {

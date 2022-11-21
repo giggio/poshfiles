@@ -4,9 +4,9 @@
 Set-StrictMode -Version 3.0
 
 $ErrorActionPreference = 'stop'
-$script:localModulesDirectory = Resolve-Path (Join-Path (Join-Path $PSScriptRoot ..) Modules)
+$script:localModulesDirectory = Resolve-Path (Join-Path $PSScriptRoot .. Modules)
 
-$bin = Resolve-Path (Join-Path (Join-Path $PSScriptRoot ..) bin)
+$bin = Resolve-Path (Join-Path $PSScriptRoot .. bin)
 $env:PATH += $([System.IO.Path]::PathSeparator) + $bin
 if (!(Test-Path $bin/tflint*)) {
     $os = ''

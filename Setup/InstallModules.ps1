@@ -1,6 +1,9 @@
+#Requires -PSEdition Core
+#Requires -Version 7.2
+
 Set-StrictMode -Version 3
-$script:localModulesDirectory = Resolve-Path (Join-Path (Join-Path $PSScriptRoot ..) Modules)
-$script:localAdditionalModulesDirectory = Resolve-Path (Join-Path (Join-Path $PSScriptRoot ..) AdditionalModules)
+$script:localModulesDirectory = Resolve-Path (Join-Path $PSScriptRoot .. Modules)
+$script:localAdditionalModulesDirectory = Resolve-Path (Join-Path $PSScriptRoot .. AdditionalModules)
 
 function FixPSModulePath($path, $messageSuffix) {
     if ($null -eq $path) { $path = '' }
@@ -89,7 +92,7 @@ if (!(Test-Path (Join-Path $localModulesDirectory PowerShellGet))) {
 if (!(Test-Path (Join-Path $localModulesDirectory psake))) {
     Save-Module -Name psake -Path $localModulesDirectory -Confirm:$false
 }
-$psakeTabExpansionFile = Join-Path (Join-Path $localModulesDirectory psake) PsakeTabExpansion.ps1
+$psakeTabExpansionFile = Join-Path $localModulesDirectory psake PsakeTabExpansion.ps1
 if (!(Test-Path $psakeTabExpansionFile)) {
     Invoke-WebRequest -Uri https://github.com/psake/psake/raw/master/tabexpansion/PsakeTabExpansion.ps1 -OutFile $psakeTabExpansionFile
 }

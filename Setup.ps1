@@ -1,10 +1,11 @@
 #Requires -RunAsAdministrator
+#Requires -PSEdition Core
+#Requires -Version 7.2
 
 param([switch]$RunNow)
-
 $ErrorActionPreference = 'Stop'
-
 Set-StrictMode -Version 3.0
+
 $script:profileDir = Join-Path $PSScriptRoot Profile
 . "$profileDir/Common.ps1"
 . "$profileDir/Functions.ps1"

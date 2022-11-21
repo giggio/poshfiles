@@ -58,7 +58,7 @@ function Get-StrictMode {
 function Sync-Path {
     if ($IsWindows) {
         $userPath = [Environment]::GetEnvironmentVariable('PATH', 'Machine')
-        $machinePath = [Environment]::GetEnvironmentVariable('PATH', 'Machine')
+        $machinePath = [Environment]::GetEnvironmentVariable('PATH', 'User')
         $env:PATH = "$userPath;$machinePath"
     }
 }
