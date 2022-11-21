@@ -20,21 +20,44 @@ if (Test-Path $dockerConfigFilePath) {
 Set-ItemProperty -Path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced' -Name HideFileExt -Value 0
 
 #gpg/pgp import public key, so it works with yubikey
-$gpgPublicKeyFile = "$env:temp/key.asc"
-$gpgOwnerTrustFile = "$env:temp/ownertrust.txt"
-Invoke-WebRequest "https://links.giggio.net/pgp" -OutFile $gpgPublicKeyFile
-Set-Content -Path $gpgOwnerTrustFile -Value "275F6749AFD2379D1033548C1237AB122E6F4761:6:"
-gpg --import $gpgPublicKeyFile
-gpg --import-ownertrust $gpgOwnerTrustFile
-Remove-Item $gpgPublicKeyFile
-Remove-Item $gpgOwnerTrustFile
-# set gpg-config so it works with wsl-ssh-pageant
-Write-Output 'enable-ssh-support:0:1' | gpgconf --change-options gpg-agent
-Write-Output 'enable-putty-support:0:1' | gpgconf --change-options gpg-agent
-Write-Output 'max-cache-ttl:0:34560000' | gpgconf --change-options gpg-agent
-Write-Output 'default-cache-ttl:0:34560000' | gpgconf --change-options gpg-agent
-$gpgAgentConfigPath = "$env:APPDATA/gnupg/gpg-agent.conf"
-Get-Content $gpgAgentConfigPath
-gpgconf --reload
-gpgconf --kill gpg-agent
-gpg-connect-agent /bye
+if (Get-Command gpg -ErrorAction Ignore) {
+    $keyId = '275F6749AFD2379D1033548C1237AB122E6F4761'
+    if (!(gpg --list-keys $keyId | Where-Object { $_.StartsWith('uid') }).Contains('[ultimate]')) {
+        $gpgPublicKeyFile = "$env:temp/key.asc"
+        $gpgOwnerTrustFile = "$env:temp/ownertrust.txt"
+        Invoke-WebRequest "https://links.giggio.net/pgp" -OutFile $gpgPublicKeyFile
+        Set-Content -Path $gpgOwnerTrustFile -Value "${keyId}:6:"
+        gpg --import $gpgPublicKeyFile
+        gpg --import-ownertrust $gpgOwnerTrustFile
+        Remove-Item $gpgPublicKeyFile
+        Remove-Item $gpgOwnerTrustFile
+    }
+    # set gpg-config so it works with wsl-ssh-pageant
+    $gpgAgentConf = $(gpgconf --list-options gpg-agent)
+    $updatedGpgAgentConf = $false
+    if (!($gpgAgentConf | Where-Object { $_.StartsWith('enable-ssh-support:') }).EndsWith(':1')) {
+        Write-Output 'enable-ssh-support:0:1' | gpgconf --change-options gpg-agent
+        $updatedGpgAgentConf = $true
+    }
+    if (!($gpgAgentConf | Where-Object { $_.StartsWith('enable-putty-support:') }).EndsWith(':1')) {
+        Write-Output 'enable-putty-support:0:1' | gpgconf --change-options gpg-agent
+        $updatedGpgAgentConf = $true
+    }
+    if (!($gpgAgentConf | Where-Object { $_.StartsWith('max-cache-ttl:') }).EndsWith(':34560000')) {
+        Write-Output 'max-cache-ttl:0:34560000' | gpgconf --change-options gpg-agent
+        $updatedGpgAgentConf = $true
+    }
+    if (!($gpgAgentConf | Where-Object { $_.StartsWith('default-cache-ttl:') }).EndsWith(':34560000')) {
+        Write-Output 'default-cache-ttl:0:34560000' | gpgconf --change-options gpg-agent
+        $updatedGpgAgentConf = $true
+    }
+    if ($updatedGpgAgentConf) {
+        $gpgAgentConfigPath = "$env:APPDATA/gnupg/gpg-agent.conf"
+        Get-Content $gpgAgentConfigPath
+        gpgconf --reload
+        gpgconf --kill gpg-agent
+        gpg-connect-agent /bye
+    }
+} else {
+    Write-Host "Gpg not installed, configuration not performed."
+}
