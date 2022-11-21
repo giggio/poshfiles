@@ -22,7 +22,7 @@ Set-ItemProperty -Path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer
 #gpg/pgp import public key, so it works with yubikey
 if (Get-Command gpg -ErrorAction Ignore) {
     $keyId = '275F6749AFD2379D1033548C1237AB122E6F4761'
-    if (!(gpg --list-keys $keyId | Where-Object { $_.StartsWith('uid') }).Contains('[ultimate]')) {
+    if (!((gpg --list-keys $keyId | Where-Object { $_.StartsWith('uid') }) ?? '').Contains('[ultimate]')) {
         $gpgPublicKeyFile = "$env:temp/key.asc"
         $gpgOwnerTrustFile = "$env:temp/ownertrust.txt"
         Invoke-WebRequest "https://links.giggio.net/pgp" -OutFile $gpgPublicKeyFile
