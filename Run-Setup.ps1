@@ -1,5 +1,23 @@
+param ([switch]$Force)
+
 Set-StrictMode -Version 3.0
 $ErrorActionPreference = 'Stop'
+
+$script:setupDir = Join-Path $PSScriptRoot Setup
+$script:isDotSourced = $MyInvocation.InvocationName -eq '.' -or $MyInvocation.Line -eq ''
+if (!$isDotSourced) {
+    if ($Force) {
+        if (Test-Path $setupDir/.setupran) {
+            Remove-Item $setupDir/.setupran -Force
+        }
+        if (Test-Path $setupDir/.setupran-nonelevated) {
+            Remove-Item $setupDir/.setupran-nonelevated -Force
+        }
+        if (Test-Path $setupDir/.setupdonotrun) {
+            Remove-Item $setupDir/.setupdonotrun -Force
+        }
+    }
+}
 
 $script:profileDir = Join-Path $PSScriptRoot Profile
 . "$profileDir/Functions.ps1"
