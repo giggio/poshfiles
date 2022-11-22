@@ -24,6 +24,7 @@ function RunSetupNonElevated {
     Push-Location $rootDir | Out-Null
     git submodule update --init --recursive
     Pop-Location
+    . "$setupDir/InstallModules.ps1"
 
     if ($IsWindows) {
         & "$setupDir/InstallTools-Windows-NonElevated.ps1"

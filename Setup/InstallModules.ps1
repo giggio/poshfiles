@@ -72,16 +72,16 @@ if ($IsWindows) {
 
 function ModuleMissing([Parameter(Mandatory = $true)][string]$moduleName, [System.Version]$minimumVersion) {
     if ($null -eq $minimumVersion) {
-        ([array]($env:PSModulePath.Split([System.IO.Path]::PathSeparator, [System.StringSplitOptions]::RemoveEmptyEntries) | `
-                ForEach-Object { Join-Path $_ $moduleName } | `
-                Where-Object { Test-Path $_ }
-        ))?.Count -eq 0
+        (([array]($env:PSModulePath.Split([System.IO.Path]::PathSeparator, [System.StringSplitOptions]::RemoveEmptyEntries) | `
+                    ForEach-Object { Join-Path $_ $moduleName } | `
+                    Where-Object { Test-Path $_ }
+            )) ?? @()).Count -eq 0
     } else {
-        ([array]($env:PSModulePath.Split([System.IO.Path]::PathSeparator, [System.StringSplitOptions]::RemoveEmptyEntries) | `
-                ForEach-Object { Join-Path $_ $moduleName } | `
-                Where-Object { Test-Path $_ } | `
-                Where-Object { (Get-Module -ListAvailable $_).Version -ge $minimumVersion } `
-        ))?.Count -eq 0
+        (([array]($env:PSModulePath.Split([System.IO.Path]::PathSeparator, [System.StringSplitOptions]::RemoveEmptyEntries) | `
+                    ForEach-Object { Join-Path $_ $moduleName } | `
+                    Where-Object { Test-Path $_ } | `
+                    Where-Object { (Get-Module -ListAvailable $_).Version -ge $minimumVersion } `
+            )) ?? @()).Count -eq 0
     }
 }
 
@@ -109,15 +109,6 @@ if (ModuleMissing Pester '5.0.0') {
     Save-Module Pester $localModulesDirectory -Confirm:$false
 }
 
-if ($PSVersionTable.PSEdition -eq 'Desktop') {
-    if (ModuleMissing AzureADPreview) {
-        Save-Module AzureADPreview $localModulesDirectory -Confirm:$false
-    }
-    if (ModuleMissing ExchangeOnlineManagement) {
-        Save-Module ExchangeOnlineManagement $localModulesDirectory -Confirm:$false
-    }
-}
-
 if (ModuleMissing PSScriptAnalyzer) {
     Save-Module PSScriptAnalyzer $localModulesDirectory -Confirm:$false
 }
@@ -127,3 +118,7 @@ if (ModuleMissing PSReadLine '2.2.6') {
 }
 
 Remove-Item -Path Function:\FixPSModulePath
+
+if ($IsWindows) {
+    powershell.exe -File $PSScriptRoot\InstallModules-Windows.ps1
+}

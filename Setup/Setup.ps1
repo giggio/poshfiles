@@ -19,7 +19,6 @@ function RunSetup {
         New-Item -ItemType File "$setupControl" | Out-Null
         if ($IsWindows) { (Get-Item $setupControl).Attributes += 'Hidden' }
     }
-    & "$setupDir/InstallModules.ps1"
     & "$setupDir/InstallTools.ps1"
     if ($IsWindows) {
         & "$setupDir/Setup-Windows.ps1"
