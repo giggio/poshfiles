@@ -28,11 +28,10 @@ function RunSetupNonElevated {
         New-Item -ItemType File "$setupControl" | Out-Null
         if ($IsWindows) { (Get-Item $setupControl).Attributes += 'Hidden' }
     }
-    . "$setupDir/InstallModules.ps1"
-
     if ($IsWindows) {
         & "$setupDir/InstallTools-Windows-NonElevated.ps1"
     }
+    . "$setupDir/InstallModules.ps1"
 }
 
 function CheckSetupNonElevated([switch]$BypassCheck = $false) {
