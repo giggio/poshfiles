@@ -16,6 +16,8 @@ if (Test-Elevated) {
     exit 1
 }
 
+& "$PSScriptRoot/Install-PlatformTools.ps1"
+
 function Add-Scoop {
     [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingInvokeExpression', "", Scope = 'function', Justification = 'This is how you setup scoop')]
     param()
