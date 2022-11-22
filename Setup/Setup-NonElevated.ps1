@@ -59,6 +59,8 @@ function CheckSetupNonElevated([switch]$BypassCheck = $false) {
             }
         }
     }
+    . "$PSScriptRoot/Setup-Check.ps1"
+    CheckSetup
 }
 
 $script:isDotSourced = $MyInvocation.InvocationName -eq '.' -or $MyInvocation.Line -eq ''

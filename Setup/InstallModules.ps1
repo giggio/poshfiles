@@ -120,5 +120,5 @@ if (ModuleMissing PSReadLine '2.2.6') {
 Remove-Item -Path Function:\FixPSModulePath
 
 if ($IsWindows) {
-    powershell.exe -File $PSScriptRoot\InstallModules-Windows.ps1
+    powershell.exe -NoProfile -File $PSScriptRoot\InstallModules-Windows.ps1
 }
