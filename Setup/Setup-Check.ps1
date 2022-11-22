@@ -5,6 +5,8 @@ Set-StrictMode -Version 3.0
 
 $script:rootDir = Resolve-Path (Join-Path $PSScriptRoot ..)
 $script:setupControl = Join-Path $PSScriptRoot .setupran
+$script:profileDir = Join-Path $rootDir Profile
+. "$profileDir/Functions.ps1"
 
 function CheckSetup([switch]$BypassCheck = $false) {
     if (!(Test-Path $setupControl) -or $BypassCheck) {
@@ -24,6 +26,7 @@ function CheckSetup([switch]$BypassCheck = $false) {
                         } else {
                             sudo pwsh -NoProfile -File "$PSScriptRoot/Setup.ps1" -RunNow
                         }
+                        Sync-Path
                     }
                     2 {
                         New-Item -ItemType File "$setupControlDoNotRun" | Out-Null
@@ -38,6 +41,7 @@ function CheckSetup([switch]$BypassCheck = $false) {
         }
     }
 }
+
 $script:isDotSourced = $MyInvocation.InvocationName -eq '.' -or $MyInvocation.Line -eq ''
 if (!$isDotSourced) {
     if ((Test-Elevated) -or (Get-Command sudo -ErrorAction Ignore)) {

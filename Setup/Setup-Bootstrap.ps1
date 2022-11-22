@@ -21,3 +21,6 @@ if ($null -eq (Get-Command git -ErrorAction SilentlyContinue)) {
         winget install --accept-package-agreements --accept-source-agreements Git.Git
     }
 }
+if ($runSetup -eq 0) {
+    Sync-Path
+}

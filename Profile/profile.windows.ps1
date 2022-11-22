@@ -1,3 +1,5 @@
+$script:profileDir = $PSScriptRoot
+
 # disable Telemetry to be able to use this in PowerShell Core
 # see https://docs.microsoft.com/en-us/visualstudio/ide/visual-studio-experience-improvement-program
 # and https://developercommunity.visualstudio.com/idea/663594/microsoftvisualstudiodevshell-doesnt-work-with-pow.html
@@ -31,3 +33,10 @@ function vs() {
 
 $env:ChocolateyToolsRoot = "c:\tools\"
 $env:ChocolateyBinRoot = "c:\tools\"
+
+. "$profileDir/CreateAliases.windows.ps1"
+
+if (!(Test-Path env:SSH_AUTH_SOCK) -and !(Get-Process ssh-agent -ErrorAction Ignore) -and (Test-Path (Join-Path (Join-Path $(if ($env:HOME) { $env:HOME } else { $env:USERPROFILE }) .ssh) id_rsa))) {
+    Start-SshAgent -Quiet
+}
+if (Get-Command colortool -ErrorAction Ignore) { colortool --quiet campbell.ini }

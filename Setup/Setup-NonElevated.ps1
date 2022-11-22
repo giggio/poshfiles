@@ -47,6 +47,7 @@ function CheckSetupNonElevated([switch]$BypassCheck = $false) {
             switch ($runSetup) {
                 0 {
                     RunSetupNonElevated
+                    Sync-Path
                 }
                 2 {
                     New-Item -ItemType File "$setupControlDoNotRun" | Out-Null
