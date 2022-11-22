@@ -33,3 +33,15 @@ if (Test-Elevated) {
         Sync-Path
     }
 }
+if (Test-Path Function:\CheckSetup) {
+    Remove-Item -Path Function:\CheckSetup
+}
+if (Test-Path Function:\CheckSetupNonElevated) {
+    Remove-Item -Path Function:\CheckSetupNonElevated
+}
+if (Test-Path Function:\RunSetupNonElevated) {
+    Remove-Item -Path Function:\RunSetupNonElevated
+}
+if (Test-Path Function:\RunSetup) {
+    Remove-Item -Path Function:\RunSetup
+}
