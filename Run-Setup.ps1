@@ -31,7 +31,7 @@ if (Test-Elevated) {
         if ($null -eq (Get-Command pwsh -ErrorAction SilentlyContinue)) {
             Write-Warning "PowerShell Core is not available and Setup cannot run. Install it from https://aka.ms/PSWindows, and then start PowerShell again."
         } else {
-            pwsh -File "$PSScriptRoot/Setup/Setup-Check.ps1"
+            pwsh -Command "& `"$PSScriptRoot/Setup/Setup-Check.ps1`""
         }
     }
 } else {
@@ -45,8 +45,8 @@ if (Test-Elevated) {
         if ($null -eq (Get-Command pwsh -ErrorAction SilentlyContinue)) {
             Write-Warning "PowerShell Core is not available and Setup cannot run. Install it from https://aka.ms/PSWindows, and then start PowerShell again."
         } else {
-            pwsh -File "$PSScriptRoot/Setup/Setup-NonElevated.ps1"
-            pwsh -File "$PSScriptRoot/Setup/Setup-Check.ps1"
+            pwsh -Command "& `"$PSScriptRoot/Setup/Setup-NonElevated.ps1`""
+            pwsh -Command "& `"$PSScriptRoot/Setup/Setup-Check.ps1`""
         }
         Sync-Path
     }
