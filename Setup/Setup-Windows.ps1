@@ -7,7 +7,7 @@ if (!$IsWindows) {
 
 $script:setupDir = $PSScriptRoot
 Sync-Path
-powershell.exe -ExecutionPolicy RemoteSigned  -File "$setupDir/Setup-WindowsPowerShell.ps1"
+powershell.exe -ExecutionPolicy RemoteSigned -File "$setupDir/Configure-WindowsPowerShell.ps1"
 
 . "$setupDir/WindowsDefenderExclusions.ps1"
 Add-WindowsDefenderExclusions
