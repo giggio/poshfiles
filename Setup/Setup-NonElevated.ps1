@@ -24,14 +24,14 @@ function RunSetupNonElevated {
     Push-Location $rootDir | Out-Null
     git submodule update --init --recursive
     Pop-Location
+    if (!(Test-Path $setupControl)) {
+        New-Item -ItemType File "$setupControl" | Out-Null
+        if ($IsWindows) { (Get-Item $setupControl).Attributes += 'Hidden' }
+    }
     . "$setupDir/InstallModules.ps1"
 
     if ($IsWindows) {
         & "$setupDir/InstallTools-Windows-NonElevated.ps1"
-    }
-    if (!(Test-Path $setupControl)) {
-        New-Item -ItemType File "$setupControl" | Out-Null
-        if ($IsWindows) { (Get-Item $setupControl).Attributes += 'Hidden' }
     }
 }
 
