@@ -7,6 +7,7 @@ if ($IsWindows -and $null -eq $env:HOME -and $null -ne $env:USERPROFILE) {
     $env:HOME = $env:USERPROFILE
 }
 . "$profileDir/Functions.ps1"
+Sync-Path
 
 if (Test-Elevated) {
     if ($PSEdition -eq 'Core') {
