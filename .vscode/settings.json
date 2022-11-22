@@ -4,6 +4,7 @@
     "files.exclude": {
         "bin/**": true,
         "Modules/**": true,
-        ".setupran": true,
+        "Setup/.setupran": true,
+        "Setup/.setupran-nonelevated": true,
     }
 }

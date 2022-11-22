@@ -10,7 +10,7 @@ if ($IsWindows -and $null -eq $env:HOME -and $null -ne $env:USERPROFILE) {
 
 if (Test-Elevated) {
     if ($PSEdition -eq 'Core') {
-        . "$PSScriptRoot/Setup-Check.ps1"
+        . "$PSScriptRoot/Setup/Setup-Check.ps1"
         CheckSetup
     } else {
         . "$PSScriptRoot/Setup/Setup-Bootstrap.ps1"
@@ -18,14 +18,14 @@ if (Test-Elevated) {
         if ($null -eq (Get-Command pwsh -ErrorAction SilentlyContinue)) {
             Write-Warning "PowerShell Core is not available and Setup cannot run. Install it from https://aka.ms/PSWindows, and then start PowerShell again."
         } else {
-            pwsh -File "$PSScriptRoot/Setup-Check.ps1"
+            pwsh -File "$PSScriptRoot/Setup/Setup-Check.ps1"
         }
     }
 } else {
     if ($PSEdition -eq 'Core') {
-        . "$PSScriptRoot/Setup-NonElevated.ps1"
+        . "$PSScriptRoot/Setup/Setup-NonElevated.ps1"
         CheckSetupNonElevated
-        . "$PSScriptRoot/Setup-Check.ps1"
+        . "$PSScriptRoot/Setup/Setup-Check.ps1"
         CheckSetup
     } else {
         . "$PSScriptRoot/Setup/Setup-Bootstrap.ps1"
@@ -33,8 +33,8 @@ if (Test-Elevated) {
         if ($null -eq (Get-Command pwsh -ErrorAction SilentlyContinue)) {
             Write-Warning "PowerShell Core is not available and Setup cannot run. Install it from https://aka.ms/PSWindows, and then start PowerShell again."
         } else {
-            pwsh -File "$PSScriptRoot/Setup-NonElevated.ps1"
-            pwsh -File "$PSScriptRoot/Setup-Check.ps1"
+            pwsh -File "$PSScriptRoot/Setup/Setup-NonElevated.ps1"
+            pwsh -File "$PSScriptRoot/Setup/Setup-Check.ps1"
         }
     }
 }
@@ -85,7 +85,7 @@ function Add-Starship {
     } else {
         Write-Output "Install Starship to get a nice theme. Go to: https://starship.rs/"
         if ($IsWindows) {
-            Write-Output "Run $PSScriptRoot\Setup-NonElevated.ps1 and it will be installed with Scoop."
+            Write-Output "Run $PSScriptRoot\Setup\Setup-NonElevated.ps1 and it will be installed with Scoop."
         }
     }
 }

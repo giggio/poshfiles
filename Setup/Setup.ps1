@@ -6,14 +6,15 @@ param([switch]$RunNow)
 $ErrorActionPreference = 'Stop'
 Set-StrictMode -Version 3.0
 
-$script:profileDir = Join-Path $PSScriptRoot Profile
+$script:rootDir = Resolve-Path (Join-Path $PSScriptRoot ..)
+$script:profileDir = Join-Path $rootDir Profile
 . "$profileDir/Common.ps1"
 . "$profileDir/Functions.ps1"
 
 $script:setupControl = Join-Path $PSScriptRoot .setupran
+$script:setupDir = $PSScriptRoot
+
 function RunSetup {
-    $script:setupDir = Join-Path $PSScriptRoot Setup
-    $script:profileDir = Join-Path $PSScriptRoot Profile
     if (!(Test-Path $setupControl)) {
         New-Item -ItemType File "$setupControl" | Out-Null
         if ($IsWindows) { (Get-Item $setupControl).Attributes += 'Hidden' }

@@ -2,7 +2,7 @@ $script:localModulesDirectory = Resolve-Path (Join-Path (Join-Path $PSScriptRoot
 $script:localAdditionalModulesDirectory = Resolve-Path (Join-Path (Join-Path $PSScriptRoot ..) AdditionalModules)
 
 & {
-    $setupScriptPath = Resolve-Path (Join-Path (Join-Path $PSScriptRoot ..) Setup.ps1)
+    $setupScriptPath = Resolve-Path (Join-Path (Join-Path (Join-Path $PSScriptRoot ..) Setup) Setup.ps1)
     if (!($env:PSModulePath.Contains($localModulesDirectory))) {
         Write-Warning "PSModulePath does not contain local module PATH '$localModulesDirectory'. Adding it now, but modules may not work as expected. Run the Setup Script ($setupScriptPath) so your PSModulePath registry and/or config file is set correctly."
         $env:PSModulePath = "$localModulesDirectory$([System.IO.Path]::PathSeparator)$env:PSModulePath"

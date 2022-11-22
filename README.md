@@ -29,7 +29,7 @@ Check your distro recommendations.
 
 The first time you start PowerShell you will be prompted to run the setup, which will install modules and tools.
 If you dismiss it, only part of the tools will work. It will remind you again next time you start it. If you
-dismiss it for good, you can always run the [setup script file](./Setup.ps1) directly. On Windows you will need to run
+dismiss it for good, you can always run the [setup script file](./Setup/Setup.ps1) directly. On Windows you will need to run
 it from an admin window (because of some extra work it does, like setting up Windows Defender exclusion rules)
 and you need PowerShell Core installed
 ([get it](https://learn.microsoft.com/powershell/scripting/install/installing-powershell-on-windows)).

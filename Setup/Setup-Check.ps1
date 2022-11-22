@@ -3,6 +3,7 @@
 
 Set-StrictMode -Version 3.0
 
+$script:rootDir = Resolve-Path (Join-Path $PSScriptRoot ..)
 $script:setupControl = Join-Path $PSScriptRoot .setupran
 
 function CheckSetup([switch]$BypassCheck = $false) {
@@ -27,7 +28,7 @@ function CheckSetup([switch]$BypassCheck = $false) {
                     2 {
                         New-Item -ItemType File "$setupControlDoNotRun" | Out-Null
                         if ($IsWindows) { (Get-Item $setupControlDoNotRun).Attributes += 'Hidden' }
-                        Write-Output "You will not be asked to run setup again. If you want to run it, run $(Join-Path $PSScriptRoot Setup-Check.ps1), or delete the file '$setupControlDoNotRun' and restart PowerShell."
+                        Write-Output "You will not be asked to run setup again. If you want to run it, run $PSCommandPath, or delete the file '$setupControlDoNotRun' and restart PowerShell."
                     }
                     Default {}
                 }
