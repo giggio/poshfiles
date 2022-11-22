@@ -152,8 +152,10 @@ if (!$isDotSourced) {
     if (Test-Elevated) {
         Add-WindowsDefenderExclusions
     } else {
-        sudo powershell.exe -File "$PSCommandPath"
-        Write-Error "Cannot run $PSCommandPath, needs to be elevated."
-        exit 1
+        if (!(Get-Command sudo -ErrorAction Ignore)) {
+            Write-Error "Cannot run $PSCommandPath, needs to be elevated."
+            exit 1
+        }
+        sudo pwsh.exe -NoProfile -File "$PSCommandPath"
     }
 }
