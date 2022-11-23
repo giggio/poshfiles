@@ -5,9 +5,13 @@ if (!$IsWindows) {
     exit 1
 }
 
+$script:rootDir = Resolve-Path (Join-Path $PSScriptRoot ..)
+$script:profileDir = Join-Path $rootDir Profile
+. "$profileDir/Functions.ps1"
 $script:setupDir = $PSScriptRoot
 Sync-Path
 powershell.exe -ExecutionPolicy RemoteSigned -File "$setupDir/Configure-WindowsPowerShell.ps1"
+Test-Error
 
 . "$setupDir/WindowsDefenderExclusions.ps1"
 Add-WindowsDefenderExclusions

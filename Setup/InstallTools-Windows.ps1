@@ -4,7 +4,10 @@
 Set-StrictMode -Version 3.0
 
 $ErrorActionPreference = 'stop'
-$script:localModulesDirectory = Resolve-Path (Join-Path $PSScriptRoot .. Modules)
+$script:rootDir = Resolve-Path (Join-Path $PSScriptRoot ..)
+$script:localModulesDirectory = Join-Path $rootDir Modules
+$script:profileDir = Join-Path $rootDir Profile
+. "$profileDir/Functions.ps1"
 
 if (Get-Command fzf -ErrorAction Ignore) {
     function CreateFzfPsm1() {
@@ -81,3 +84,4 @@ Invoke-WingetSetup
 Remove-Item -Path Function:\Invoke-WingetSetup
 
 powershell.exe -NoProfile -File $PSScriptRoot\InstallTools-Windows-Powershell.ps1
+Test-Error

@@ -2,8 +2,11 @@
 #Requires -Version 7.2
 
 Set-StrictMode -Version 3
-$script:localModulesDirectory = Resolve-Path (Join-Path $PSScriptRoot .. Modules)
-$script:localAdditionalModulesDirectory = Resolve-Path (Join-Path $PSScriptRoot .. AdditionalModules)
+$script:rootDir = Resolve-Path (Join-Path $PSScriptRoot ..)
+$script:profileDir = Join-Path $rootDir Profile
+$script:localModulesDirectory = Join-Path $rootDir Modules
+$script:localAdditionalModulesDirectory = Join-Path $rootDir AdditionalModules
+. "$profileDir/Functions.ps1"
 
 function FixPSModulePath($path, $messageSuffix) {
     if ($null -eq $path) { $path = '' }
@@ -121,4 +124,5 @@ Remove-Item -Path Function:\FixPSModulePath
 
 if ($IsWindows) {
     powershell.exe -NoProfile -File $PSScriptRoot\InstallModules-Windows.ps1
+    Test-Error
 }

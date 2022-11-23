@@ -24,7 +24,8 @@ function CheckSetup([switch]$BypassCheck = $false) {
                         if (Test-Elevated) {
                             . "$PSScriptRoot/Setup.ps1" -RunNow
                         } else {
-                            sudo pwsh -NoProfile -File "$PSScriptRoot/Setup.ps1" -RunNow
+                            sudo pwsh.exe -NoProfile -File "$PSScriptRoot/Setup.ps1" -RunNow
+                            Test-Error
                         }
                         Sync-Path
                     }

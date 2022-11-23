@@ -62,3 +62,9 @@ function Sync-Path {
         $env:PATH = "$userPath;$machinePath"
     }
 }
+
+function Test-Error {
+    if (!$?) {
+        Write-Error "Error encountered. Last exit code was: $LASTEXITCODE."
+    }
+}

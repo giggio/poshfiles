@@ -157,5 +157,6 @@ if (!$isDotSourced) {
             exit 1
         }
         sudo pwsh.exe -NoProfile -File "$PSCommandPath"
+        Test-Error
     }
 }
