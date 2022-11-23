@@ -24,6 +24,7 @@ function Add-Scoop {
             $env:PATH += ";$env:USERPROFILE\scoop\shims\"
         } else {
             Invoke-RestMethod get.scoop.sh | Invoke-Expression
+            scoop update
         }
     }
 }
