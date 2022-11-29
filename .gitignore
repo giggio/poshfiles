@@ -8,6 +8,7 @@ Modules/ExchangeOnlineManagement
 Modules/Pester
 Modules/PSScriptAnalyzer
 Modules/PSReadLine
+Modules/Microsoft.Graph*
 bin
 AdditionalModules
 .setupran

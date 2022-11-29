@@ -120,6 +120,10 @@ if (ModuleMissing PSReadLine '2.2.6') {
     Save-Module PSReadLine $localModulesDirectory -Confirm:$false
 }
 
+if (ModuleMissing Microsoft.Graph) {
+    Save-Module Microsoft.Graph $localModulesDirectory -Confirm:$false
+}
+
 Remove-Item -Path Function:\FixPSModulePath
 
 if ($IsWindows) {
