@@ -61,3 +61,13 @@ if (Get-Command gpg -ErrorAction Ignore) {
 } else {
     Write-Host "Gpg not installed, configuration not performed."
 }
+
+$script:symbolsPath = "$env:HOMEDRIVE\symbols"
+if (!(Test-Path $symbolsPath)) {
+    mkdir $symbolsPath
+}
+$machinePath = [Environment]::GetEnvironmentVariable('_NT_SYMBOL_PATH', 'Machine')
+if (!($machinePath)) {
+    Write-Output "Setting machine environment variable _NT_SYMBOL_PATH to use symbol path '$symbolsPath'."
+    [Environment]::SetEnvironmentVariable('_NT_SYMBOL_PATH', "cache*$symbolsPath;SRV*c:\symbols*http://msdl.microsoft.com/download/symbols", 'Machine')
+}
