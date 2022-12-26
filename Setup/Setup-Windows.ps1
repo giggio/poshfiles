@@ -1,4 +1,6 @@
 #Requires -RunAsAdministrator
+#Requires -PSEdition Core
+#Requires -Version 7.2
 
 if (!$IsWindows) {
     Write-Error "This script is only for Windows"
