@@ -39,6 +39,7 @@ function Add-WindowsDefenderExclusions {
     $pathExclusions.Add("$env:ProgramData\Microsoft\NetFramework") | Out-Null
     $pathExclusions.Add("$env:ProgramData\Microsoft Visual Studio") | Out-Null
     $pathExclusions.Add("$env:ProgramData\MySQL") | Out-Null
+    $pathExclusions.Add("$env:ProgramFiles\Git") | Out-Null
     $pathExclusions.Add("$env:ProgramFiles\Microsoft Visual Studio") | Out-Null
     $pathExclusions.Add("$env:ProgramFiles\dotnet") | Out-Null
     $pathExclusions.Add("$env:ProgramFiles\Microsoft SDKs") | Out-Null
