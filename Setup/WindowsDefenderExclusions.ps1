@@ -80,6 +80,7 @@ function Add-WindowsDefenderExclusions {
     $processExclusions.Add("Code.exe") | Out-Null
     $processExclusions.Add("gpg-agent.exe") | Out-Null
     $processExclusions.Add("gpg-connect-agent.exe") | Out-Null
+    $processExclusions.Add("sh.exe") | Out-Null
     $processExclusions.Add("ssh-agent.exe") | Out-Null
     $processExclusions.Add("vsls-agent.exe") | Out-Null
     $processExclusions.Add("iisexpress.exe") | Out-Null
