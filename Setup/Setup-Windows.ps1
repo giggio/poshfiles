@@ -26,6 +26,24 @@ if (!$?) {
     $env:SSH_AUTH_SOCK = '\\.\pipe\ssh-pageant'
 }
 
+
+$actionName = "Start process explorer"
+if ($null -eq (Get-ScheduledTask $actionName -ErrorAction SilentlyContinue)) {
+    $procExpPath = "$env:LOCALAPPDATA\Microsoft\WindowsApps\procexp.exe"
+    $procexpCmd = Get-Command procexp -ErrorAction SilentlyContinue
+    if ($null -ne $procexpCmd) {
+        $procExpPath = $procexpCmd.Source
+    }
+    if (Test-Path $procExpPath) {
+        $action = New-ScheduledTaskAction -Execute "$procExpPath"
+        $trigger = New-ScheduledTaskTrigger -AtLogOn -User $(whoami)
+        $settings = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -Compatibility Win8 -MultipleInstances IgnoreNew -StartWhenAvailable -DontStopIfGoingOnBatteries -ExecutionTimeLimit (New-TimeSpan -Seconds 0)
+        $principal = New-ScheduledTaskPrincipal -LogonType Interactive -RunLevel Highest -UserId $(whoami) -ProcessTokenSidType Default
+        $task = New-ScheduledTask -Action $action -Trigger $trigger -Description "$actionName" -Settings $settings -Principal $principal
+        Register-ScheduledTask -InputObject $task -TaskName $actionName -TaskPath $env:USERNAME -User $(whoami) | Out-Null
+    }
+}
+
 $ssha = Get-Service ssh-agent -ErrorAction SilentlyContinue
 if ($null -ne $ssha) {
     # set ssh-agent to start manually, as we're using wsl-ssh-pageant
