@@ -275,13 +275,6 @@
         },
         {
             "Info": "",
-            "Name": "wsl-ssh-pageant",
-            "Source": "extras",
-            "Updated": "2022-10-06T14:36:00.0891128-03:00",
-            "Version": "20201121.2"
-        },
-        {
-            "Info": "",
             "Name": "yori",
             "Source": "main",
             "Updated": "2022-07-23T01:31:14.7026176-03:00",

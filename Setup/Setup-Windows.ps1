@@ -19,13 +19,6 @@ Test-Error
 Add-WindowsDefenderExclusions
 . "$setupDir/Configure-Windows.ps1"
 
-& "$setupDir/wsl-ssh-pageant-installer/check-install.ps1"
-if (!$?) {
-    & "$setupDir/wsl-ssh-pageant-installer/install.ps1"
-    & "$setupDir/wsl-ssh-pageant-installer/start.ps1"
-    $env:SSH_AUTH_SOCK = '\\.\pipe\ssh-pageant'
-}
-
 
 $actionName = "Start process explorer"
 if ($null -eq (Get-ScheduledTask $actionName -ErrorAction SilentlyContinue)) {
@@ -46,7 +39,7 @@ if ($null -eq (Get-ScheduledTask $actionName -ErrorAction SilentlyContinue)) {
 
 $ssha = Get-Service ssh-agent -ErrorAction SilentlyContinue
 if ($null -ne $ssha) {
-    # set ssh-agent to start manually, as we're using wsl-ssh-pageant
+    # set ssh-agent to start manually, as we're using gpg-agent for ssh
     if ($ssha.StartType -ne 'Manual') {
         Write-Output "Setting ssh-agent to manual."
         Set-Service $ssha -StartMode Manual

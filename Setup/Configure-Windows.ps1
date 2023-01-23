@@ -32,7 +32,7 @@ if (Get-Command gpg -ErrorAction Ignore) {
         Remove-Item $gpgPublicKeyFile
         Remove-Item $gpgOwnerTrustFile
     }
-    # set gpg-config so it works with wsl-ssh-pageant
+    # set gpg-config so it works with ssh and wsl
     $gpgAgentConf = $(gpgconf --list-options gpg-agent)
     $updatedGpgAgentConf = $false
     if (!($gpgAgentConf | Where-Object { $_.StartsWith('enable-ssh-support:') }).EndsWith(':1')) {
@@ -51,8 +51,16 @@ if (Get-Command gpg -ErrorAction Ignore) {
         Write-Output 'default-cache-ttl:0:34560000' | gpgconf --change-options gpg-agent
         $updatedGpgAgentConf = $true
     }
+    $gpgAgentConfigPath = "$env:APPDATA/gnupg/gpg-agent.conf"
+    $gpgAgentConfig = Get-Content $gpgAgentConfigPath
+    if (!($gpgAgentConfig | Where-Object { $_.StartsWith('enable-win32-openssh-support') })) {
+        # this will create named pipe '\\.\pipe\openssh-ssh-agent'
+        # todo: gpgconf is not working, it fails with 'gpgconf: unknown option enable-win32-openssh-support', change to use gpgconf when it works
+        $gpgAgentConfig += "enable-win32-openssh-support"
+        $gpgAgentConfig | Out-File $gpgAgentConfigPath
+        $updatedGpgAgentConf = $true
+    }
     if ($updatedGpgAgentConf) {
-        $gpgAgentConfigPath = "$env:APPDATA/gnupg/gpg-agent.conf"
         Get-Content $gpgAgentConfigPath
         gpgconf --reload
         gpgconf --kill gpg-agent
