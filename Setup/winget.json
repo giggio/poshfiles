@@ -1,6 +1,6 @@
 {
 	"$schema" : "https://aka.ms/winget-packages.schema.2.0.json",
-	"CreationDate" : "2022-11-10T20:28:43.645-00:00",
+	"CreationDate" : "2023-01-25T21:37:50.820-00:00",
 	"Sources" : 
 	[
 		{
@@ -31,13 +31,10 @@
 					"PackageIdentifier" : "Lexikos.AutoHotkey"
 				},
 				{
-					"PackageIdentifier" : "Canonical.Ubuntu"
+					"PackageIdentifier" : "Dell.DisplayManager"
 				},
 				{
 					"PackageIdentifier" : "Discord.Discord"
-				},
-				{
-					"PackageIdentifier" : "Docker.DockerDesktop"
 				},
 				{
 					"PackageIdentifier" : "Telerik.Fiddler.Classic"
@@ -62,6 +59,12 @@
 				},
 				{
 					"PackageIdentifier" : "JetBrains.IntelliJIDEA.Ultimate"
+				},
+				{
+					"PackageIdentifier" : "JetBrains.Gateway"
+				},
+				{
+					"PackageIdentifier" : "JetBrains.Rider"
 				},
 				{
 					"PackageIdentifier" : "kalilinux.kalilinux"
@@ -142,19 +145,22 @@
 					"PackageIdentifier" : "SoftDeluxe.FreeDownloadManager"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.DotNet.SDK.3_1"
+					"PackageIdentifier" : "Microsoft.OpenJDK.11"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.WindowsInstallationAssistant"
 				},
 				{
-					"PackageIdentifier" : "Intel.IntelDriverAndSupportAssistant"
+					"PackageIdentifier" : "Dell.CommandUpdate.Universal"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.DotNet.DesktopRuntime.6"
 				},
 				{
 					"PackageIdentifier" : "clsid2.mpc-hc"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.AzureCLI"
+					"PackageIdentifier" : "Microsoft.DotNet.AspNetCore.6"
 				},
 				{
 					"PackageIdentifier" : "GlavSoft.TightVNC"
@@ -166,19 +172,25 @@
 					"PackageIdentifier" : "JohnMacFarlane.Pandoc"
 				},
 				{
-					"PackageIdentifier" : "Win32diskimager.win32diskimager"
-				},
-				{
-					"PackageIdentifier" : "Softerra.LDAPBrowser"
-				},
-				{
-					"PackageIdentifier" : "OpenVPNTechnologies.OpenVPNConnect"
+					"PackageIdentifier" : "Microsoft.DotNet.SDK.7"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.DotNet.AspNetCore.6"
 				},
 				{
-					"PackageIdentifier" : "JetBrains.ReSharper"
+					"PackageIdentifier" : "Win32diskimager.win32diskimager"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.PowerToys"
+				},
+				{
+					"PackageIdentifier" : "Softerra.LDAPBrowser"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.WindowsSDK"
+				},
+				{
+					"PackageIdentifier" : "OpenVPNTechnologies.OpenVPNConnect"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.CLRTypesSQLServer.2019"
@@ -187,22 +199,34 @@
 					"PackageIdentifier" : "Microsoft.WindowsPCHealthCheck"
 				},
 				{
+					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x86"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.PowerShell"
+				},
+				{
 					"PackageIdentifier" : "LINQPad.LINQPad.6"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.VisualStudioCode"
 				},
 				{
+					"PackageIdentifier" : "Microsoft.DotNet.Runtime.3_1"
+				},
+				{
 					"PackageIdentifier" : "Logitech.LogiTune"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.DotNet.Runtime.3_1"
+					"PackageIdentifier" : "Microsoft.AzureCLI"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.WebDeploy"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.AzureStorageExplorer"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.DotNet.DesktopRuntime.6"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.SQLServer2012NativeClient"
@@ -214,43 +238,46 @@
 					"PackageIdentifier" : "icsharpcode.ILSpy"
 				},
 				{
-					"PackageIdentifier" : "Adobe.Acrobat.Reader.64-bit"
+					"PackageIdentifier" : "EclipseAdoptium.Temurin.19.JDK"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.PowerShell"
+					"PackageIdentifier" : "Microsoft.OpenJDK.17"
+				},
+				{
+					"PackageIdentifier" : "JetBrains.ReSharper"
+				},
+				{
+					"PackageIdentifier" : "Adobe.Acrobat.Reader.64-bit"
 				},
 				{
 					"PackageIdentifier" : "GitHub.cli"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.OpenJDK.11"
-				},
-				{
 					"PackageIdentifier" : "VideoLAN.VLC"
 				},
 				{
-					"PackageIdentifier" : "Dell.CommandUpdate"
+					"PackageIdentifier" : "Microsoft.OpenJDK.11"
+				},
+				{
+					"PackageIdentifier" : "suse.RancherDesktop"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.DotNet.Runtime.3_1"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.DotNet.SDK.7"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.DotNet.DesktopRuntime.6"
-				},
-				{
 					"PackageIdentifier" : "Microsoft.WindowsSDK"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.PowerToys"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.DotNet.AspNetCore.6"
-				},
-				{
 					"PackageIdentifier" : "Microsoft.DotNet.DesktopRuntime.6"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x64"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.DotNet.SDK.3_1"
+				},
+				{
+					"PackageIdentifier" : "Intel.IntelDriverAndSupportAssistant"
 				}
 			],
 			"SourceDetails" : 
@@ -277,5 +304,5 @@
 			}
 		}
 	],
-	"WinGetVersion" : "1.4.2161-preview"
+	"WinGetVersion" : "1.4.3132-preview"
 }

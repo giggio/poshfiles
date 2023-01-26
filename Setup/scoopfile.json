@@ -1,311 +1,353 @@
 {
-    "apps": [
-        {
-            "Info": "",
-            "Name": "7zip",
-            "Source": "main",
-            "Updated": "2022-07-23T01:28:39.1460724-03:00",
-            "Version": "22.01"
-        },
-        {
-            "Info": "",
-            "Name": "act",
-            "Source": "main",
-            "Updated": "2022-10-19T09:50:01.6658223-03:00",
-            "Version": "0.2.32"
-        },
-        {
-            "Info": "",
-            "Name": "ag",
-            "Source": "main",
-            "Updated": "2022-10-19T12:58:02.2610225-03:00",
-            "Version": "2.2.5"
-        },
-        {
-            "Info": "",
-            "Name": "bat",
-            "Source": "main",
-            "Updated": "2022-10-19T09:50:02.5155033-03:00",
-            "Version": "0.22.1"
-        },
-        {
-            "Info": "",
-            "Name": "dark",
-            "Source": "main",
-            "Updated": "2022-07-23T01:28:44.6100088-03:00",
-            "Version": "3.11.2"
-        },
-        {
-            "Info": "",
-            "Name": "delta",
-            "Source": "main",
-            "Updated": "2022-09-05T15:35:53.8592588-03:00",
-            "Version": "0.14.0"
-        },
-        {
-            "Info": "",
-            "Name": "deno",
-            "Source": "main",
-            "Updated": "2022-10-31T15:18:05.0228085-03:00",
-            "Version": "1.27.0"
-        },
-        {
-            "Info": "",
-            "Name": "ffmpeg",
-            "Source": "main",
-            "Updated": "2022-10-19T09:50:32.5398882-03:00",
-            "Version": "5.1.2"
-        },
-        {
-            "Info": "",
-            "Name": "ffmpeg-shared",
-            "Source": "main",
-            "Updated": "2022-10-19T09:50:50.4528281-03:00",
-            "Version": "5.1.2"
-        },
-        {
-            "Info": "",
-            "Name": "fzf",
-            "Source": "main",
-            "Updated": "2022-10-19T09:50:51.3200413-03:00",
-            "Version": "0.34.0"
-        },
-        {
-            "Info": "",
-            "Name": "go",
-            "Source": "main",
-            "Updated": "2022-10-19T09:51:21.3452751-03:00",
-            "Version": "1.19.2"
-        },
-        {
-            "Info": "",
-            "Name": "gsudo",
-            "Source": "main",
-            "Updated": "2022-10-19T09:51:24.1730075-03:00",
-            "Version": "1.7.1"
-        },
-        {
-            "Info": "",
-            "Name": "hub",
-            "Source": "main",
-            "Updated": "2022-07-23T01:29:29.1445148-03:00",
-            "Version": "2.14.2"
-        },
-        {
-            "Info": "",
-            "Name": "innounp",
-            "Source": "main",
-            "Updated": "2022-10-19T13:05:21.4032054-03:00",
-            "Version": "0.50"
-        },
-        {
-            "Info": "",
-            "Name": "iperf3",
-            "Source": "main",
-            "Updated": "2022-08-27T16:14:41.9031005-03:00",
-            "Version": "3.1.3"
-        },
-        {
-            "Info": "",
-            "Name": "jq",
-            "Source": "main",
-            "Updated": "2022-07-23T01:29:29.8475656-03:00",
-            "Version": "1.6"
-        },
-        {
-            "Info": "",
-            "Name": "less",
-            "Source": "main",
-            "Updated": "2022-09-05T15:36:28.5969489-03:00",
-            "Version": "608"
-        },
-        {
-            "Info": "",
-            "Name": "lessmsi",
-            "Source": "main",
-            "Updated": "2022-07-23T01:29:32.4570656-03:00",
-            "Version": "1.10.0"
-        },
-        {
-            "Info": "",
-            "Name": "lua",
-            "Source": "main",
-            "Updated": "2022-07-23T01:29:35.6509497-03:00",
-            "Version": "5.4.2"
-        },
-        {
-            "Info": "",
-            "Name": "msys2",
-            "Source": "main",
-            "Updated": "2022-09-05T15:36:53.563089-03:00",
-            "Version": "2022-09-04"
-        },
-        {
-            "Info": "",
-            "Name": "neovim",
-            "Source": "main",
-            "Updated": "2022-10-19T09:51:31.1042841-03:00",
-            "Version": "0.8.0"
-        },
-        {
-            "Info": "",
-            "Name": "npiperelay",
-            "Source": "extras",
-            "Updated": "2022-10-05T17:44:46.5140294-03:00",
-            "Version": "0.1.0"
-        },
-        {
-            "Info": "",
-            "Name": "ntop",
-            "Source": "main",
-            "Updated": "2022-07-23T01:30:08.9916488-03:00",
-            "Version": "0.3.4"
-        },
-        {
-            "Info": "",
-            "Name": "nuget",
-            "Source": "main",
-            "Updated": "2022-10-19T09:51:32.2040149-03:00",
-            "Version": "6.3.1"
-        },
-        {
-            "Info": "",
-            "Name": "nunit-console",
-            "Source": "main",
-            "Updated": "2022-08-11T10:29:43.4733286-03:00",
-            "Version": "3.15.2"
-        },
-        {
-            "Info": "",
-            "Name": "openhardwaremonitor",
-            "Source": "extras",
-            "Updated": "2022-11-10T18:32:46.5906028-03:00",
-            "Version": "0.9.6"
-        },
-        {
-            "Info": "",
-            "Name": "osquery",
-            "Source": "main",
-            "Updated": "2022-09-05T15:36:55.9581206-03:00",
-            "Version": "5.5.1"
-        },
-        {
-            "Info": "",
-            "Name": "protobuf",
-            "Source": "extras",
-            "Updated": "2022-11-23T01:06:23.7087328-03:00",
-            "Version": "21.9"
-        },
-        {
-            "Info": "",
-            "Name": "python",
-            "Source": "main",
-            "Updated": "2022-10-25T19:53:36.9444632-03:00",
-            "Version": "3.11.0"
-        },
-        {
-            "Info": "",
-            "Name": "python27",
-            "Source": "versions",
-            "Updated": "2022-08-15T19:41:10.9034466-03:00",
-            "Version": "2.7.18"
-        },
-        {
-            "Info": "",
-            "Name": "python310",
-            "Source": "versions",
-            "Updated": "2022-10-19T09:52:12.6600024-03:00",
-            "Version": "3.10.8"
-        },
-        {
-            "Info": "",
-            "Name": "python36",
-            "Source": "versions",
-            "Updated": "2022-07-23T01:32:10.811451-03:00",
-            "Version": "3.6.8"
-        },
-        {
-            "Info": "",
-            "Name": "python39",
-            "Source": "versions",
-            "Updated": "2022-07-23T01:32:33.0083615-03:00",
-            "Version": "3.9.13"
-        },
-        {
-            "Info": "",
-            "Name": "rustup",
-            "Source": "main",
-            "Updated": "2022-07-23T01:30:51.1651821-03:00",
-            "Version": "1.25.1"
-        },
-        {
-            "Info": "",
-            "Name": "scriptcs",
-            "Source": "main",
-            "Updated": "2022-07-23T01:30:53.0868508-03:00",
-            "Version": "0.17.1"
-        },
-        {
-            "Info": "",
-            "Name": "speedtest-cli",
-            "Source": "main",
-            "Updated": "2022-08-13T11:47:09.5070076-03:00",
-            "Version": "1.2.0"
-        },
-        {
-            "Info": "",
-            "Name": "starship",
-            "Source": "main",
-            "Updated": "2022-10-19T09:52:14.0528783-03:00",
-            "Version": "1.11.0"
-        },
-        {
-            "Info": "",
-            "Name": "terraform",
-            "Source": "main",
-            "Updated": "2022-10-25T19:53:39.8914935-03:00",
-            "Version": "1.3.3"
-        },
-        {
-            "Info": "",
-            "Name": "unzip",
-            "Source": "main",
-            "Updated": "2022-07-23T01:30:56.0056136-03:00",
-            "Version": "6.00"
-        },
-        {
-            "Info": "",
-            "Name": "yori",
-            "Source": "main",
-            "Updated": "2022-07-23T01:31:14.7026176-03:00",
-            "Version": "1.80"
-        },
-        {
-            "Info": "",
-            "Name": "zip",
-            "Source": "main",
-            "Updated": "2022-07-23T01:31:15.1869313-03:00",
-            "Version": "3.0"
-        }
-    ],
     "buckets": [
         {
             "Name": "extras",
             "Source": "https://github.com/ScoopInstaller/Extras",
-            "Updated": "2022-11-22T23:57:14-03:00",
-            "Manifests": 1730
+            "Updated": "2023-01-25T21:33:16-03:00",
+            "Manifests": 1766
         },
         {
             "Name": "main",
             "Source": "https://github.com/ScoopInstaller/Main",
-            "Updated": "2022-11-23T00:09:43-03:00",
-            "Manifests": 1121
+            "Updated": "2023-01-25T21:34:07-03:00",
+            "Manifests": 1149
         },
         {
             "Name": "versions",
             "Source": "https://github.com/ScoopInstaller/Versions",
-            "Updated": "2022-11-22T23:11:50-03:00",
-            "Manifests": 396
+            "Updated": "2023-01-25T17:30:38-03:00",
+            "Manifests": 412
+        }
+    ],
+    "apps": [
+        {
+            "Name": "7zip",
+            "Info": "",
+            "Source": "main",
+            "Version": "22.01",
+            "Updated": "2022-07-23T01:28:39.1460724-03:00"
+        },
+        {
+            "Name": "act",
+            "Info": "",
+            "Source": "main",
+            "Version": "0.2.40",
+            "Updated": "2023-01-23T16:06:25.216419-03:00"
+        },
+        {
+            "Name": "ag",
+            "Info": "",
+            "Source": "main",
+            "Version": "2.2.5",
+            "Updated": "2022-10-19T12:58:02.2610225-03:00"
+        },
+        {
+            "Name": "bat",
+            "Info": "",
+            "Source": "main",
+            "Version": "0.22.1",
+            "Updated": "2022-10-19T09:50:02.5155033-03:00"
+        },
+        {
+            "Name": "clink",
+            "Info": "",
+            "Source": "main",
+            "Version": "1.4.12",
+            "Updated": "2023-01-23T16:06:25.9874701-03:00"
+        },
+        {
+            "Name": "dark",
+            "Info": "",
+            "Source": "main",
+            "Version": "3.11.2",
+            "Updated": "2022-07-23T01:28:44.6100088-03:00"
+        },
+        {
+            "Name": "delta",
+            "Info": "",
+            "Source": "main",
+            "Version": "0.15.1",
+            "Updated": "2022-12-13T15:51:43.67958-03:00"
+        },
+        {
+            "Name": "deno",
+            "Info": "",
+            "Source": "main",
+            "Version": "1.29.4",
+            "Updated": "2023-01-23T16:06:28.9881946-03:00"
+        },
+        {
+            "Name": "docker",
+            "Info": "",
+            "Source": "main",
+            "Version": "20.10.23",
+            "Updated": "2023-01-24T19:01:40.6879601-03:00"
+        },
+        {
+            "Name": "ffmpeg",
+            "Info": "",
+            "Source": "main",
+            "Version": "5.1.2",
+            "Updated": "2022-10-19T09:50:32.5398882-03:00"
+        },
+        {
+            "Name": "ffmpeg-shared",
+            "Info": "",
+            "Source": "main",
+            "Version": "5.1.2",
+            "Updated": "2022-10-19T09:50:50.4528281-03:00"
+        },
+        {
+            "Name": "fzf",
+            "Info": "",
+            "Source": "main",
+            "Version": "0.36.0",
+            "Updated": "2023-01-23T16:06:29.911301-03:00"
+        },
+        {
+            "Name": "go",
+            "Info": "",
+            "Source": "main",
+            "Version": "1.19.5",
+            "Updated": "2023-01-12T17:35:55.663569-03:00"
+        },
+        {
+            "Name": "gsudo",
+            "Info": "",
+            "Source": "main",
+            "Version": "2.0.4",
+            "Updated": "2022-12-13T15:52:14.5629449-03:00"
+        },
+        {
+            "Name": "hadolint",
+            "Info": "",
+            "Source": "main",
+            "Version": "2.12.0",
+            "Updated": "2022-12-21T12:30:02.5725023-03:00"
+        },
+        {
+            "Name": "hub",
+            "Info": "",
+            "Source": "main",
+            "Version": "2.14.2",
+            "Updated": "2022-07-23T01:29:29.1445148-03:00"
+        },
+        {
+            "Name": "innounp",
+            "Info": "",
+            "Source": "main",
+            "Version": "0.50",
+            "Updated": "2022-10-19T13:05:21.4032054-03:00"
+        },
+        {
+            "Name": "iperf3",
+            "Info": "",
+            "Source": "main",
+            "Version": "3.1.3",
+            "Updated": "2022-08-27T16:14:41.9031005-03:00"
+        },
+        {
+            "Name": "jq",
+            "Info": "",
+            "Source": "main",
+            "Version": "1.6",
+            "Updated": "2022-07-23T01:29:29.8475656-03:00"
+        },
+        {
+            "Name": "less",
+            "Info": "",
+            "Source": "main",
+            "Version": "608",
+            "Updated": "2022-09-05T15:36:28.5969489-03:00"
+        },
+        {
+            "Name": "lessmsi",
+            "Info": "",
+            "Source": "main",
+            "Version": "1.10.0",
+            "Updated": "2022-07-23T01:29:32.4570656-03:00"
+        },
+        {
+            "Name": "lua",
+            "Info": "",
+            "Source": "main",
+            "Version": "5.4.2",
+            "Updated": "2022-07-23T01:29:35.6509497-03:00"
+        },
+        {
+            "Name": "msys2",
+            "Info": "",
+            "Source": "main",
+            "Version": "2022-12-16",
+            "Updated": "2022-12-21T12:30:48.2480493-03:00"
+        },
+        {
+            "Name": "neovim",
+            "Info": "",
+            "Source": "main",
+            "Version": "0.8.2",
+            "Updated": "2023-01-06T18:29:20.1129615-03:00"
+        },
+        {
+            "Name": "npiperelay",
+            "Info": "",
+            "Source": "extras",
+            "Version": "0.1.0",
+            "Updated": "2022-10-05T17:44:46.5140294-03:00"
+        },
+        {
+            "Name": "ntop",
+            "Info": "",
+            "Source": "main",
+            "Version": "0.3.4",
+            "Updated": "2022-07-23T01:30:08.9916488-03:00"
+        },
+        {
+            "Name": "nuget",
+            "Info": "",
+            "Source": "main",
+            "Version": "6.4.0",
+            "Updated": "2022-12-21T12:30:49.3664132-03:00"
+        },
+        {
+            "Name": "nunit-console",
+            "Info": "",
+            "Source": "main",
+            "Version": "3.16.2",
+            "Updated": "2023-01-12T17:35:57.7879631-03:00"
+        },
+        {
+            "Name": "openhardwaremonitor",
+            "Info": "",
+            "Source": "extras",
+            "Version": "0.9.6",
+            "Updated": "2022-11-10T18:32:46.5906028-03:00"
+        },
+        {
+            "Name": "osquery",
+            "Info": "",
+            "Source": "main",
+            "Version": "5.7.0",
+            "Updated": "2023-01-06T18:29:26.0814925-03:00"
+        },
+        {
+            "Name": "protobuf",
+            "Info": "",
+            "Source": "extras",
+            "Version": "21.12",
+            "Updated": "2022-12-21T12:30:50.4983268-03:00"
+        },
+        {
+            "Name": "python",
+            "Info": "",
+            "Source": "main",
+            "Version": "3.11.1",
+            "Updated": "2022-12-13T15:53:26.5750646-03:00"
+        },
+        {
+            "Name": "python27",
+            "Info": "",
+            "Source": "versions",
+            "Version": "2.7.18",
+            "Updated": "2022-08-15T19:41:10.9034466-03:00"
+        },
+        {
+            "Name": "python310",
+            "Info": "",
+            "Source": "versions",
+            "Version": "3.10.9",
+            "Updated": "2022-12-13T15:53:55.1442664-03:00"
+        },
+        {
+            "Name": "python36",
+            "Info": "",
+            "Source": "versions",
+            "Version": "3.6.8",
+            "Updated": "2022-07-23T01:32:10.811451-03:00"
+        },
+        {
+            "Name": "python39",
+            "Info": "",
+            "Source": "versions",
+            "Version": "3.9.13",
+            "Updated": "2022-07-23T01:32:33.0083615-03:00"
+        },
+        {
+            "Name": "quarkus-cli",
+            "Info": "",
+            "Source": "main",
+            "Version": "2.15.3",
+            "Updated": "2023-01-12T17:36:01.5886299-03:00"
+        },
+        {
+            "Name": "rustup",
+            "Info": "",
+            "Source": "main",
+            "Version": "1.25.1",
+            "Updated": "2022-07-23T01:30:51.1651821-03:00"
+        },
+        {
+            "Name": "scriptcs",
+            "Info": "",
+            "Source": "main",
+            "Version": "0.17.1",
+            "Updated": "2022-07-23T01:30:53.0868508-03:00"
+        },
+        {
+            "Name": "speedtest-cli",
+            "Info": "",
+            "Source": "main",
+            "Version": "1.2.0",
+            "Updated": "2022-08-13T11:47:09.5070076-03:00"
+        },
+        {
+            "Name": "starship",
+            "Info": "",
+            "Source": "main",
+            "Version": "1.12.0",
+            "Updated": "2022-12-14T11:11:20.0654088-03:00"
+        },
+        {
+            "Name": "terraform",
+            "Info": "",
+            "Source": "main",
+            "Version": "1.3.7",
+            "Updated": "2023-01-06T18:29:29.6218305-03:00"
+        },
+        {
+            "Name": "unzip",
+            "Info": "",
+            "Source": "main",
+            "Version": "6.00",
+            "Updated": "2022-07-23T01:30:56.0056136-03:00"
+        },
+        {
+            "Name": "winget-ps",
+            "Info": "",
+            "Source": "main",
+            "Version": "1.4.10173",
+            "Updated": "2023-01-25T21:35:06.98212-03:00"
+        },
+        {
+            "Name": "yori",
+            "Info": "",
+            "Source": "main",
+            "Version": "1.90",
+            "Updated": "2023-01-06T18:29:34.1648358-03:00"
+        },
+        {
+            "Name": "yq",
+            "Info": "",
+            "Source": "main",
+            "Version": "4.30.8",
+            "Updated": "2023-01-23T16:06:32.2391879-03:00"
+        },
+        {
+            "Name": "zip",
+            "Info": "",
+            "Source": "main",
+            "Version": "3.0",
+            "Updated": "2022-07-23T01:31:15.1869313-03:00"
         }
     ]
 }
