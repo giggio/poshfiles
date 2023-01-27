@@ -13,7 +13,7 @@ $script:localAdditionalModulesDirectory = Resolve-Path (Join-Path (Join-Path $PS
         $env:PSModulePath = "$localAdditionalModulesDirectory$([System.IO.Path]::PathSeparator)$env:PSModulePath"
     }
 
-    if (!$env:PSModulePath.StartsWith("$localAdditionalModulesDirectory$([System.IO.Path]::PathSeparator)$localModulesDirectory")) {
+    if (!$env:PSModulePath.Contains("$localAdditionalModulesDirectory$([System.IO.Path]::PathSeparator)$localModulesDirectory")) {
         Write-Warning "PSModulePath does not have the module directories in correct order and PowerShell modules may have incorrect versions. Run the Setup Script ($setupScriptPath) so your PSModulePath registry and/or config file is set correctly."
     }
 }

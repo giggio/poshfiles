@@ -10,6 +10,18 @@ $script:localAdditionalModulesDirectory = Join-Path $rootDir AdditionalModules
 
 function FixPSModulePath($path, $messageSuffix) {
     if ($null -eq $path) { $path = '' }
+    if ($IsWindows -and (Get-Command scoop -ErrorAction SilentlyContinue)) {
+        $script:scoopDir = "$env:USERPROFILE\scoop"
+        if (Test-Path $scoopDir) {
+            $scoopModulesDir = Join-Path $scoopDir modules
+            if (!($path.Contains($scoopModulesDir))) {
+                if ($null -ne $messageSuffix) {
+                    Write-Host "Adding Scoop modules directory '$scoopModulesDir' to PSModulePath for $messageSuffix."
+                }
+                $path = "$scoopModulesDir;$path"
+            }
+        }
+    }
     if (!($path.Contains($localModulesDirectory))) {
         if ($null -ne $messageSuffix) {
             Write-Host "Adding modules directory '$localModulesDirectory' to PSModulePath for $messageSuffix."
