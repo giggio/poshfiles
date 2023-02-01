@@ -54,6 +54,7 @@ function Add-WindowsDefenderExclusions {
     $pathExclusions.Add("${env:ProgramFiles(x86)}\IIS") | Out-Null
     $pathExclusions.Add("${env:ProgramFiles(x86)}\IIS Express") | Out-Null
 
+    $processExclusions.Add("procexp.exe") | Out-Null
     $processExclusions.Add("Microsoft.ServiceHub.Controller.exe") | Out-Null
     $processExclusions.Add("ServiceHub.DataWarehouseHost.exe") | Out-Null
     $processExclusions.Add("ServiceHub.Host.CLR.exe") | Out-Null
