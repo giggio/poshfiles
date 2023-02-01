@@ -35,7 +35,9 @@ $env:ChocolateyToolsRoot = "c:\tools\"
 $env:ChocolateyBinRoot = "c:\tools\"
 
 . "$profileDir/CreateAliases.windows.ps1"
-. "$profileDir/WingetMgt.ps1"
+if ($PSVersionTable.PSEdition -eq 'Core') {
+    . "$profileDir/WingetMgt.ps1"
+}
 
 if (!(Get-Process ssh-agent -ErrorAction Ignore) -and (Test-Path (Join-Path (Join-Path $(if ($env:HOME) { $env:HOME } else { $env:USERPROFILE }) .ssh) id_rsa))) {
     Start-SshAgent -Quiet
