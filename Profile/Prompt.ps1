@@ -36,15 +36,22 @@ if ($IsWindows -and (Get-Item Env:\WT_SESSION -ErrorAction SilentlyContinue)) {
         # First, emit a mark for the _end_ of the previous command.
         $originalDollarQuestion = $global:?
         $originalLastExitCode = $global:LASTEXITCODE;
-        $LastHistoryEntry = $(Get-History -Count 1)
+        $LastHistoryEntry = Get-History -Count 1
         # Skip finishing the command if the first command has not yet started
-        if ($Global:__LastHistoryId -ne -1) {
+        if ($null -eq $LastHistoryEntry) {
+            # Don't provide a command line or exit code if there is no history entry
+            $out += "`e]133;D`a"
+        } else {
             if ($LastHistoryEntry.Id -eq $Global:__LastHistoryId) {
                 # Don't provide a command line or exit code if there was no history entry (eg. ctrl+c, enter on no command)
                 $out += "`e]133;D`a"
             } else {
                 $Global:__LastHistoryId = $LastHistoryEntry.Id
-                $out += "`e]133;D;$originalLastExitCode`a"
+                $exitCode = $originalLastExitCode
+                if ($exitCode -ne 0 -and $originalDollarQuestion) {
+                    $exitCode = 0
+                }
+                $out += "`e]133;D;$exitCode`a"
             }
         }
 
