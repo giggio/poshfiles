@@ -41,21 +41,7 @@ if ($IsWindows) {
     . "$profileDir/profile.windows.ps1"
 }
 
-function Add-Starship {
-    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingInvokeExpression', "", Scope = 'function', Justification = 'This is how you setup starship')]
-    param()
-    if (Get-Command starship -ErrorAction Ignore) {
-        $env:STARSHIP_CONFIG = Join-Path $profileDir "starship.toml"
-        Invoke-Expression (&starship init powershell --print-full-init | Out-String)
-    } else {
-        Write-Output "Install Starship to get a nice theme. Go to: https://starship.rs/"
-        if ($IsWindows) {
-            Write-Output "Run $PSScriptRoot\Setup\Setup-NonElevated.ps1 and it will be installed with Scoop."
-        }
-    }
-}
-Add-Starship
-Remove-Item -Path Function:\Add-Starship
+. "$profileDir/Prompt.ps1"
 
 # cleanup:
 Set-StrictMode -Off
