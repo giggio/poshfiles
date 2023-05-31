@@ -9,6 +9,9 @@ function Add-WindowsDefenderExclusions {
         [switch] $DryRun,
         [switch] $Quiet
     )
+    if (!(Get-MpComputerStatus -ErrorAction SilentlyContinue).AntivirusEnabled) {
+        return
+    }
     if (!(Test-Elevated)) {
         Write-Error "Cannot add exclusions, needs to be elevated."
     }
