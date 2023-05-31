@@ -11,9 +11,6 @@
           "PackageIdentifier": "CoreyButler.NVMforWindows"
         },
         {
-          "PackageIdentifier": "Docker.DockerDesktop"
-        },
-        {
           "PackageIdentifier": "Git.Git"
         },
         {
@@ -26,16 +23,28 @@
           "PackageIdentifier": "GnuPG.Gpg4win"
         },
         {
+          "PackageIdentifier": "M2Team.NanaZip"
+        },
+        {
           "PackageIdentifier": "Microsoft.AzureStorageExplorer"
         },
         {
           "PackageIdentifier": "Microsoft.DotNet.SDK.7"
         },
         {
-          "PackageIdentifier": "Microsoft.OpenJDK.11"
+          "PackageIdentifier": "Microsoft.OpenJDK.17"
         },
         {
           "PackageIdentifier": "Microsoft.PowerShell"
+        },
+        {
+          "PackageIdentifier": "Microsoft.PowerToys"
+        },
+        {
+          "PackageIdentifier": "Microsoft.Sqlcmd"
+        },
+        {
+          "PackageIdentifier": "Microsoft.SQLServerManagementStudio"
         },
         {
           "PackageIdentifier": "Microsoft.VisualStudio.2022.Enterprise"
@@ -50,6 +59,9 @@
           "PackageIdentifier": "Microsoft.WindowsTerminal.Preview"
         },
         {
+          "PackageIdentifier": "suse.RancherDesktop"
+        },
+        {
           "PackageIdentifier": "vim.vim"
         }
       ],
@@ -61,5 +73,5 @@
       }
     }
   ],
-  "WinGetVersion": "1.4.2161-preview"
+  "WinGetVersion": "1.5.1361-preview"
 }

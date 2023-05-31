@@ -1,6 +1,6 @@
 {
   "$schema": "https://aka.ms/winget-packages.schema.2.0.json",
-  "CreationDate": "2023-05-31T12:12:49.196-03:00",
+  "CreationDate": "2023-05-31T12:53:30.166-03:00",
   "Sources": [
     {
       "Packages": [
@@ -85,6 +85,9 @@
         },
         {
           "PackageIdentifier": "JackieLiu.NotepadsApp"
+        },
+        {
+          "PackageIdentifier": "JetBrains.Gateway"
         },
         {
           "PackageIdentifier": "JetBrains.Gateway"
@@ -220,9 +223,6 @@
         },
         {
           "PackageIdentifier": "Microsoft.WindowsPCHealthCheck"
-        },
-        {
-          "PackageIdentifier": "Microsoft.WindowsSDK"
         },
         {
           "PackageIdentifier": "Microsoft.WindowsSDK"
