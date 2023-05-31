@@ -1,308 +1,309 @@
 {
-	"$schema" : "https://aka.ms/winget-packages.schema.2.0.json",
-	"CreationDate" : "2023-01-25T21:37:50.820-00:00",
-	"Sources" : 
-	[
-		{
-			"Packages" : 
-			[
-				{
-					"PackageIdentifier" : "Bitwarden.Bitwarden"
-				},
-				{
-					"PackageIdentifier" : "JackieLiu.NotepadsApp"
-				},
-				{
-					"PackageIdentifier" : "ObinsKit.ObinsKit"
-				},
-				{
-					"PackageIdentifier" : "CoreyButler.NVMforWindows"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.VisualStudio.2022.Enterprise"
-				},
-				{
-					"PackageIdentifier" : "7zip.7zip"
-				},
-				{
-					"PackageIdentifier" : "Audacity.Audacity"
-				},
-				{
-					"PackageIdentifier" : "Lexikos.AutoHotkey"
-				},
-				{
-					"PackageIdentifier" : "Dell.DisplayManager"
-				},
-				{
-					"PackageIdentifier" : "Discord.Discord"
-				},
-				{
-					"PackageIdentifier" : "Telerik.Fiddler.Classic"
-				},
-				{
-					"PackageIdentifier" : "Git.Git"
-				},
-				{
-					"PackageIdentifier" : "GnuPG.GnuPG"
-				},
-				{
-					"PackageIdentifier" : "acaudwell.Gource"
-				},
-				{
-					"PackageIdentifier" : "GnuPG.Gpg4win"
-				},
-				{
-					"PackageIdentifier" : "Graphviz.Graphviz"
-				},
-				{
-					"PackageIdentifier" : "REALiX.HWiNFO"
-				},
-				{
-					"PackageIdentifier" : "JetBrains.IntelliJIDEA.Ultimate"
-				},
-				{
-					"PackageIdentifier" : "JetBrains.Gateway"
-				},
-				{
-					"PackageIdentifier" : "JetBrains.Rider"
-				},
-				{
-					"PackageIdentifier" : "kalilinux.kalilinux"
-				},
-				{
-					"PackageIdentifier" : "Logitech.CameraSettings"
-				},
-				{
-					"PackageIdentifier" : "KirillOsenkov.MSBuildStructuredLogViewer"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.Teams"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.EdgeWebView2Runtime"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.MouseandKeyboardCenter"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.WindowsTerminal.Preview"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.WindowsTerminal"
-				},
-				{
-					"PackageIdentifier" : "Mozilla.Firefox"
-				},
-				{
-					"PackageIdentifier" : "Notepad++.Notepad++"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.Office"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.OneDrive"
-				},
-				{
-					"PackageIdentifier" : "Rufus.Rufus"
-				},
-				{
-					"PackageIdentifier" : "SublimeHQ.SublimeText.3"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.Teams"
-				},
-				{
-					"PackageIdentifier" : "vim.vim"
-				},
-				{
-					"PackageIdentifier" : "WinDirStat.WinDirStat"
-				},
-				{
-					"PackageIdentifier" : "WiresharkFoundation.Wireshark"
-				},
-				{
-					"PackageIdentifier" : "AntibodySoftware.WizTree"
-				},
-				{
-					"PackageIdentifier" : "code52.Carnac"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.VisualStudio.2022.Enterprise-Preview"
-				},
-				{
-					"PackageIdentifier" : "PeterDaveHello.TransmissionRemoteGUI"
-				},
-				{
-					"PackageIdentifier" : "Yubico.YubikeyManager"
-				},
-				{
-					"PackageIdentifier" : "Keybase.Keybase"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.SQLServerManagementStudio"
-				},
-				{
-					"PackageIdentifier" : "SoftDeluxe.FreeDownloadManager"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.OpenJDK.11"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.WindowsInstallationAssistant"
-				},
-				{
-					"PackageIdentifier" : "Dell.CommandUpdate.Universal"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.DotNet.DesktopRuntime.6"
-				},
-				{
-					"PackageIdentifier" : "clsid2.mpc-hc"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.DotNet.AspNetCore.6"
-				},
-				{
-					"PackageIdentifier" : "GlavSoft.TightVNC"
-				},
-				{
-					"PackageIdentifier" : "Zoom.Zoom"
-				},
-				{
-					"PackageIdentifier" : "JohnMacFarlane.Pandoc"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.DotNet.SDK.7"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.DotNet.AspNetCore.6"
-				},
-				{
-					"PackageIdentifier" : "Win32diskimager.win32diskimager"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.PowerToys"
-				},
-				{
-					"PackageIdentifier" : "Softerra.LDAPBrowser"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.WindowsSDK"
-				},
-				{
-					"PackageIdentifier" : "OpenVPNTechnologies.OpenVPNConnect"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.CLRTypesSQLServer.2019"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.WindowsPCHealthCheck"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x86"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.PowerShell"
-				},
-				{
-					"PackageIdentifier" : "LINQPad.LINQPad.6"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.VisualStudioCode"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.DotNet.Runtime.3_1"
-				},
-				{
-					"PackageIdentifier" : "Logitech.LogiTune"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.AzureCLI"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.WebDeploy"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.AzureStorageExplorer"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.DotNet.DesktopRuntime.6"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.SQLServer2012NativeClient"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.VCRedist.2013.x86"
-				},
-				{
-					"PackageIdentifier" : "icsharpcode.ILSpy"
-				},
-				{
-					"PackageIdentifier" : "EclipseAdoptium.Temurin.19.JDK"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.OpenJDK.17"
-				},
-				{
-					"PackageIdentifier" : "JetBrains.ReSharper"
-				},
-				{
-					"PackageIdentifier" : "Adobe.Acrobat.Reader.64-bit"
-				},
-				{
-					"PackageIdentifier" : "GitHub.cli"
-				},
-				{
-					"PackageIdentifier" : "VideoLAN.VLC"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.OpenJDK.11"
-				},
-				{
-					"PackageIdentifier" : "suse.RancherDesktop"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.DotNet.Runtime.3_1"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.WindowsSDK"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.DotNet.DesktopRuntime.6"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x64"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.DotNet.SDK.3_1"
-				},
-				{
-					"PackageIdentifier" : "Intel.IntelDriverAndSupportAssistant"
-				}
-			],
-			"SourceDetails" : 
-			{
-				"Argument" : "https://cdn.winget.microsoft.com/cache",
-				"Identifier" : "Microsoft.Winget.Source_8wekyb3d8bbwe",
-				"Name" : "winget",
-				"Type" : "Microsoft.PreIndexed.Package"
-			}
-		},
-		{
-			"Packages" : 
-			[
-				{
-					"PackageIdentifier" : "9PKJV6319QTL"
-				}
-			],
-			"SourceDetails" : 
-			{
-				"Argument" : "https://storeedgefd.dsx.mp.microsoft.com/v9.0",
-				"Identifier" : "StoreEdgeFD",
-				"Name" : "msstore",
-				"Type" : "Microsoft.Rest"
-			}
-		}
-	],
-	"WinGetVersion" : "1.4.3132-preview"
+  "$schema": "https://aka.ms/winget-packages.schema.2.0.json",
+  "CreationDate": "2023-05-31T12:12:49.196-03:00",
+  "Sources": [
+    {
+      "Packages": [
+        {
+          "PackageIdentifier": "9PKJV6319QTL"
+        }
+      ],
+      "SourceDetails": {
+        "Argument": "https://storeedgefd.dsx.mp.microsoft.com/v9.0",
+        "Identifier": "StoreEdgeFD",
+        "Name": "msstore",
+        "Type": "Microsoft.Rest"
+      }
+    },
+    {
+      "Packages": [
+        {
+          "PackageIdentifier": "acaudwell.Gource"
+        },
+        {
+          "PackageIdentifier": "Adobe.Acrobat.Reader.64-bit"
+        },
+        {
+          "PackageIdentifier": "AntibodySoftware.WizTree"
+        },
+        {
+          "PackageIdentifier": "Audacity.Audacity"
+        },
+        {
+          "PackageIdentifier": "AutoHotkey.AutoHotkey"
+        },
+        {
+          "PackageIdentifier": "Bitwarden.Bitwarden"
+        },
+        {
+          "PackageIdentifier": "clsid2.mpc-hc"
+        },
+        {
+          "PackageIdentifier": "code52.Carnac"
+        },
+        {
+          "PackageIdentifier": "CoreyButler.NVMforWindows"
+        },
+        {
+          "PackageIdentifier": "Dell.CommandUpdate.Universal"
+        },
+        {
+          "PackageIdentifier": "Dell.DisplayManager"
+        },
+        {
+          "PackageIdentifier": "Discord.Discord"
+        },
+        {
+          "PackageIdentifier": "dotPDNLLC.paintdotnet"
+        },
+        {
+          "PackageIdentifier": "EclipseAdoptium.Temurin.19.JDK"
+        },
+        {
+          "PackageIdentifier": "Git.Git"
+        },
+        {
+          "PackageIdentifier": "GitHub.cli"
+        },
+        {
+          "PackageIdentifier": "GlavSoft.TightVNC"
+        },
+        {
+          "PackageIdentifier": "GnuPG.GnuPG"
+        },
+        {
+          "PackageIdentifier": "GnuPG.Gpg4win"
+        },
+        {
+          "PackageIdentifier": "Graphviz.Graphviz"
+        },
+        {
+          "PackageIdentifier": "icsharpcode.ILSpy"
+        },
+        {
+          "PackageIdentifier": "Intel.IntelDriverAndSupportAssistant"
+        },
+        {
+          "PackageIdentifier": "JackieLiu.NotepadsApp"
+        },
+        {
+          "PackageIdentifier": "JetBrains.Gateway"
+        },
+        {
+          "PackageIdentifier": "JetBrains.IntelliJIDEA.Ultimate"
+        },
+        {
+          "PackageIdentifier": "JetBrains.ReSharper"
+        },
+        {
+          "PackageIdentifier": "JetBrains.Rider"
+        },
+        {
+          "PackageIdentifier": "JohnMacFarlane.Pandoc"
+        },
+        {
+          "PackageIdentifier": "kalilinux.kalilinux"
+        },
+        {
+          "PackageIdentifier": "Keybase.Keybase"
+        },
+        {
+          "PackageIdentifier": "KirillOsenkov.MSBuildStructuredLogViewer"
+        },
+        {
+          "PackageIdentifier": "LINQPad.LINQPad.6"
+        },
+        {
+          "PackageIdentifier": "Logitech.CameraSettings"
+        },
+        {
+          "PackageIdentifier": "Logitech.LogiTune"
+        },
+        {
+          "PackageIdentifier": "M2Team.NanaZip"
+        },
+        {
+          "PackageIdentifier": "Microsoft.Azure.StorageExplorer"
+        },
+        {
+          "PackageIdentifier": "Microsoft.AzureCLI"
+        },
+        {
+          "PackageIdentifier": "Microsoft.CLRTypesSQLServer.2019"
+        },
+        {
+          "PackageIdentifier": "Microsoft.DotNet.AspNetCore.6"
+        },
+        {
+          "PackageIdentifier": "Microsoft.DotNet.AspNetCore.6"
+        },
+        {
+          "PackageIdentifier": "Microsoft.DotNet.DesktopRuntime.6"
+        },
+        {
+          "PackageIdentifier": "Microsoft.DotNet.DesktopRuntime.6"
+        },
+        {
+          "PackageIdentifier": "Microsoft.DotNet.Runtime.3_1"
+        },
+        {
+          "PackageIdentifier": "Microsoft.DotNet.SDK.3_1"
+        },
+        {
+          "PackageIdentifier": "Microsoft.DotNet.SDK.7"
+        },
+        {
+          "PackageIdentifier": "Microsoft.DotNet.SDK.Preview"
+        },
+        {
+          "PackageIdentifier": "Microsoft.Edge"
+        },
+        {
+          "PackageIdentifier": "Microsoft.EdgeWebView2Runtime"
+        },
+        {
+          "PackageIdentifier": "Microsoft.MouseandKeyboardCenter"
+        },
+        {
+          "PackageIdentifier": "Microsoft.Office"
+        },
+        {
+          "PackageIdentifier": "Microsoft.OneDrive"
+        },
+        {
+          "PackageIdentifier": "Microsoft.OpenJDK.11"
+        },
+        {
+          "PackageIdentifier": "Microsoft.OpenJDK.17"
+        },
+        {
+          "PackageIdentifier": "Microsoft.PowerShell"
+        },
+        {
+          "PackageIdentifier": "Microsoft.PowerToys"
+        },
+        {
+          "PackageIdentifier": "Microsoft.Sqlcmd"
+        },
+        {
+          "PackageIdentifier": "Microsoft.SQLServer2012NativeClient"
+        },
+        {
+          "PackageIdentifier": "Microsoft.SQLServerManagementStudio"
+        },
+        {
+          "PackageIdentifier": "Microsoft.Teams"
+        },
+        {
+          "PackageIdentifier": "Microsoft.VCRedist.2013.x86"
+        },
+        {
+          "PackageIdentifier": "Microsoft.VisualStudio.2022.Enterprise"
+        },
+        {
+          "PackageIdentifier": "Microsoft.VisualStudio.2022.Enterprise.Preview"
+        },
+        {
+          "PackageIdentifier": "Microsoft.VisualStudioCode"
+        },
+        {
+          "PackageIdentifier": "Microsoft.VisualStudioCode.Insiders"
+        },
+        {
+          "PackageIdentifier": "Microsoft.WebDeploy"
+        },
+        {
+          "PackageIdentifier": "Microsoft.WinDbg"
+        },
+        {
+          "PackageIdentifier": "Microsoft.WindowsInstallationAssistant"
+        },
+        {
+          "PackageIdentifier": "Microsoft.WindowsPCHealthCheck"
+        },
+        {
+          "PackageIdentifier": "Microsoft.WindowsSDK"
+        },
+        {
+          "PackageIdentifier": "Microsoft.WindowsSDK"
+        },
+        {
+          "PackageIdentifier": "Microsoft.WindowsTerminal"
+        },
+        {
+          "PackageIdentifier": "Microsoft.WindowsTerminal.Preview"
+        },
+        {
+          "PackageIdentifier": "Mozilla.Firefox"
+        },
+        {
+          "PackageIdentifier": "Notepad++.Notepad++"
+        },
+        {
+          "PackageIdentifier": "Obsidian.Obsidian"
+        },
+        {
+          "PackageIdentifier": "OpenVPNTechnologies.OpenVPNConnect"
+        },
+        {
+          "PackageIdentifier": "PeterDaveHello.TransmissionRemoteGUI"
+        },
+        {
+          "PackageIdentifier": "Postman.Postman"
+        },
+        {
+          "PackageIdentifier": "REALiX.HWiNFO"
+        },
+        {
+          "PackageIdentifier": "Rufus.Rufus"
+        },
+        {
+          "PackageIdentifier": "SoftDeluxe.FreeDownloadManager"
+        },
+        {
+          "PackageIdentifier": "Softerra.LDAPBrowser"
+        },
+        {
+          "PackageIdentifier": "SublimeHQ.SublimeText.3"
+        },
+        {
+          "PackageIdentifier": "suse.RancherDesktop"
+        },
+        {
+          "PackageIdentifier": "TechSmith.Snagit.2021"
+        },
+        {
+          "PackageIdentifier": "Telerik.Fiddler.Classic"
+        },
+        {
+          "PackageIdentifier": "VideoLAN.VLC"
+        },
+        {
+          "PackageIdentifier": "vim.vim"
+        },
+        {
+          "PackageIdentifier": "Win32diskimager.win32diskimager"
+        },
+        {
+          "PackageIdentifier": "WinDirStat.WinDirStat"
+        },
+        {
+          "PackageIdentifier": "WiresharkFoundation.Wireshark"
+        },
+        {
+          "PackageIdentifier": "Yubico.YubikeyManager"
+        },
+        {
+          "PackageIdentifier": "Zoom.Zoom"
+        }
+      ],
+      "SourceDetails": {
+        "Argument": "https://cdn.winget.microsoft.com/cache",
+        "Identifier": "Microsoft.Winget.Source_8wekyb3d8bbwe",
+        "Name": "winget",
+        "Type": "Microsoft.PreIndexed.Package"
+      }
+    }
+  ],
+  "WinGetVersion": "1.5.1361-preview"
 }
