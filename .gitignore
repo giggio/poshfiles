@@ -9,6 +9,7 @@ Modules/Pester
 Modules/PSScriptAnalyzer
 Modules/PSReadLine
 Modules/Microsoft.Graph*
+Modules/Microsoft.WinGet.Client
 bin
 AdditionalModules
 .setupran

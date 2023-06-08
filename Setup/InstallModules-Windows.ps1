@@ -26,4 +26,7 @@ if (ModuleMissing AzureADPreview) {
 if (ModuleMissing ExchangeOnlineManagement) {
     Save-Module ExchangeOnlineManagement $localModulesDirectory -Confirm:$false
 }
+if (ModuleMissing Microsoft.WinGet.Client) {
+    Save-Module Microsoft.WinGet.Client $localModulesDirectory -Confirm:$false
+}
 
