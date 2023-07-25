@@ -3,7 +3,7 @@
 Set-StrictMode -Version 3.0
 
 if (!$IsWindows) {
-    Write-Warning "This script is only for Windows."
+    Write-Warning "This script ($PSCommandPath) is only for Windows."
     exit
 }
 

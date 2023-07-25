@@ -9,7 +9,9 @@ if ($IsWindows -and $null -eq $env:HOME -and $null -ne $env:USERPROFILE) {
 . "$profileDir/Functions.ps1"
 Sync-Path
 
-. "$PSScriptRoot/Run-Setup.ps1"
+if ($IsWindows) {
+    . "$PSScriptRoot/Run-Setup.ps1"
+}
 . "$profileDir/SetViMode.ps1" # always set vi mode before loading modules because of keybindings conflict with PSFzf
 . "$profileDir/ImportModules.ps1"
 

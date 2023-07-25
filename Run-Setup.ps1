@@ -2,6 +2,10 @@ param ([switch]$Force)
 
 Set-StrictMode -Version 3.0
 $ErrorActionPreference = 'Stop'
+if (!$IsWindows) {
+    Write-Warning "This script ($PSCommandPath) is only for Windows."
+    exit
+}
 
 $script:setupDir = Join-Path $PSScriptRoot Setup
 $script:isDotSourced = $MyInvocation.InvocationName -eq '.' -or $MyInvocation.Line -eq ''

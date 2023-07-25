@@ -3,7 +3,7 @@
 #Requires -Version 7.2
 
 if (!$IsWindows) {
-    Write-Error "This script is only for Windows"
+    Write-Warning "This script ($PSCommandPath) is only for Windows."
     exit 1
 }
 

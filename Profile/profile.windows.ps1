@@ -4,7 +4,7 @@ if (!$isDotSourced) {
     exit 1
 }
 if (!$IsWindows) {
-    Write-Warning "This script is only for Windows."
+    Write-Warning "This script ($PSCommandPath) is only for Windows."
     exit
 }
 $script:profileDir = $PSScriptRoot
