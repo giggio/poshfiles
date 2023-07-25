@@ -1,3 +1,12 @@
+$script:isDotSourced = $MyInvocation.InvocationName -eq '.' -or $MyInvocation.Line -eq ''
+if (!$isDotSourced) {
+    Write-Error "Cannot run this script, needs to source it."
+    exit 1
+}
+if (!$IsWindows) {
+    Write-Warning "This script is only for Windows."
+    exit
+}
 $script:profileDir = $PSScriptRoot
 
 # disable Telemetry to be able to use this in PowerShell Core
