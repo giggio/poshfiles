@@ -14,7 +14,7 @@ function Add-Starship {
 Add-Starship
 Remove-Item -Path Function:\Add-Starship
 
-if ($IsWindows -and (Get-Item Env:\WT_SESSION -ErrorAction SilentlyContinue)) {
+if ($IsWindows -and (Get-Item Env:\WT_SESSION -ErrorAction SilentlyContinue) -and ($PSEdition -eq 'Core')) {
     # bellow script originally from these 2 places:
     # 1. https://learn.microsoft.com/windows/terminal/tutorials/shell-integration#powershell-pwshexe
     # 2. https://github.com/starship/starship/blob/885241114a933ae97820030cd28c97dc31670d3a/src/init/starship.ps1
