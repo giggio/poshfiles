@@ -1,6 +1,6 @@
 {
   "$schema": "https://aka.ms/winget-packages.schema.2.0.json",
-  "CreationDate": "2023-05-31T12:53:30.166-03:00",
+  "CreationDate": "2023-08-02T10:00:20.822-03:00",
   "Sources": [
     {
       "Packages": [
@@ -90,13 +90,7 @@
           "PackageIdentifier": "JetBrains.Gateway"
         },
         {
-          "PackageIdentifier": "JetBrains.Gateway"
-        },
-        {
           "PackageIdentifier": "JetBrains.IntelliJIDEA.Ultimate"
-        },
-        {
-          "PackageIdentifier": "JetBrains.ReSharper"
         },
         {
           "PackageIdentifier": "JetBrains.Rider"
@@ -135,19 +129,13 @@
           "PackageIdentifier": "Microsoft.CLRTypesSQLServer.2019"
         },
         {
-          "PackageIdentifier": "Microsoft.DotNet.AspNetCore.6"
+          "PackageIdentifier": "Microsoft.DevHome"
         },
         {
           "PackageIdentifier": "Microsoft.DotNet.AspNetCore.6"
         },
         {
           "PackageIdentifier": "Microsoft.DotNet.DesktopRuntime.6"
-        },
-        {
-          "PackageIdentifier": "Microsoft.DotNet.DesktopRuntime.6"
-        },
-        {
-          "PackageIdentifier": "Microsoft.DotNet.Runtime.3_1"
         },
         {
           "PackageIdentifier": "Microsoft.DotNet.SDK.3_1"
@@ -157,6 +145,9 @@
         },
         {
           "PackageIdentifier": "Microsoft.DotNet.SDK.Preview"
+        },
+        {
+          "PackageIdentifier": "Microsoft.dotnetUninstallTool"
         },
         {
           "PackageIdentifier": "Microsoft.Edge"
@@ -201,6 +192,12 @@
           "PackageIdentifier": "Microsoft.VCRedist.2013.x86"
         },
         {
+          "PackageIdentifier": "Microsoft.VCRedist.2015+.x64"
+        },
+        {
+          "PackageIdentifier": "Microsoft.VCRedist.2015+.x86"
+        },
+        {
           "PackageIdentifier": "Microsoft.VisualStudio.2022.Enterprise"
         },
         {
@@ -225,7 +222,10 @@
           "PackageIdentifier": "Microsoft.WindowsPCHealthCheck"
         },
         {
-          "PackageIdentifier": "Microsoft.WindowsSDK"
+          "PackageIdentifier": "Microsoft.WindowsSDK.10.0.19041"
+        },
+        {
+          "PackageIdentifier": "Microsoft.WindowsSDK.10.0.22621"
         },
         {
           "PackageIdentifier": "Microsoft.WindowsTerminal"
@@ -238,6 +238,9 @@
         },
         {
           "PackageIdentifier": "Notepad++.Notepad++"
+        },
+        {
+          "PackageIdentifier": "Nushell.Nushell"
         },
         {
           "PackageIdentifier": "Obsidian.Obsidian"
@@ -305,5 +308,5 @@
       }
     }
   ],
-  "WinGetVersion": "1.5.1361-preview"
+  "WinGetVersion": "1.6.1573-preview"
 }
