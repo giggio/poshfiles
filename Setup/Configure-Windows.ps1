@@ -56,6 +56,7 @@ if (Get-Command gpg -ErrorAction Ignore) {
     if (!($gpgAgentConfig | Where-Object { $_.StartsWith('enable-win32-openssh-support') })) {
         # this will create named pipe '\\.\pipe\openssh-ssh-agent'
         # todo: gpgconf is not working, it fails with 'gpgconf: unknown option enable-win32-openssh-support', change to use gpgconf when it works
+        # should be: Write-Output 'enable-win32-ssh-support:0:1' | gpgconf --change-options gpg-agent
         $gpgAgentConfig += "enable-win32-openssh-support"
         $gpgAgentConfig | Out-File $gpgAgentConfigPath
         $updatedGpgAgentConf = $true
