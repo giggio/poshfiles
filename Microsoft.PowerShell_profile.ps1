@@ -19,7 +19,7 @@ $kubeConfigHome = Join-Path $env:HOME '.kube'
 if (Test-Path $kubeConfigHome) {
     & {
         $kubeConfig = ''
-        $env:KUBECONFIG = Get-ChildItem $kubeConfigHome -File | ForEach-Object {} { $kubeConfig += "$($_.FullName)$([System.IO.Path]::PathSeparator)" } { $kubeConfig }
+        $env:KUBECONFIG = Get-ChildItem $kubeConfigHome -File | Where-Object { $_.Name -ne 'kubectx' -and ($_.Name -ne 'kubens') } | ForEach-Object {} { $kubeConfig += "$($_.FullName)$([System.IO.Path]::PathSeparator)" } { $kubeConfig }
     }
 }
 Remove-Variable kubeConfigHome
