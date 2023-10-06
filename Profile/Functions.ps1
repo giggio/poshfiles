@@ -68,3 +68,52 @@ function Test-Error {
         Write-Error "Error encountered. Last exit code was: $LASTEXITCODE."
     }
 }
+
+function Set-DnsClientServerAddressToCloudflare {
+    [CmdletBinding(SupportsShouldProcess = $true)]
+    Param(
+        [switch]$Force
+    )
+    if ($Force -and -not $Confirm) { $ConfirmPreference = 'None' }
+
+    [array]$nas = Get-NetAdapter -Physical | Where-Object { $_.Status -eq 'Up' }
+    if ($nas.Count -eq 0) { throw 'No up interface found.' }
+    $na = $null
+    foreach ($na in $nas) {
+        $newServers = @()
+        if (Get-NetIPAddress -InterfaceIndex $na.ifIndex -AddressFamily IPv4 -ErrorAction SilentlyContinue) {
+            if (Get-NetIPAddress -InterfaceIndex $na.ifIndex -AddressFamily IPv4 | Where-Object { $_.PrefixOrigin -eq 'Dhcp' }) {
+                $newServers += '1.1.1.1', '8.8.8.8'
+            }
+        }
+        if (Get-NetIPAddress -InterfaceIndex $na.ifIndex -AddressFamily IPv6 -ErrorAction SilentlyContinue) {
+            if (Get-NetIPAddress -InterfaceIndex $na.ifIndex -AddressFamily IPv6 | Where-Object { $_.PrefixOrigin -eq 'Dhcp' }) {
+                $newServers += '2606:4700:4700::1111', '2606:4700:4700::1001'
+            }
+        }
+        if ($newServers.Count -gt 0) {
+            if ($PSCmdlet.ShouldProcess("Performing ``Set-DnsClientServerAddress -InterfaceIndex $($na.ifIndex) -ServerAddresses $($newServers -join ',')`` (Interface '$($na.Name)')", $na.ifIndex, 'Set-DnsClientServerAddress')) {
+                Set-DnsClientServerAddress -InterfaceIndex $na.ifIndex -ServerAddresses $newServers
+            }
+        }
+    }
+}
+
+function Reset-DnsClientServerAddress {
+    [CmdletBinding(SupportsShouldProcess = $true)]
+    Param(
+        [switch]$Force
+    )
+    if ($Force -and -not $Confirm) { $ConfirmPreference = 'None' }
+
+    [array]$nas = Get-NetAdapter -Physical | Where-Object { $_.Status -eq 'Up' }
+    if ($nas.Count -eq 0) { throw 'No up interface found.' }
+    $na = $null
+    foreach ($na in $nas) {
+        if (Get-NetIPAddress -InterfaceIndex $na.ifIndex | Where-Object { $_.PrefixOrigin -eq 'Dhcp' }) {
+            if ($PSCmdlet.ShouldProcess("Performing ``Set-DnsClientServerAddress -InterfaceIndex $($na.ifIndex) -ResetServerAddresses`` (Interface '$($na.Name)')", $na.ifIndex, 'Set-DnsClientServerAddress')) {
+                Set-DnsClientServerAddress -InterfaceIndex $na.ifIndex -ResetServerAddresses
+            }
+        }
+    }
+}
