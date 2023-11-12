@@ -80,3 +80,10 @@ if (!($machinePath)) {
     Write-Output "Setting machine environment variable _NT_SYMBOL_PATH to use symbol path '$symbolsPath'."
     [Environment]::SetEnvironmentVariable('_NT_SYMBOL_PATH', "cache*$symbolsPath;SRV*c:\symbols*http://msdl.microsoft.com/download/symbols", 'Machine')
 }
+
+# setup WSL communication with Hyper-V local VMs
+# see https://stackoverflow.com/a/75684131/2723305
+# and https://techcommunity.microsoft.com/t5/itops-talk-blog/windows-subsystem-for-linux-2-addressing-traffic-routing-issues/ba-p/1764074
+# todo: maybe setting networkingMode to 'mirrored' will solve this, but it is experimental at this moment and it is causing problems
+# with Docker port forwarding. See: https://learn.microsoft.com/en-us/windows/wsl/wsl-config#experimental-settings
+Get-NetIPInterface | where {$_.InterfaceAlias -match 'vEthernet \(WSL' -or $_.InterfaceAlias -eq 'vEthernet (Default Switch)'} | Set-NetIPInterface -Forwarding Enabled
