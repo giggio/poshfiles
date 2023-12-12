@@ -32,6 +32,7 @@ function RunSetupNonElevated {
         & "$setupDir/InstallTools-Windows-NonElevated.ps1"
     }
     . "$setupDir/InstallModules.ps1"
+    . "$setupDir/Cofigure-Windows-NonElevated.ps1"
 }
 
 function CheckSetupNonElevated([switch]$BypassCheck = $false) {
@@ -66,20 +67,3 @@ $script:isDotSourced = $MyInvocation.InvocationName -eq '.' -or $MyInvocation.Li
 if (!$isDotSourced) {
     CheckSetupNonElevated -BypassCheck
 }
-
-if (Test-Path $env:USERPROFILE/.gitconfig) {
-    if ((Get-Item $env:USERPROFILE/.gitconfig).LinkType -eq 'SymbolicLink') {
-        Remove-Item $env:USERPROFILE/.gitconfig
-    } else {
-        Move-Item $env:USERPROFILE/.gitconfig $env:USERPROFILE/.gitconfig.backup -Force
-    }
-}
-New-Item -ItemType SymbolicLink -Target $PSScriptRoot/../home/.gitconfig -Path $env:USERPROFILE/.gitconfig
-if (Test-Path $env:USERPROFILE/.gitattributes) {
-    if ((Get-Item $env:USERPROFILE/.gitattributes).LinkType -eq 'SymbolicLink') {
-        Remove-Item $env:USERPROFILE/.gitattributes
-    } else {
-        Move-Item $env:USERPROFILE/.gitattributes $env:USERPROFILE/.gitattributes.backup -Force
-    }
-}
-New-Item -ItemType SymbolicLink -Target $PSScriptRoot/../home/.gitattributes -Path $env:USERPROFILE/.gitattributes
