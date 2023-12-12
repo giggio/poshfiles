@@ -1,0 +1,6 @@
+npm-shrinkwrap.json merge=npm-merge-driver
+package-lock.json merge=npm-merge-driver
+*.docx diff=pandoc2md
+*.md diff=wrap
+*.xlsx diff=xlsx
+*.zip diff=listzipfiles

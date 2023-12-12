@@ -1,0 +1,130 @@
+[user]
+  name = Giovanni Bassi
+  email = giggio@giggio.net
+[diff]
+  indentHeuristic = true
+  submodule = log
+  ; tool = vsdiffmerge
+  tool = codediff
+[merge]
+  ; tool = vsdiffmerge
+  tool = codediff
+[difftool "codediff"]
+  cmd = code --wait --diff $LOCAL $REMOTE
+[mergetool "codediff"]
+  cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
+[color]
+  diff = always
+  interactive = always
+  status = always
+  branch = always
+[alias]
+  st = status
+  ci = commit
+  co = checkout
+  br = branch
+  pf = push --force-with-lease
+  pushtag = push origin --tags
+  fixup = commit --all --amend --no-edit
+  open = "!openInBrowser() { \
+            if [ -z \"$1\" ]; then \
+              echo \"URL is empty.\"; \
+              return; \
+            fi; \
+            echo "Opening $1" ...; \
+            THIS_OS="$(uname -s)"; \
+            case "$THIS_OS" in \
+              Linux*) xdg-open $1;; \
+              MSYS_NT*|MINGW*|CYGWIN*) explorer $1;; \
+              *) echo \"unknown: $THIS_OS\";; \
+            esac; \
+          }; \
+          browse() { \
+            REMOTE=origin; \
+            if ! [ -z \"$1\" ]; then \
+              REMOTE=$1; \
+            fi; \
+            ORIGIN=`git config remote.$REMOTE.url`; \
+            case $ORIGIN in \
+              '') return;; \
+              https://*) openInBrowser $ORIGIN;; \
+              *) \
+                HTTPS_URL=$(echo \"$ORIGIN\" | awk -F '@' '{print $2}' | awk -F ' ' '{print $1}' | sed 's/:/\\//g' | sed 's/.git//g' | awk '{print \"https://\"$1}' ); \
+                openInBrowser "$HTTPS_URL";; \
+            esac; \
+          }; browse"
+  browse = !git open
+  up = push upstream master
+  sync = pull upstream master --rebase
+  which = !git branch | grep -i
+  daily = !sh -c 'git log --since=yesterday --format=%s --author=\"`git config user.email`\"'
+  serve = daemon --reuseaddr --verbose --base-path=. --export-all ./.git
+  graph = log --graph
+  ngrok = "!f() { \
+            NGROK_WAIT=${NGROK_WAIT:-1}; \
+            git serve & ngrok tcp 9418 > /dev/null 2>&1 & \
+            echo >&2 "Waiting $NGROK_WAIT seconds for git daemon and ngrok to start..."; \
+            sleep $NGROK_WAIT; \
+            public_url=$(curl -s http://localhost:4040/api/tunnels/command_line | jq -r '.public_url[3:]'); \
+            public_url="git$public_url/"; \
+            echo "Serving repo at: $public_url"; \
+            echo "Press CTRL C to stop."; \
+            sleep infinity; \
+          }; f"
+  squash = "!f() { git reset --hard $1; git merge --squash HEAD@{1}; git commit; }; f"
+  continue = "-c core.editor=true rebase --continue"
+[pull]
+  ff = only
+[push]
+  default = simple
+  autoSetupRemote = true
+[log]
+  decorate = full
+  abbrevCommit = true
+[format]
+  pretty=format:%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset
+[gui]
+  gcwarning = false
+[commit]
+  gpgsign = true
+[diff "pandoc2md"]
+  textconv = pandoc --to=markdown
+[diff "wrap"]
+  textconv = fmt
+[diff "xlsx"]
+  textconv = python -m xlsx2csv
+[diff "listzipfiles"]
+  textconv = unzip -l
+[merge "npm-merge-driver"]
+  name = automatically merge npm lockfiles
+  driver = npx npm-merge-driver merge %A %O %B %P
+[init]
+  defaultBranch = main
+[rerere]
+  enabled = true
+[core]
+  pager = delta --dark
+  longpaths = true
+  ;sshCommand = C:/WINDOWS/System32/OpenSSH/ssh.exe
+  ; install with: winget install Microsoft.OpenSSH.Beta
+  sshCommand = \"C:\\Program Files\\OpenSSH\\ssh.exe\"
+  attributesfile = ~/.gitattributes
+[credential]
+[gpg]
+  program = C:/Program Files (x86)/GnuPG/bin/gpg.exe
+; program = C:/Program Files/Git/usr/bin/gpg.exe
+[gpg "ssh"]
+  defaultKeyCommand = ssh-add -L
+[difftool]
+  prompt = true
+[difftool "vsdiffmerge"]
+  cmd = \"C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\Common7\\IDE\\CommonExtensions\\Microsoft\\TeamFoundation\\Team Explorer\\vsdiffmerge.exe\" \"$LOCAL\" \"$REMOTE\" //t
+  keepBackup = false
+[mergetool]
+  prompt = true
+[mergetool "vsdiffmerge"]
+  cmd = \"C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\Common7\\IDE\\CommonExtensions\\Microsoft\\TeamFoundation\\Team Explorer\\vsdiffmerge.exe\" \"$REMOTE\" \"$LOCAL\" \"$BASE\" \"$MERGED\" //m
+  keepBackup = false
+  trustExitCode = true
+[pack]
+  windowMemory = 0
