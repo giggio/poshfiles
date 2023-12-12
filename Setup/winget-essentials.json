@@ -35,6 +35,9 @@
           "PackageIdentifier": "Microsoft.OpenJDK.17"
         },
         {
+          "PackageIdentifier": "Microsoft.OpenSSH.Beta"
+        },
+        {
           "PackageIdentifier": "Microsoft.PowerShell"
         },
         {
@@ -63,7 +66,10 @@
         },
         {
           "PackageIdentifier": "vim.vim"
-        }
+        },
+        {
+          "PackageIdentifier": "Yubico.YubikeyManager"
+        },
       ],
       "SourceDetails": {
         "Argument": "https://cdn.winget.microsoft.com/cache",
@@ -73,5 +79,5 @@
       }
     }
   ],
-  "WinGetVersion": "1.5.1361-preview"
+  "WinGetVersion": "1.7.3172-preview"
 }

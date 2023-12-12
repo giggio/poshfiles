@@ -11,8 +11,8 @@
       "Info": "",
       "Name": "act",
       "Source": "main",
-      "Updated": "2023-07-14T18:35:37.6302101-03:00",
-      "Version": "0.2.48"
+      "Updated": "2023-11-14T14:18:50.9201024-03:00",
+      "Version": "0.2.54"
     },
     {
       "Info": "",
@@ -25,22 +25,29 @@
       "Info": "",
       "Name": "bat",
       "Source": "main",
-      "Updated": "2023-03-27T18:42:17.6997951-03:00",
-      "Version": "0.23.0"
+      "Updated": "2023-10-17T20:55:54.4265162-03:00",
+      "Version": "0.24.0"
+    },
+    {
+      "Info": "",
+      "Name": "bind",
+      "Source": "main",
+      "Updated": "2023-11-16T17:08:03.8016156-03:00",
+      "Version": "9.16.45"
     },
     {
       "Info": "",
       "Name": "carapace-bin",
       "Source": "extras",
-      "Updated": "2023-07-27T16:32:43.7273063-03:00",
-      "Version": "0.25.3"
+      "Updated": "2023-11-07T14:20:28.9614172-03:00",
+      "Version": "0.28.3"
     },
     {
       "Info": "",
       "Name": "clink",
       "Source": "main",
-      "Updated": "2023-07-14T18:35:38.4265846-03:00",
-      "Version": "1.5.1"
+      "Updated": "2023-11-22T13:51:14.3931229-03:00",
+      "Version": "1.5.16"
     },
     {
       "Info": "",
@@ -53,8 +60,8 @@
       "Info": "",
       "Name": "dapr-cli",
       "Source": "main",
-      "Updated": "2023-06-24T17:05:31.5847208-03:00",
-      "Version": "1.11.0"
+      "Updated": "2023-10-17T20:56:01.4169844-03:00",
+      "Version": "1.12.0"
     },
     {
       "Info": "",
@@ -74,57 +81,64 @@
       "Info": "",
       "Name": "deno",
       "Source": "main",
-      "Updated": "2023-07-27T16:32:47.9507817-03:00",
-      "Version": "1.35.3"
+      "Updated": "2023-11-22T13:51:21.3685315-03:00",
+      "Version": "1.38.2"
     },
     {
       "Info": "",
       "Name": "dependency-check",
       "Source": "main",
-      "Updated": "2023-06-24T17:05:39.7372817-03:00",
-      "Version": "8.3.1"
+      "Updated": "2023-11-22T13:51:28.0411051-03:00",
+      "Version": "9.0.0"
     },
     {
       "Info": "",
       "Name": "docker",
       "Source": "main",
-      "Updated": "2023-07-25T19:59:29.3968345-03:00",
-      "Version": "24.0.5"
+      "Updated": "2023-11-07T14:20:37.4406598-03:00",
+      "Version": "24.0.7"
+    },
+    {
+      "Info": "",
+      "Name": "eza",
+      "Source": "main",
+      "Updated": "2023-11-16T17:08:07.0691464-03:00",
+      "Version": "0.16.0"
     },
     {
       "Info": "",
       "Name": "ffmpeg",
       "Source": "main",
-      "Updated": "2023-03-04T23:08:40.4487067-03:00",
-      "Version": "6.0"
+      "Updated": "2023-11-14T14:19:24.9712973-03:00",
+      "Version": "6.1"
     },
     {
       "Info": "",
       "Name": "ffmpeg-shared",
       "Source": "main",
-      "Updated": "2023-03-09T01:27:55.9086312-03:00",
-      "Version": "6.0"
+      "Updated": "2023-11-14T14:19:44.8846531-03:00",
+      "Version": "6.1"
     },
     {
       "Info": "",
       "Name": "fzf",
       "Source": "main",
-      "Updated": "2023-06-24T17:05:41.0747994-03:00",
-      "Version": "0.42.0"
+      "Updated": "2023-11-22T13:51:30.2820126-03:00",
+      "Version": "0.44.1"
     },
     {
       "Info": "",
       "Name": "go",
       "Source": "main",
-      "Updated": "2023-07-14T18:36:05.2109815-03:00",
-      "Version": "1.20.6"
+      "Updated": "2023-11-09T16:24:52.6650053-03:00",
+      "Version": "1.21.4"
     },
     {
       "Info": "",
       "Name": "gsudo",
       "Source": "main",
-      "Updated": "2023-07-21T16:59:24.9598644-03:00",
-      "Version": "2.3.0"
+      "Updated": "2023-09-15T20:26:17.0045823-03:00",
+      "Version": "2.4.0"
     },
     {
       "Info": "",
@@ -158,22 +172,36 @@
       "Info": "",
       "Name": "jq",
       "Source": "main",
-      "Updated": "2022-07-23T01:29:29.8475656-03:00",
-      "Version": "1.6"
+      "Updated": "2023-09-15T20:26:18.5234221-03:00",
+      "Version": "1.7"
     },
     {
       "Info": "",
       "Name": "k3d",
       "Source": "main",
-      "Updated": "2023-05-31T15:07:52.5306497-03:00",
-      "Version": "5.5.1"
+      "Updated": "2023-08-23T14:15:50.5939534-03:00",
+      "Version": "5.6.0"
+    },
+    {
+      "Info": "",
+      "Name": "kubectx",
+      "Source": "main",
+      "Updated": "2023-09-22T20:24:52.4581303-03:00",
+      "Version": "0.9.5"
+    },
+    {
+      "Info": "",
+      "Name": "kubens",
+      "Source": "main",
+      "Updated": "2023-09-22T20:24:57.3143757-03:00",
+      "Version": "0.9.5"
     },
     {
       "Info": "",
       "Name": "less",
       "Source": "main",
-      "Updated": "2023-05-31T15:07:53.7471566-03:00",
-      "Version": "633"
+      "Updated": "2023-08-16T12:14:01.4622761-03:00",
+      "Version": "643"
     },
     {
       "Info": "",
@@ -193,22 +221,22 @@
       "Info": "",
       "Name": "mongosh",
       "Source": "extras",
-      "Updated": "2023-07-31T16:28:29.0564261-03:00",
-      "Version": "1.10.3"
+      "Updated": "2023-11-22T13:51:37.3906755-03:00",
+      "Version": "2.1.0"
     },
     {
       "Info": "",
       "Name": "msys2",
       "Source": "main",
-      "Updated": "2023-07-21T17:00:08.304054-03:00",
-      "Version": "2023-07-18"
+      "Updated": "2023-11-07T14:21:47.8571485-03:00",
+      "Version": "2023-10-26"
     },
     {
       "Info": "",
       "Name": "neovim",
       "Source": "main",
-      "Updated": "2023-05-31T15:08:30.9924207-03:00",
-      "Version": "0.9.1"
+      "Updated": "2023-10-11T11:07:40.2437981-03:00",
+      "Version": "0.9.4"
     },
     {
       "Info": "",
@@ -228,8 +256,8 @@
       "Info": "",
       "Name": "nuget",
       "Source": "main",
-      "Updated": "2023-06-24T17:05:46.7666352-03:00",
-      "Version": "6.6.1"
+      "Updated": "2023-11-16T17:08:09.8150998-03:00",
+      "Version": "6.8.0"
     },
     {
       "Info": "",
@@ -249,22 +277,22 @@
       "Info": "",
       "Name": "osquery",
       "Source": "main",
-      "Updated": "2023-07-21T17:00:11.0453773-03:00",
-      "Version": "5.9.1"
+      "Updated": "2023-11-07T14:21:56.1371531-03:00",
+      "Version": "5.10.2"
     },
     {
       "Info": "",
       "Name": "protobuf",
       "Source": "extras",
-      "Updated": "2023-07-14T18:36:07.9435982-03:00",
-      "Version": "23.4"
+      "Updated": "2023-11-16T17:08:10.8107472-03:00",
+      "Version": "25.1"
     },
     {
       "Info": "",
       "Name": "python",
       "Source": "main",
-      "Updated": "2023-06-11T01:37:17.3005385-03:00",
-      "Version": "3.11.4"
+      "Updated": "2023-10-06T22:10:56.8697288-03:00",
+      "Version": "3.12.0"
     },
     {
       "Info": "",
@@ -298,15 +326,15 @@
       "Info": "",
       "Name": "quarkus-cli",
       "Source": "main",
-      "Updated": "2023-07-25T19:59:31.0491708-03:00",
-      "Version": "3.2.2"
+      "Updated": "2023-08-16T12:14:07.116645-03:00",
+      "Version": "3.2.4"
     },
     {
       "Info": "",
       "Name": "redis",
       "Source": "main",
-      "Updated": "2023-07-14T18:36:11.0965328-03:00",
-      "Version": "7.0.12"
+      "Updated": "2023-10-19T20:15:32.427755-03:00",
+      "Version": "7.0.14"
     },
     {
       "Info": "",
@@ -347,8 +375,8 @@
       "Info": "",
       "Name": "terraform",
       "Source": "main",
-      "Updated": "2023-07-27T16:32:51.2893069-03:00",
-      "Version": "1.5.4"
+      "Updated": "2023-11-16T17:08:12.0017727-03:00",
+      "Version": "1.6.4"
     },
     {
       "Info": "",
@@ -361,8 +389,8 @@
       "Info": "",
       "Name": "vault",
       "Source": "main",
-      "Updated": "2023-07-25T19:59:39.6349737-03:00",
-      "Version": "1.14.1"
+      "Updated": "2023-11-09T16:25:11.0206001-03:00",
+      "Version": "1.15.2"
     },
     {
       "Info": "",
@@ -375,8 +403,8 @@
       "Info": "",
       "Name": "yq",
       "Source": "main",
-      "Updated": "2023-07-14T18:36:17.7606633-03:00",
-      "Version": "4.34.2"
+      "Updated": "2023-11-22T13:51:39.8916983-03:00",
+      "Version": "4.40.2"
     },
     {
       "Info": "",
@@ -389,28 +417,32 @@
       "Info": "",
       "Name": "zoxide",
       "Source": "main",
-      "Updated": "2023-07-11T02:41:16.6463154-03:00",
-      "Version": "0.9.1"
+      "Updated": "2023-08-16T12:14:11.0098875-03:00",
+      "Version": "0.9.2"
     }
   ],
   "buckets": [
     {
-      "Manifests": 1883,
+      "Manifests": 1888,
       "Name": "extras",
       "Source": "https://github.com/ScoopInstaller/Extras",
-      "Updated": "2023-07-31T13:32:57-03:00"
+      "Updated": "2023-11-22T13:28:11-03:00"
     },
     {
-      "Manifests": 1215,
+      "Manifests": 1262,
       "Name": "main",
       "Source": "https://github.com/ScoopInstaller/Main",
-      "Updated": "2023-07-31T13:27:55-03:00"
+      "Updated": "2023-11-22T13:27:51-03:00"
     },
     {
-      "Manifests": 425,
+      "Manifests": 429,
       "Name": "versions",
       "Source": "https://github.com/ScoopInstaller/Versions",
-      "Updated": "2023-07-31T13:34:52-03:00"
+      "Updated": "2023-11-22T13:39:01-03:00"
     }
-  ]
+  ],
+  "config": {
+    "scoop_branch": "master",
+    "scoop_repo": "https://github.com/lukesampson/scoop"
+  }
 }
