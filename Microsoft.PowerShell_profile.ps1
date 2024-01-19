@@ -44,6 +44,7 @@ if ($IsWindows) {
 }
 
 . "$profileDir/Prompt.ps1"
+. "$profileDir/Zoxide.ps1"
 
 # cleanup:
 Set-StrictMode -Off
