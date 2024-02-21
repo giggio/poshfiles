@@ -20,16 +20,15 @@ function TabExpansion($line, $lastWord) {
 
 # dotnet completions, see more at https://learn.microsoft.com/dotnet/core/tools/enable-tab-autocomplete#powershell
 Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
-     param($commandName, $wordToComplete, $cursorPosition)
-         dotnet complete --position $cursorPosition "$wordToComplete" | ForEach-Object {
-            [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_)
-         }
+    param($commandName, $wordToComplete, $cursorPosition)
+    dotnet complete --position $cursorPosition "$wordToComplete" | ForEach-Object {
+        [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_)
+    }
 }
 
 # from: https://github.com/dotnet/command-line-api/blob/main/src/System.CommandLine.Suggest/dotnet-suggest-shim.ps1
 # dotnet suggest shell start
-if (Get-Command "dotnet-suggest" -errorAction SilentlyContinue)
-{
+if (Get-Command "dotnet-suggest" -ErrorAction SilentlyContinue) {
     $availableToComplete = (dotnet-suggest list) | Out-String
     $availableToCompleteArray = $availableToComplete.Split([Environment]::NewLine, [System.StringSplitOptions]::RemoveEmptyEntries)
 
@@ -42,9 +41,7 @@ if (Get-Command "dotnet-suggest" -errorAction SilentlyContinue)
             [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_)
         }
     }
-}
-else
-{
+} else {
     "Unable to provide System.CommandLine tab completion support unless the [dotnet-suggest] tool is first installed."
     "See the following for tool installation: https://www.nuget.org/packages/dotnet-suggest"
 }
@@ -53,4 +50,21 @@ $env:DOTNET_SUGGEST_SCRIPT_VERSION = "1.0.2"
 
 if (Get-Command deno -ErrorAction Ignore) {
     Invoke-Expression -Command $(deno completions powershell | Out-String)
+}
+
+if (Get-Command carapace -ErrorAction Ignore) {
+    $bridges = @()
+    if (Get-Command inshellisense -ErrorAction Ignore) {
+        $bridges += 'inshellisense'
+    }
+    if ($IsLinux) {
+        $bridges += 'bash'
+    }
+    if ($bridges) {
+        $env:CARAPACE_BRIDGES = $bridges -join ','
+    }
+    Remove-Variable bridges
+    Set-PSReadLineOption -Colors @{ "Selection" = "`e[7m" }
+    Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
+    carapace _carapace | Out-String | Invoke-Expression
 }
