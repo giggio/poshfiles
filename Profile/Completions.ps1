@@ -64,7 +64,9 @@ if (Get-Command carapace -ErrorAction Ignore) {
         $env:CARAPACE_BRIDGES = $bridges -join ','
     }
     Remove-Variable bridges
-    Set-PSReadLineOption -Colors @{ "Selection" = "`e[7m" }
+    if ($PSEdition -eq 'Core') {
+        Set-PSReadLineOption -Colors @{ "Selection" = "`e[7m" }
+    }
     Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
     carapace _carapace | Out-String | Invoke-Expression
 }
