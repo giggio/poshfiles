@@ -52,6 +52,7 @@ function FixJsonConfigFile {
     # this is for PowerShell Core which is be done via config file
     # see: help about_powershell_config
     # https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_powershell_config
+    return # todo: remove this when the startup bug is fixed: https://github.com/PowerShell/PowerShell/issues/20706
     $pwshUserDir = Split-Path $PROFILE.CurrentUserCurrentHost
     if (!(Test-Path $pwshUserDir)) { New-Item -ItemType Directory -Path $pwshUserDir }
     $pwshConfigFile = Join-Path $pwshUserDir powershell.config.json
