@@ -47,7 +47,7 @@ function Invoke-WingetSetup {
     }
     function ViewWingetApps([System.IO.FileInfo]$file) {
         Write-Host "Winget apps:"
-            (Get-Content $file | ConvertFrom-Json).Sources.Packages.PackageIdentifier | Format-Table | Out-String | ForEach-Object { Write-Host $_ }
+        (Get-Content $file | ConvertFrom-Json).Sources.Packages.PackageIdentifier | Format-Table | Out-String | ForEach-Object { Write-Host $_ }
     }
 
     $choices = @(
@@ -82,6 +82,42 @@ function Invoke-WingetSetup {
 }
 Invoke-WingetSetup
 Remove-Item -Path Function:\Invoke-WingetSetup
+
+function Invoke-ChocoSetup {
+    $choices = @(
+        [System.Management.Automation.Host.ChoiceDescription]::new("&Yes", "Run choco setup, agreeing with source and package agreements")
+        [System.Management.Automation.Host.ChoiceDescription]::new("&No", "Do not run choco setup")
+        [System.Management.Automation.Host.ChoiceDescription]::new("&View", "View choco apps")
+    )
+    $script:runWinget = $Host.UI.PromptForChoice("Run choco setup?", "Review the Chocolatey file before you import it. Do you want to run it now?", $choices, 1)
+    switch ($runWinget) {
+        0 {
+            #install
+            $choco = 'choco'
+            if (Get-Command choco -ErrorAction Ignore) {
+                $choco = "$env:ProgramData\chocolatey\bin\choco.exe"
+                if (!(Test-Path $choco)) {
+                    winget install --id Chocolatey.Chocolatey --source winget --accept-package-agreements --accept-source-agreements
+                }
+                if (!(Test-Path $choco)) {
+                    Write-Warning "Chocolatey is not installed and trying to install it did not work, choco packages will not be installed."
+                    return
+                }
+            }
+            & $choco install "$PSScriptRoot\choco-export.config" --yes
+        }
+        2 {
+            #view
+            [xml]$chocoPackages = Get-Content "$PSScriptRoot\choco-export.config"
+            Write-Host "Choco apps:"
+            $chocoPackages.packages.package.id | ForEach-Object { Write-Host $_ }
+            Invoke-ChocoSetup
+        }
+        Default {}
+    }
+}
+Invoke-ChocoSetup
+Remove-Item -Path Function:\Invoke-ChocoSetup
 
 powershell.exe -NoProfile -File $PSScriptRoot\InstallTools-Windows-Powershell.ps1
 Test-Error
