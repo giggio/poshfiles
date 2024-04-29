@@ -32,7 +32,7 @@ function RunSetupNonElevated {
         & "$setupDir/InstallTools-Windows-NonElevated.ps1"
     }
     . "$setupDir/InstallModules.ps1"
-    . "$setupDir/Configure-Windows-NonElevated.ps1"
+    "$setupDir/Configure-Windows-NonElevated.ps1"
 }
 
 function CheckSetupNonElevated([switch]$BypassCheck = $false) {
