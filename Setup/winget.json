@@ -48,19 +48,10 @@
           "PackageIdentifier": "CoreyButler.NVMforWindows"
         },
         {
-          "PackageIdentifier": "Dell.CommandUpdate.Universal"
-        },
-        {
-          "PackageIdentifier": "Dell.DisplayManager"
-        },
-        {
           "PackageIdentifier": "Discord.Discord"
         },
         {
-          "PackageIdentifier": "dotPDNLLC.paintdotnet"
-        },
-        {
-          "PackageIdentifier": "EclipseAdoptium.Temurin.19.JDK"
+          "PackageIdentifier": "dotPDN.PaintDotNet"
         },
         {
           "PackageIdentifier": "Freeplane.Freeplane"
@@ -90,9 +81,6 @@
           "PackageIdentifier": "icsharpcode.ILSpy"
         },
         {
-          "PackageIdentifier": "Intel.IntelDriverAndSupportAssistant"
-        },
-        {
           "PackageIdentifier": "JackieLiu.NotepadsApp"
         },
         {
@@ -117,7 +105,7 @@
           "PackageIdentifier": "KirillOsenkov.MSBuildStructuredLogViewer"
         },
         {
-          "PackageIdentifier": "LINQPad.LINQPad.6"
+          "PackageIdentifier": "LINQPad.LINQPad.8"
         },
         {
           "PackageIdentifier": "Logitech.CameraSettings"
@@ -147,19 +135,16 @@
           "PackageIdentifier": "Microsoft.DevHome"
         },
         {
-          "PackageIdentifier": "Microsoft.DotNet.AspNetCore.6"
-        },
-        {
-          "PackageIdentifier": "Microsoft.DotNet.DesktopRuntime.6"
-        },
-        {
-          "PackageIdentifier": "Microsoft.DotNet.SDK.3_1"
-        },
-        {
           "PackageIdentifier": "Microsoft.DotNet.SDK.6"
         },
         {
           "PackageIdentifier": "Microsoft.DotNet.SDK.7"
+        },
+        {
+          "PackageIdentifier": "Microsoft.DotNet.SDK.8"
+        },
+        {
+          "PackageIdentifier": "Microsoft.DotNet.SDK.Preview"
         },
         {
           "PackageIdentifier": "Microsoft.DotNet.UninstallTool"
@@ -183,6 +168,9 @@
           "PackageIdentifier": "Microsoft.OpenJDK.17"
         },
         {
+          "PackageIdentifier": "Microsoft.OpenJDK.21"
+        },
+        {
           "PackageIdentifier": "Microsoft.OpenSSH.Beta"
         },
         {
@@ -198,22 +186,10 @@
           "PackageIdentifier": "Microsoft.Sqlcmd"
         },
         {
-          "PackageIdentifier": "Microsoft.SQLServer2012NativeClient"
-        },
-        {
           "PackageIdentifier": "Microsoft.SQLServerManagementStudio"
         },
         {
           "PackageIdentifier": "Microsoft.Teams"
-        },
-        {
-          "PackageIdentifier": "Microsoft.VCRedist.2013.x86"
-        },
-        {
-          "PackageIdentifier": "Microsoft.VCRedist.2015+.x64"
-        },
-        {
-          "PackageIdentifier": "Microsoft.VCRedist.2015+.x86"
         },
         {
           "PackageIdentifier": "Microsoft.VisualStudio.2022.Enterprise"
@@ -240,9 +216,6 @@
           "PackageIdentifier": "Microsoft.WindowsPCHealthCheck"
         },
         {
-          "PackageIdentifier": "Microsoft.WindowsSDK.10.0.19041"
-        },
-        {
           "PackageIdentifier": "Microsoft.WindowsTerminal"
         },
         {
@@ -261,7 +234,7 @@
           "PackageIdentifier": "Obsidian.Obsidian"
         },
         {
-          "PackageIdentifier": "OpenTofu.Tofu.Alpha"
+          "PackageIdentifier": "OpenTofu.Tofu"
         },
         {
           "PackageIdentifier": "OpenVPNTechnologies.OpenVPNConnect"
