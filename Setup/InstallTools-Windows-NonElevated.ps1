@@ -55,4 +55,18 @@ function Invoke-ScoopSetup {
 Invoke-ScoopSetup
 Remove-Item -Path Function:\Invoke-ScoopSetup
 
+function Install-Wslrelay {
+    if (!(Get-Command wsl-relay -ErrorAction Ignore) -and !(Test-Path $env:USERPROFILE\bin\wsl-relay.exe)) {
+        if (!(Test-Path $env:USERPROFILE\bin)) {
+            New-Item -Path $env:USERPROFILE\bin -ItemType Directory
+        }
+        Write-Host "Installing WSL-relay..."
+        Invoke-WebRequest -OutFile $env:USERPROFILE\bin\wsl-relay.exe https://github.com/giggio/wsl-relay/releases/download/0.1.0/wsl-relay.exe
+    } else {
+        Write-Host "WSL-relay is already installed."
+    }
+}
+Install-Wslrelay
+Remove-Item -Path Function:\Install-Wslrelay
+
 & "$PSScriptRoot/Install-PlatformTools.ps1"
