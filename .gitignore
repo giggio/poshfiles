@@ -16,3 +16,4 @@ AdditionalModules
 .setupdonotrun
 .setupran-nonelevated
 powershell.config.json
+*.backup
