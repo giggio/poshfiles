@@ -10,6 +10,9 @@ if (Test-Path $PSScriptRoot\choco-export.config.backup) {
 $wingetPcJson = Get-Content $PSScriptRoot\winget-pc.json | ConvertFrom-Json
 $packagesToIgnore = $wingetPcJson.Sources[0].Packages.PackageIdentifier
 
+$wingetNotebookDellJson = Get-Content $PSScriptRoot\winget-notebook-dell.json | ConvertFrom-Json
+$packagesToIgnore += $wingetNotebookDellJson.Sources[0].Packages.PackageIdentifier
+
 winget export --output $PSScriptRoot\winget.json
 $wingetJson = Get-Content $PSScriptRoot\winget.json | ConvertFrom-Json
 [array]$wingetJson.Sources = $wingetJson.Sources | Sort-Object { $_.SourceDetails.Name }
