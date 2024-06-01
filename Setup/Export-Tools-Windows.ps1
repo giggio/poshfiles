@@ -1,4 +1,4 @@
-if ((Get-Command git).CommandType -eq 'Alias') { # todo: remove when https://github.com/ScoopInstaller/Scoop/issues/5932 is fixed
+if ((Get-Command git).CommandType -eq 'Alias') { # todo: remove when https://github.com/ScoopInstaller/Scoop/issues/5196 is fixed
     Remove-Alias git
 }
 scoop export --config | jq -r -e --sort-keys 'del(.apps[].Updated) | del(.buckets[].Updated)' | Out-File $PSScriptRoot\scoopfile.json
