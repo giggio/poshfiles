@@ -4,13 +4,13 @@
       "Info": "",
       "Name": "7zip",
       "Source": "main",
-      "Version": "23.01"
+      "Version": "24.06"
     },
     {
       "Info": "",
       "Name": "act",
       "Source": "main",
-      "Version": "0.2.61"
+      "Version": "0.2.62"
     },
     {
       "Info": "",
@@ -34,13 +34,13 @@
       "Info": "",
       "Name": "carapace-bin",
       "Source": "extras",
-      "Version": "1.0.1"
+      "Version": "1.0.2"
     },
     {
       "Info": "",
       "Name": "clink",
       "Source": "main",
-      "Version": "1.6.12"
+      "Version": "1.6.14"
     },
     {
       "Info": "",
@@ -70,55 +70,55 @@
       "Info": "",
       "Name": "deno",
       "Source": "main",
-      "Version": "1.42.4"
+      "Version": "1.43.6"
     },
     {
       "Info": "",
       "Name": "dependency-check",
       "Source": "main",
-      "Version": "9.1.0"
+      "Version": "9.2.0"
     },
     {
       "Info": "",
       "Name": "docker",
       "Source": "main",
-      "Version": "26.1.1"
+      "Version": "26.1.3"
     },
     {
       "Info": "",
       "Name": "eza",
       "Source": "main",
-      "Version": "0.18.13"
+      "Version": "0.18.16"
     },
     {
       "Info": "",
       "Name": "ffmpeg",
       "Source": "main",
-      "Version": "7.0"
+      "Version": "7.0.1"
     },
     {
       "Info": "",
       "Name": "ffmpeg-shared",
       "Source": "main",
-      "Version": "7.0"
+      "Version": "7.0.1"
     },
     {
       "Info": "",
       "Name": "fzf",
       "Source": "main",
-      "Version": "0.50.0"
+      "Version": "0.52.1"
     },
     {
       "Info": "",
       "Name": "go",
       "Source": "main",
-      "Version": "1.22.2"
+      "Version": "1.22.3"
     },
     {
       "Info": "",
       "Name": "gsudo",
       "Source": "main",
-      "Version": "2.4.4"
+      "Version": "2.5.0"
     },
     {
       "Info": "",
@@ -142,7 +142,7 @@
       "Info": "",
       "Name": "iperf3",
       "Source": "main",
-      "Version": "3.1.3"
+      "Version": "3.17"
     },
     {
       "Info": "",
@@ -178,7 +178,7 @@
       "Info": "",
       "Name": "lessmsi",
       "Source": "main",
-      "Version": "1.11.2"
+      "Version": "2.0.1"
     },
     {
       "Info": "",
@@ -190,19 +190,25 @@
       "Info": "",
       "Name": "mongosh",
       "Source": "extras",
-      "Version": "2.2.5"
+      "Version": "2.2.6"
     },
     {
       "Info": "",
       "Name": "msys2",
       "Source": "main",
-      "Version": "2024-01-13"
+      "Version": "2024-05-07"
+    },
+    {
+      "Info": "",
+      "Name": "navi",
+      "Source": "main",
+      "Version": "2.23.0"
     },
     {
       "Info": "",
       "Name": "neovim",
       "Source": "main",
-      "Version": "0.9.5"
+      "Version": "0.10.0"
     },
     {
       "Info": "",
@@ -220,7 +226,7 @@
       "Info": "",
       "Name": "nuget",
       "Source": "main",
-      "Version": "6.9.1"
+      "Version": "6.10.0"
     },
     {
       "Info": "",
@@ -238,13 +244,13 @@
       "Info": "",
       "Name": "osquery",
       "Source": "main",
-      "Version": "5.12.1"
+      "Version": "5.12.2"
     },
     {
       "Info": "",
       "Name": "protobuf",
       "Source": "extras",
-      "Version": "26.1"
+      "Version": "27.0"
     },
     {
       "Info": "",
@@ -268,19 +274,19 @@
       "Info": "",
       "Name": "quarkus-cli",
       "Source": "main",
-      "Version": "3.10.0"
+      "Version": "3.11.0"
     },
     {
       "Info": "",
       "Name": "redis",
       "Source": "main",
-      "Version": "7.2.4"
+      "Version": "7.2.5"
     },
     {
       "Info": "",
       "Name": "rustup",
       "Source": "main",
-      "Version": "1.27.0"
+      "Version": "1.27.1"
     },
     {
       "Info": "",
@@ -298,7 +304,7 @@
       "Info": "",
       "Name": "starship",
       "Source": "main",
-      "Version": "1.18.2"
+      "Version": "1.19.0"
     },
     {
       "Info": "",
@@ -310,7 +316,7 @@
       "Info": "",
       "Name": "terraform",
       "Source": "main",
-      "Version": "1.8.2"
+      "Version": "1.8.4"
     },
     {
       "Info": "",
@@ -322,7 +328,7 @@
       "Info": "",
       "Name": "vault",
       "Source": "main",
-      "Version": "1.16.2"
+      "Version": "1.16.3"
     },
     {
       "Info": "",
@@ -334,7 +340,7 @@
       "Info": "",
       "Name": "yq",
       "Source": "main",
-      "Version": "4.43.1"
+      "Version": "4.44.1"
     },
     {
       "Info": "",
@@ -351,17 +357,17 @@
   ],
   "buckets": [
     {
-      "Manifests": 1321,
+      "Manifests": 1327,
       "Name": "main",
       "Source": "https://github.com/ScoopInstaller/Main.git"
     },
     {
-      "Manifests": 2015,
+      "Manifests": 2027,
       "Name": "extras",
       "Source": "https://github.com/ScoopInstaller/Extras"
     },
     {
-      "Manifests": 453,
+      "Manifests": 463,
       "Name": "versions",
       "Source": "https://github.com/ScoopInstaller/Versions"
     }
