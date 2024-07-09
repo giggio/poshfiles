@@ -29,7 +29,6 @@ if (Get-Command Add-Alias -ErrorAction Ignore) {
     } else {
         Add-Alias ll 'ls -Force'
     }
-    Add-Alias ccat "pygmentize -g -O style=vs -f console16m"
 }
 Set-Alias l 'ls'
 if (Get-Command hub -ErrorAction Ignore) {

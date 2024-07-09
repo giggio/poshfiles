@@ -1,14 +1,5 @@
 . "$PSScriptRoot/Common.ps1"
 
-function color ($lexer = 'javascript') {
-    Begin { $t = "" }
-    Process {
-        $t = "$t
-    $_"
-    }
-    End { $t | pygmentize.exe -l $lexer -O style=vs -f console16m; }
-} # call like: `docker inspect foo | color`
-
 if ($IsWindows) {
     function time() {
         $sw = [Diagnostics.Stopwatch]::StartNew()
