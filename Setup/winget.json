@@ -1,6 +1,6 @@
 {
   "$schema": "https://aka.ms/winget-packages.schema.2.0.json",
-  "CreationDate": "2024-04-30T15:38:14.533-03:00",
+  "CreationDate": "2024-08-21T19:42:17.696-03:00",
   "Sources": [
     {
       "Packages": [
@@ -18,10 +18,16 @@
     {
       "Packages": [
         {
+          "PackageIdentifier": "A.E.T.EuropeB.V.SafeSignICStandardWindows64-bits"
+        },
+        {
           "PackageIdentifier": "acaudwell.Gource"
         },
         {
           "PackageIdentifier": "Adobe.Acrobat.Reader.64-bit"
+        },
+        {
+          "PackageIdentifier": "ALCPU.CoreTemp"
         },
         {
           "PackageIdentifier": "AntibodySoftware.WizTree"
@@ -57,6 +63,15 @@
           "PackageIdentifier": "Docker.DockerDesktop"
         },
         {
+          "PackageIdentifier": "dotPDN.PaintDotNet"
+        },
+        {
+          "PackageIdentifier": "ElectronicArts.EADesktop"
+        },
+        {
+          "PackageIdentifier": "FinalWire.AIDA64.Extreme"
+        },
+        {
           "PackageIdentifier": "Freeplane.Freeplane"
         },
         {
@@ -79,6 +94,9 @@
         },
         {
           "PackageIdentifier": "Graphviz.Graphviz"
+        },
+        {
+          "PackageIdentifier": "Highresolution.X-MouseButtonControl"
         },
         {
           "PackageIdentifier": "icsharpcode.ILSpy"
@@ -111,7 +129,13 @@
           "PackageIdentifier": "LINQPad.LINQPad.8"
         },
         {
+          "PackageIdentifier": "LMStudio.LMStudio"
+        },
+        {
           "PackageIdentifier": "Logitech.CameraSettings"
+        },
+        {
+          "PackageIdentifier": "Logitech.GHUB"
         },
         {
           "PackageIdentifier": "Logitech.LogiTune"
@@ -150,15 +174,6 @@
           "PackageIdentifier": "Microsoft.DotNet.SDK.6"
         },
         {
-          "PackageIdentifier": "Microsoft.DotNet.SDK.7"
-        },
-        {
-          "PackageIdentifier": "Microsoft.DotNet.SDK.8"
-        },
-        {
-          "PackageIdentifier": "Microsoft.DotNet.SDK.Preview"
-        },
-        {
           "PackageIdentifier": "Microsoft.DotNet.UninstallTool"
         },
         {
@@ -172,6 +187,9 @@
         },
         {
           "PackageIdentifier": "Microsoft.Office"
+        },
+        {
+          "PackageIdentifier": "Microsoft.OneDrive"
         },
         {
           "PackageIdentifier": "Microsoft.OpenJDK.11"
@@ -211,6 +229,18 @@
         },
         {
           "PackageIdentifier": "Microsoft.VCLibs.Desktop.14"
+        },
+        {
+          "PackageIdentifier": "Microsoft.VCRedist.2008.x86"
+        },
+        {
+          "PackageIdentifier": "Microsoft.VCRedist.2010.x86"
+        },
+        {
+          "PackageIdentifier": "Microsoft.VCRedist.2012.x86"
+        },
+        {
+          "PackageIdentifier": "Microsoft.VCRedist.2013.x64"
         },
         {
           "PackageIdentifier": "Microsoft.VCRedist.2013.x86"
@@ -258,16 +288,16 @@
           "PackageIdentifier": "Notepad++.Notepad++"
         },
         {
-          "PackageIdentifier": "Nushell.Nushell"
-        },
-        {
           "PackageIdentifier": "Obsidian.Obsidian"
         },
         {
-          "PackageIdentifier": "OpenTofu.Tofu"
+          "PackageIdentifier": "OBSProject.OBSStudio"
         },
         {
           "PackageIdentifier": "OpenVPNTechnologies.OpenVPNConnect"
+        },
+        {
+          "PackageIdentifier": "ParadoxInteractive.ParadoxLauncher"
         },
         {
           "PackageIdentifier": "PeterDaveHello.TransmissionRemoteGUI"
@@ -300,7 +330,13 @@
           "PackageIdentifier": "Telerik.Fiddler.Classic"
         },
         {
+          "PackageIdentifier": "th-ch.YouTubeMusic"
+        },
+        {
           "PackageIdentifier": "TheBrowserCompany.Arc"
+        },
+        {
+          "PackageIdentifier": "Valve.Steam"
         },
         {
           "PackageIdentifier": "VideoLAN.VLC"
@@ -332,5 +368,5 @@
       }
     }
   ],
-  "WinGetVersion": "1.8.924-preview"
+  "WinGetVersion": "1.9.2151-preview"
 }
