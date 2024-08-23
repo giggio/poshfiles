@@ -70,13 +70,19 @@
       "Info": "",
       "Name": "deno",
       "Source": "main",
-      "Version": "1.45.5"
+      "Version": "1.46.1"
     },
     {
       "Info": "",
       "Name": "dependency-check",
       "Source": "main",
       "Version": "10.0.3"
+    },
+    {
+      "Info": "",
+      "Name": "depends",
+      "Source": "extras",
+      "Version": "2.2"
     },
     {
       "Info": "",
