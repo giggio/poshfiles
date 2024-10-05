@@ -37,6 +37,18 @@ if ($null -eq (Get-ScheduledTask $actionName -ErrorAction SilentlyContinue)) {
     }
 }
 
+if (Get-Command gpgconf -ErrorAction SilentlyContinue) {
+    $actionName = "Start gpg-agent"
+    if ($null -eq (Get-ScheduledTask $actionName -ErrorAction SilentlyContinue)) {
+        $action = New-ScheduledTaskAction -Execute "%windir%\system32\cmd.exe" -Argument "/C start `"Starting gpg agent...`" /MIN /WAIT gpgconf --launch gpg-agent"
+        $trigger = New-ScheduledTaskTrigger -AtLogOn -User $(whoami)
+        $settings = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -Compatibility Win8 -MultipleInstances IgnoreNew -StartWhenAvailable -DontStopIfGoingOnBatteries -ExecutionTimeLimit (New-TimeSpan -Seconds 0)
+        $principal = New-ScheduledTaskPrincipal -LogonType Interactive -RunLevel Limited -UserId $(whoami) -ProcessTokenSidType Default
+        $task = New-ScheduledTask -Action $action -Trigger $trigger -Description "$actionName" -Settings $settings -Principal $principal
+        Register-ScheduledTask -InputObject $task -TaskName $actionName -TaskPath $env:USERNAME -User $(whoami) | Out-Null
+    }
+}
+
 $ssha = Get-Service ssh-agent -ErrorAction SilentlyContinue
 if ($null -ne $ssha) {
     # set ssh-agent to start manually, as we're using gpg-agent for ssh
