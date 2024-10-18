@@ -10,7 +10,7 @@
       "Info": "",
       "Name": "act",
       "Source": "main",
-      "Version": "0.2.65"
+      "Version": "0.2.68"
     },
     {
       "Info": "",
@@ -34,13 +34,13 @@
       "Info": "",
       "Name": "carapace-bin",
       "Source": "extras",
-      "Version": "1.0.5"
+      "Version": "1.0.7"
     },
     {
       "Info": "",
       "Name": "clink",
       "Source": "main",
-      "Version": "1.6.21"
+      "Version": "1.7.3"
     },
     {
       "Info": "",
@@ -64,19 +64,19 @@
       "Info": "",
       "Name": "delta",
       "Source": "main",
-      "Version": "0.18.0"
+      "Version": "0.18.2"
     },
     {
       "Info": "",
       "Name": "deno",
       "Source": "main",
-      "Version": "1.46.1"
+      "Version": "2.0.2"
     },
     {
       "Info": "",
       "Name": "dependency-check",
       "Source": "main",
-      "Version": "10.0.3"
+      "Version": "10.0.4"
     },
     {
       "Info": "",
@@ -88,37 +88,37 @@
       "Info": "",
       "Name": "docker",
       "Source": "main",
-      "Version": "27.1.2"
+      "Version": "27.3.1"
     },
     {
       "Info": "",
       "Name": "eza",
       "Source": "main",
-      "Version": "0.19.0"
+      "Version": "0.20.4"
     },
     {
       "Info": "",
       "Name": "ffmpeg",
       "Source": "main",
-      "Version": "7.0.2"
+      "Version": "7.1"
     },
     {
       "Info": "",
       "Name": "ffmpeg-shared",
       "Source": "main",
-      "Version": "7.0.2"
+      "Version": "7.1"
     },
     {
       "Info": "",
       "Name": "fzf",
       "Source": "main",
-      "Version": "0.54.3"
+      "Version": "0.55.0"
     },
     {
       "Info": "",
       "Name": "go",
       "Source": "main",
-      "Version": "1.23.0"
+      "Version": "1.23.2"
     },
     {
       "Info": "",
@@ -142,7 +142,7 @@
       "Info": "",
       "Name": "hugo-extended",
       "Source": "main",
-      "Version": "0.133.0"
+      "Version": "0.136.2"
     },
     {
       "Info": "",
@@ -166,7 +166,7 @@
       "Info": "",
       "Name": "k3d",
       "Source": "main",
-      "Version": "5.7.3"
+      "Version": "5.7.4"
     },
     {
       "Info": "",
@@ -184,13 +184,13 @@
       "Info": "",
       "Name": "less",
       "Source": "main",
-      "Version": "661"
+      "Version": "668"
     },
     {
       "Info": "",
       "Name": "lessmsi",
       "Source": "main",
-      "Version": "2.1.1"
+      "Version": "2.2.0"
     },
     {
       "Info": "",
@@ -202,7 +202,7 @@
       "Info": "",
       "Name": "mongosh",
       "Source": "extras",
-      "Version": "2.3.0"
+      "Version": "2.3.2"
     },
     {
       "Info": "",
@@ -220,7 +220,7 @@
       "Info": "",
       "Name": "neovim",
       "Source": "main",
-      "Version": "0.10.1"
+      "Version": "0.10.2"
     },
     {
       "Info": "",
@@ -232,25 +232,25 @@
       "Info": "",
       "Name": "ntop",
       "Source": "main",
-      "Version": "0.3.4"
+      "Version": "0.3.19"
     },
     {
       "Info": "",
       "Name": "nu",
       "Source": "main",
-      "Version": "0.97.1"
+      "Version": "0.99.0"
     },
     {
       "Info": "",
       "Name": "nuget",
       "Source": "main",
-      "Version": "6.11.0"
+      "Version": "6.11.1"
     },
     {
       "Info": "",
       "Name": "nunit-console",
       "Source": "main",
-      "Version": "3.18.1"
+      "Version": "3.18.3"
     },
     {
       "Info": "",
@@ -262,25 +262,25 @@
       "Info": "",
       "Name": "opentofu",
       "Source": "main",
-      "Version": "1.8.1"
+      "Version": "1.8.3"
     },
     {
       "Info": "",
       "Name": "osquery",
       "Source": "main",
-      "Version": "5.12.2"
+      "Version": "5.13.1"
     },
     {
       "Info": "",
       "Name": "protobuf",
       "Source": "extras",
-      "Version": "27.3"
+      "Version": "28.2"
     },
     {
       "Info": "",
       "Name": "python",
       "Source": "main",
-      "Version": "3.12.5"
+      "Version": "3.13.0"
     },
     {
       "Info": "",
@@ -292,19 +292,19 @@
       "Info": "",
       "Name": "python312",
       "Source": "versions",
-      "Version": "3.12.5"
+      "Version": "3.12.7"
     },
     {
       "Info": "",
       "Name": "quarkus-cli",
       "Source": "main",
-      "Version": "3.13.3"
+      "Version": "3.15.1"
     },
     {
       "Info": "",
       "Name": "redis",
       "Source": "main",
-      "Version": "7.4.0"
+      "Version": "7.4.1"
     },
     {
       "Info": "",
@@ -328,19 +328,19 @@
       "Info": "",
       "Name": "starship",
       "Source": "main",
-      "Version": "1.20.1"
+      "Version": "1.21.1"
     },
     {
       "Info": "",
       "Name": "tealdeer",
       "Source": "main",
-      "Version": "1.6.1"
+      "Version": "1.7.0"
     },
     {
       "Info": "",
       "Name": "terraform",
       "Source": "main",
-      "Version": "1.9.5"
+      "Version": "1.9.8"
     },
     {
       "Info": "",
@@ -352,13 +352,13 @@
       "Info": "",
       "Name": "vault",
       "Source": "main",
-      "Version": "1.17.3"
+      "Version": "1.18.0"
     },
     {
       "Info": "",
       "Name": "yori",
       "Source": "main",
-      "Version": "2.20"
+      "Version": "2.30"
     },
     {
       "Info": "",
@@ -376,7 +376,7 @@
       "Info": "",
       "Name": "zoxide",
       "Source": "main",
-      "Version": "0.9.4"
+      "Version": "0.9.6"
     },
     {
       "Info": "",
@@ -387,12 +387,12 @@
   ],
   "buckets": [
     {
-      "Manifests": 1339,
+      "Manifests": 1344,
       "Name": "main",
       "Source": "https://github.com/ScoopInstaller/Main.git"
     },
     {
-      "Manifests": 2059,
+      "Manifests": 2090,
       "Name": "extras",
       "Source": "https://github.com/ScoopInstaller/Extras"
     },
