@@ -2,6 +2,8 @@
 #Requires -Version 7.2
 Set-StrictMode -Version 3.0
 
+$script:setupDir = $PSScriptRoot
+
 $script:isDotSourced = $MyInvocation.InvocationName -eq '.' -or $MyInvocation.Line -eq ''
 if ($isDotSourced) {
     Write-Error "This script must not be sourced."
@@ -49,3 +51,5 @@ if (Test-Path $env:USERPROFILE/.gitattributes) {
 if ($createGitAttributes) {
     New-Item -ItemType SymbolicLink -Target $PSScriptRoot/../home/.gitattributes -Path $env:USERPROFILE/.gitattributes
 }
+
+& "$setupDir/Configure-Windows-Wsl.ps1"
