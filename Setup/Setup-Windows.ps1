@@ -42,6 +42,7 @@ if (Get-Command gpgconf -ErrorAction SilentlyContinue) {
     if ($null -eq (Get-ScheduledTask $actionName -ErrorAction SilentlyContinue)) {
         $action = New-ScheduledTaskAction -Execute "%windir%\system32\cmd.exe" -Argument "/C start `"Starting gpg agent...`" /MIN /WAIT gpgconf --launch gpg-agent"
         $trigger = New-ScheduledTaskTrigger -AtLogOn -User $(whoami)
+        $trigger.Delay = 'PT2M' # related to https://github.com/microsoft/terminal/issues/15936
         $settings = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -Compatibility Win8 -MultipleInstances IgnoreNew -StartWhenAvailable -DontStopIfGoingOnBatteries -ExecutionTimeLimit (New-TimeSpan -Seconds 0)
         $principal = New-ScheduledTaskPrincipal -LogonType Interactive -RunLevel Limited -UserId $(whoami) -ProcessTokenSidType Default
         $task = New-ScheduledTask -Action $action -Trigger $trigger -Description "$actionName" -Settings $settings -Principal $principal
