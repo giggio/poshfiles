@@ -11,6 +11,7 @@ function add {
 if (Get-Command Add-Alias -ErrorAction Ignore) {
     Add-Alias st 'git status'
     Add-Alias push 'git push'
+    Add-Alias pushf 'git push -f'
     Add-Alias pull 'git pull'
     Add-Alias log 'git log'
     Add-Alias ci 'git commit'
