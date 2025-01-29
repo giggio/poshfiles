@@ -1,6 +1,6 @@
 {
   "$schema": "https://aka.ms/winget-packages.schema.2.0.json",
-  "CreationDate": "2024-10-18T16:24:21.873-03:00",
+  "CreationDate": "2025-01-28T21:43:13.111-03:00",
   "Sources": [
     {
       "Packages": [
@@ -34,6 +34,9 @@
         },
         {
           "PackageIdentifier": "AntibodySoftware.WizTree"
+        },
+        {
+          "PackageIdentifier": "ArashiVisionInc.Insta360Studio"
         },
         {
           "PackageIdentifier": "Audacity.Audacity"
@@ -138,10 +141,16 @@
           "PackageIdentifier": "Logitech.GHUB"
         },
         {
+          "PackageIdentifier": "Logitech.LGS"
+        },
+        {
           "PackageIdentifier": "Logitech.LogiTune"
         },
         {
           "PackageIdentifier": "M2Team.NanaZip"
+        },
+        {
+          "PackageIdentifier": "MartiCliment.UniGetUI"
         },
         {
           "PackageIdentifier": "Microsoft.AppInstaller"
@@ -171,19 +180,16 @@
           "PackageIdentifier": "Microsoft.DotNet.Runtime.6"
         },
         {
-          "PackageIdentifier": "Microsoft.DotNet.SDK.6"
+          "PackageIdentifier": "Microsoft.DotNet.SDK.8"
         },
         {
-          "PackageIdentifier": "Microsoft.DotNet.SDK.Preview"
+          "PackageIdentifier": "Microsoft.DotNet.SDK.9"
         },
         {
           "PackageIdentifier": "Microsoft.DotNet.UninstallTool"
         },
         {
           "PackageIdentifier": "Microsoft.Edge"
-        },
-        {
-          "PackageIdentifier": "Microsoft.EdgeWebView2Runtime"
         },
         {
           "PackageIdentifier": "Microsoft.MouseandKeyboardCenter"
@@ -288,7 +294,13 @@
           "PackageIdentifier": "Microsoft.WindowsTerminal.Preview"
         },
         {
+          "PackageIdentifier": "Microsoft.WSL"
+        },
+        {
           "PackageIdentifier": "Mozilla.Firefox"
+        },
+        {
+          "PackageIdentifier": "NirSoft.BlueScreenView"
         },
         {
           "PackageIdentifier": "Notepad++.Notepad++"
@@ -297,10 +309,16 @@
           "PackageIdentifier": "NovabenchInc.Novabench"
         },
         {
+          "PackageIdentifier": "ObinsKit.ObinsKit"
+        },
+        {
           "PackageIdentifier": "Obsidian.Obsidian"
         },
         {
           "PackageIdentifier": "OBSProject.OBSStudio"
+        },
+        {
+          "PackageIdentifier": "OffSec.KaliLinux"
         },
         {
           "PackageIdentifier": "OpenVPNTechnologies.OpenVPNConnect"
@@ -327,7 +345,13 @@
           "PackageIdentifier": "Softerra.LDAPBrowser"
         },
         {
+          "PackageIdentifier": "SoftFever.OrcaSlicer"
+        },
+        {
           "PackageIdentifier": "SublimeHQ.SublimeText.3"
+        },
+        {
+          "PackageIdentifier": "SUSE.openSUSE.Tumbleweed"
         },
         {
           "PackageIdentifier": "SUSE.RancherDesktop"
@@ -342,9 +366,6 @@
           "PackageIdentifier": "th-ch.YouTubeMusic"
         },
         {
-          "PackageIdentifier": "TheBrowserCompany.Arc"
-        },
-        {
           "PackageIdentifier": "Valve.Steam"
         },
         {
@@ -352,6 +373,9 @@
         },
         {
           "PackageIdentifier": "vim.vim"
+        },
+        {
+          "PackageIdentifier": "wez.wezterm"
         },
         {
           "PackageIdentifier": "Win32diskimager.win32diskimager"
@@ -377,5 +401,5 @@
       }
     }
   ],
-  "WinGetVersion": "1.9.2411-preview"
+  "WinGetVersion": "1.10.40-preview"
 }

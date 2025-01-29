@@ -4,13 +4,13 @@
       "Info": "",
       "Name": "7zip",
       "Source": "main",
-      "Version": "24.08"
+      "Version": "24.09"
     },
     {
       "Info": "",
       "Name": "act",
       "Source": "main",
-      "Version": "0.2.68"
+      "Version": "0.2.71"
     },
     {
       "Info": "",
@@ -22,7 +22,7 @@
       "Info": "",
       "Name": "bat",
       "Source": "main",
-      "Version": "0.24.0"
+      "Version": "0.25.0"
     },
     {
       "Info": "",
@@ -34,13 +34,13 @@
       "Info": "",
       "Name": "carapace-bin",
       "Source": "extras",
-      "Version": "1.0.7"
+      "Version": "1.2.1"
     },
     {
       "Info": "",
       "Name": "clink",
       "Source": "main",
-      "Version": "1.7.3"
+      "Version": "1.7.7"
     },
     {
       "Info": "",
@@ -70,13 +70,13 @@
       "Info": "",
       "Name": "deno",
       "Source": "main",
-      "Version": "2.0.2"
+      "Version": "2.1.7"
     },
     {
       "Info": "",
       "Name": "dependency-check",
       "Source": "main",
-      "Version": "10.0.4"
+      "Version": "12.0.1"
     },
     {
       "Info": "",
@@ -88,13 +88,13 @@
       "Info": "",
       "Name": "docker",
       "Source": "main",
-      "Version": "27.3.1"
+      "Version": "27.5.1"
     },
     {
       "Info": "",
       "Name": "eza",
       "Source": "main",
-      "Version": "0.20.4"
+      "Version": "0.20.18"
     },
     {
       "Info": "",
@@ -112,13 +112,13 @@
       "Info": "",
       "Name": "fzf",
       "Source": "main",
-      "Version": "0.55.0"
+      "Version": "0.58.0"
     },
     {
       "Info": "",
       "Name": "go",
       "Source": "main",
-      "Version": "1.23.2"
+      "Version": "1.23.5"
     },
     {
       "Info": "",
@@ -142,19 +142,19 @@
       "Info": "",
       "Name": "hugo-extended",
       "Source": "main",
-      "Version": "0.136.2"
+      "Version": "0.142.0"
     },
     {
       "Info": "",
       "Name": "innounp",
       "Source": "main",
-      "Version": "0.50"
+      "Version": "2.64"
     },
     {
       "Info": "",
       "Name": "iperf3",
       "Source": "main",
-      "Version": "3.17"
+      "Version": "3.18"
     },
     {
       "Info": "",
@@ -166,7 +166,7 @@
       "Info": "",
       "Name": "k3d",
       "Source": "main",
-      "Version": "5.7.4"
+      "Version": "5.8.1"
     },
     {
       "Info": "",
@@ -190,7 +190,7 @@
       "Info": "",
       "Name": "lessmsi",
       "Source": "main",
-      "Version": "2.2.0"
+      "Version": "2.5.0"
     },
     {
       "Info": "",
@@ -202,13 +202,13 @@
       "Info": "",
       "Name": "mongosh",
       "Source": "extras",
-      "Version": "2.3.2"
+      "Version": "2.3.8"
     },
     {
       "Info": "",
       "Name": "msys2",
       "Source": "main",
-      "Version": "2024-07-27"
+      "Version": "2024-12-08"
     },
     {
       "Info": "",
@@ -220,7 +220,7 @@
       "Info": "",
       "Name": "neovim",
       "Source": "main",
-      "Version": "0.10.2"
+      "Version": "0.10.3"
     },
     {
       "Info": "",
@@ -232,25 +232,25 @@
       "Info": "",
       "Name": "ntop",
       "Source": "main",
-      "Version": "0.3.19"
+      "Version": "0.3.21"
     },
     {
       "Info": "",
       "Name": "nu",
       "Source": "main",
-      "Version": "0.99.0"
+      "Version": "0.100.0"
     },
     {
       "Info": "",
       "Name": "nuget",
       "Source": "main",
-      "Version": "6.11.1"
+      "Version": "6.12.2"
     },
     {
       "Info": "",
       "Name": "nunit-console",
       "Source": "main",
-      "Version": "3.18.3"
+      "Version": "3.19.1"
     },
     {
       "Info": "",
@@ -262,25 +262,31 @@
       "Info": "",
       "Name": "opentofu",
       "Source": "main",
-      "Version": "1.8.3"
+      "Version": "1.9.0"
     },
     {
       "Info": "",
       "Name": "osquery",
       "Source": "main",
-      "Version": "5.13.1"
+      "Version": "5.15.0"
+    },
+    {
+      "Info": "",
+      "Name": "presenterm",
+      "Source": "main",
+      "Version": "0.9.0"
     },
     {
       "Info": "",
       "Name": "protobuf",
       "Source": "extras",
-      "Version": "28.2"
+      "Version": "29.3"
     },
     {
       "Info": "",
       "Name": "python",
       "Source": "main",
-      "Version": "3.13.0"
+      "Version": "3.13.1"
     },
     {
       "Info": "",
@@ -292,25 +298,31 @@
       "Info": "",
       "Name": "python312",
       "Source": "versions",
-      "Version": "3.12.7"
+      "Version": "3.12.8"
     },
     {
       "Info": "",
       "Name": "quarkus-cli",
       "Source": "main",
-      "Version": "3.15.1"
+      "Version": "3.17.8"
     },
     {
       "Info": "",
       "Name": "redis",
       "Source": "main",
-      "Version": "7.4.1"
+      "Version": "7.4.2"
     },
     {
       "Info": "",
       "Name": "rustup",
       "Source": "main",
       "Version": "1.27.1"
+    },
+    {
+      "Info": "",
+      "Name": "scoop-search",
+      "Source": "main",
+      "Version": "2.0.0"
     },
     {
       "Info": "",
@@ -328,19 +340,19 @@
       "Info": "",
       "Name": "starship",
       "Source": "main",
-      "Version": "1.21.1"
+      "Version": "1.22.1"
     },
     {
       "Info": "",
       "Name": "tealdeer",
       "Source": "main",
-      "Version": "1.7.0"
+      "Version": "1.7.1"
     },
     {
       "Info": "",
       "Name": "terraform",
       "Source": "main",
-      "Version": "1.9.8"
+      "Version": "1.10.5"
     },
     {
       "Info": "",
@@ -352,7 +364,7 @@
       "Info": "",
       "Name": "vault",
       "Source": "main",
-      "Version": "1.18.0"
+      "Version": "1.18.3"
     },
     {
       "Info": "",
@@ -364,7 +376,7 @@
       "Info": "",
       "Name": "yq",
       "Source": "main",
-      "Version": "4.44.3"
+      "Version": "4.45.1"
     },
     {
       "Info": "",
@@ -387,17 +399,17 @@
   ],
   "buckets": [
     {
-      "Manifests": 1344,
+      "Manifests": 1356,
       "Name": "main",
       "Source": "https://github.com/ScoopInstaller/Main.git"
     },
     {
-      "Manifests": 2090,
+      "Manifests": 2122,
       "Name": "extras",
       "Source": "https://github.com/ScoopInstaller/Extras"
     },
     {
-      "Manifests": 469,
+      "Manifests": 476,
       "Name": "versions",
       "Source": "https://github.com/ScoopInstaller/Versions"
     }
