@@ -114,6 +114,10 @@ format = "[$symbol($version )(with $tfm )]($style)"
 [fill]
 symbol = " "
 
+[nix_shell]
+format = "via [$symbol$name]($style) "
+symbol = "❄️"
+
 # [cmd_duration]
 # show_notifications = true
 # min_time_to_notify = 90_000
