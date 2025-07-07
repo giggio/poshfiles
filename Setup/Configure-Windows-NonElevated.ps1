@@ -52,4 +52,20 @@ if ($createGitAttributes) {
     New-Item -ItemType SymbolicLink -Target $PSScriptRoot/../home/.gitattributes -Path $env:USERPROFILE/.gitattributes
 }
 
+$createNeovimConfig = $true
+if (Test-Path "$env:USERPROFILE\AppData\Local\nvim") {
+    if ((Get-Item "$env:USERPROFILE\AppData\Local\nvim").LinkType -eq 'SymbolicLink') {
+        if ((Get-Item "$env:USERPROFILE\AppData\Local\nvim").Target -eq (Get-Item "$env:USERPROFILE\.vim")) {
+            $createNeovimConfig = $false
+        } else {
+            Remove-Item "$env:USERPROFILE\AppData\Local\nvim"
+        }
+    } else {
+        Move-Item "$env:USERPROFILE\AppData\Local\nvim" "$env:USERPROFILE\AppData\Local\nvim.backup " -Force
+    }
+}
+if ($createNeovimConfig) {
+    New-Item -ItemType SymbolicLink -Path "$env:USERPROFILE\AppData\Local\nvim" -Value "$env:USERPROFILE\.vim"
+}
+
 & "$setupDir/Configure-Windows-Wsl.ps1"
