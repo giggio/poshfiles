@@ -1,6 +1,6 @@
 {
   "$schema": "https://aka.ms/winget-packages.schema.2.0.json",
-  "CreationDate": "2025-01-28T21:43:13.111-03:00",
+  "CreationDate": "2025-07-07T15:51:54.469-03:00",
   "Sources": [
     {
       "Packages": [
@@ -168,13 +168,16 @@
           "PackageIdentifier": "Microsoft.CLRTypesSQLServer.2019"
         },
         {
-          "PackageIdentifier": "Microsoft.DevHome"
-        },
-        {
           "PackageIdentifier": "Microsoft.DotNet.DesktopRuntime.6"
         },
         {
+          "PackageIdentifier": "Microsoft.DotNet.DesktopRuntime.8"
+        },
+        {
           "PackageIdentifier": "Microsoft.DotNet.Framework.DeveloperPack_4"
+        },
+        {
+          "PackageIdentifier": "Microsoft.DotNet.Framework.DeveloperPack.4.6"
         },
         {
           "PackageIdentifier": "Microsoft.DotNet.Runtime.6"
@@ -211,9 +214,6 @@
         },
         {
           "PackageIdentifier": "Microsoft.OpenJDK.21"
-        },
-        {
-          "PackageIdentifier": "Microsoft.OpenSSH.Beta"
         },
         {
           "PackageIdentifier": "Microsoft.PerfView"
@@ -304,9 +304,6 @@
         },
         {
           "PackageIdentifier": "Notepad++.Notepad++"
-        },
-        {
-          "PackageIdentifier": "NovabenchInc.Novabench"
         },
         {
           "PackageIdentifier": "ObinsKit.ObinsKit"
@@ -401,5 +398,5 @@
       }
     }
   ],
-  "WinGetVersion": "1.10.40-preview"
+  "WinGetVersion": "1.11.400"
 }
