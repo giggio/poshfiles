@@ -1,6 +1,6 @@
 {
   "$schema": "https://aka.ms/winget-packages.schema.2.0.json",
-  "CreationDate": "2025-07-07T15:51:54.469-03:00",
+  "CreationDate": "2025-07-11T10:43:31.835-03:00",
   "Sources": [
     {
       "Packages": [
@@ -21,13 +21,13 @@
     {
       "Packages": [
         {
-          "PackageIdentifier": "A.E.T.EuropeB.V.SafeSignICStandardWindows64-bits"
-        },
-        {
           "PackageIdentifier": "acaudwell.Gource"
         },
         {
           "PackageIdentifier": "Adobe.Acrobat.Reader.64-bit"
+        },
+        {
+          "PackageIdentifier": "AETEurope.SafeSignICStandard"
         },
         {
           "PackageIdentifier": "ALCPU.CoreTemp"
@@ -264,10 +264,10 @@
           "PackageIdentifier": "Microsoft.VCRedist.2015+.x86"
         },
         {
-          "PackageIdentifier": "Microsoft.VisualStudio.2022.Enterprise"
+          "PackageIdentifier": "Microsoft.VisualStudio.2022.Community"
         },
         {
-          "PackageIdentifier": "Microsoft.VisualStudio.2022.Enterprise.Preview"
+          "PackageIdentifier": "Microsoft.VisualStudio.2022.Community.Preview"
         },
         {
           "PackageIdentifier": "Microsoft.VisualStudioCode"
