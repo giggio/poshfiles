@@ -38,9 +38,21 @@
     },
     {
       "Info": "",
+      "Name": "clangd",
+      "Source": "main",
+      "Version": "20.1.0"
+    },
+    {
+      "Info": "",
       "Name": "clink",
       "Source": "main",
       "Version": "1.7.20"
+    },
+    {
+      "Info": "",
+      "Name": "cmake",
+      "Source": "main",
+      "Version": "4.0.3"
     },
     {
       "Info": "",
@@ -122,6 +134,12 @@
     },
     {
       "Info": "",
+      "Name": "gcc",
+      "Source": "main",
+      "Version": "13.2.0"
+    },
+    {
+      "Info": "",
       "Name": "go",
       "Source": "main",
       "Version": "1.24.4"
@@ -200,9 +218,27 @@
     },
     {
       "Info": "",
+      "Name": "llvm",
+      "Source": "main",
+      "Version": "20.1.8"
+    },
+    {
+      "Info": "",
       "Name": "lua",
       "Source": "main",
       "Version": "5.4.7-2"
+    },
+    {
+      "Info": "",
+      "Name": "lua51",
+      "Source": "versions",
+      "Version": "5.1.5"
+    },
+    {
+      "Info": "",
+      "Name": "luarocks",
+      "Source": "main",
+      "Version": "3.12.2"
     },
     {
       "Info": "",
@@ -308,6 +344,12 @@
     },
     {
       "Info": "",
+      "Name": "python310",
+      "Source": "versions",
+      "Version": "3.10.11"
+    },
+    {
+      "Info": "",
       "Name": "python312",
       "Source": "versions",
       "Version": "3.12.10"
@@ -374,6 +416,12 @@
     },
     {
       "Info": "",
+      "Name": "tree-sitter",
+      "Source": "main",
+      "Version": "0.25.6"
+    },
+    {
+      "Info": "",
       "Name": "unzip",
       "Source": "main",
       "Version": "6.00"
@@ -417,17 +465,17 @@
   ],
   "buckets": [
     {
-      "Manifests": 1391,
+      "Manifests": 1396,
       "Name": "main",
       "Source": "https://github.com/ScoopInstaller/Main.git"
     },
     {
-      "Manifests": 2170,
+      "Manifests": 2169,
       "Name": "extras",
       "Source": "https://github.com/ScoopInstaller/Extras"
     },
     {
-      "Manifests": 500,
+      "Manifests": 510,
       "Name": "versions",
       "Source": "https://github.com/ScoopInstaller/Versions"
     }
