@@ -1,5 +1,7 @@
 # Giovanni Bassi's PowerShell files
 
+Main repo: [codeberg.org/giggio/poshfiles](https://codeberg.org/giggio/poshfiles)
+
 These are my personal poshfiles.
 
 ## Installation instructions
@@ -7,7 +9,7 @@ These are my personal poshfiles.
 Install Git and PowerShell Core first, then, from PowerShell Core itself, run:
 
 ```powershell
-git clone --recursive https://github.com/giggio/poshfiles.git $(Split-Path $Profile)
+git clone --recursive https://codeberg.org/giggio/poshfiles.git $(Split-Path $Profile)
 ```
 
 ### Installing PowerShell Core and Git
@@ -62,7 +64,7 @@ So, all you need to do is add to the `$PROFILE` file:
 If you want to setup only in Windows PowerShell or PowerShell core, simply run (in the respective shell):
 
 ```powershell
-git clone --recursive https://github.com/giggio/poshfiles.git $(Split-Path $Profile)
+git clone --recursive https://codeberg.org/giggio/poshfiles.git $(Split-Path $Profile)
 ```
 
 #### Linux
@@ -71,7 +73,7 @@ Linux only supports PowerShell Core, so the above command is all you need. The p
 at `$env:HOME/.config/powershell`, to clone it from bash, simply run:
 
 ```bash
-git clone --recursive https://github.com/giggio/poshfiles.git $env:HOME/.config/powershell
+git clone --recursive https://codeberg.org/giggio/poshfiles.git $env:HOME/.config/powershell
 ```
 
 #### Mac
@@ -123,14 +125,14 @@ install in Windows PowerShell, so only in Windows.
 ## Contributing
 
 Questions, comments, bug reports, and pull requests are all welcome.  Submit them at
-[the project on GitHub](https://github.com/giggio/poshfiles).
+[the project on GitHub](https://codeberg.org/giggio/poshfiles).
 
 Bug reports that include steps-to-reproduce (including code) are the
 best. Even better, make them in the form of pull requests.
 
 ## Author
 
-[Giovanni Bassi](https://twitter.com/giovannibassi).
+[Giovanni Bassi](https://links.giggio.net/bio).
 
 ## License
 

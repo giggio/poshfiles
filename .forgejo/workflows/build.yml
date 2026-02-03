@@ -1,6 +1,4 @@
----
 name: PSScriptAnalyzer
-
 on:
   workflow_dispatch:
   push:
@@ -31,30 +29,25 @@ on:
       - .gitignore
       - .gitattributes
       - .gitmodules
-
-permissions:
-  contents: read
-
 jobs:
   build:
-    permissions:
-      contents: read # for actions/checkout to fetch code
-      security-events: write # for github/codeql-action/upload-sarif to upload SARIF results
-      actions: read # only required for a private repository by upload-sarif to get the Action run status
     name: PSScriptAnalyzer
-    runs-on: ubuntu-latest
+    runs-on: docker
     steps:
-      - uses: actions/checkout@v3
-
+      - uses: actions/checkout@v4
+      - name: Install PowerShell
+        run: |
+          apt-get update
+          apt-get install -y wget
+          wget --quiet https://github.com/PowerShell/PowerShell/releases/download/v7.5.4/powershell_7.5.4-1.deb_amd64.deb
+          dpkg -i powershell_7.5.4-1.deb_amd64.deb
+          apt-get install -f
+          rm powershell_7.5.4-1.deb_amd64.deb
       - name: Run PSScriptAnalyzer
-        uses: microsoft/psscriptanalyzer-action@v1.1
+        uses: https://github.com/microsoft/psscriptanalyzer-action@v1.1
         with:
           path: ./
           recurse: true
-          output: results.sarif
           settings: ./PSScriptAnalyzerSettings.psd1
-
-      - name: Upload SARIF results file
-        uses: github/codeql-action/upload-sarif@v2
-        with:
-          sarif_file: results.sarif
+          enableExit: true
+          output: results.sarif
