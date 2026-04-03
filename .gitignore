@@ -17,3 +17,4 @@ AdditionalModules
 .setupran-nonelevated
 powershell.config.json
 *.backup
+.direnv
