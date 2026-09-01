@@ -50,15 +50,6 @@ if (Get-Command gpgconf -ErrorAction SilentlyContinue) {
     }
 }
 
-$ssha = Get-Service ssh-agent -ErrorAction SilentlyContinue
-if ($null -ne $ssha) {
-    # set ssh-agent to start manually, as we're using gpg-agent for ssh
-    if ($ssha.StartType -ne 'Manual') {
-        Write-Output "Setting ssh-agent to manual."
-        Set-Service $ssha -StartMode Manual
-    }
-}
-
 if (Test-Path "$env:ProgramFiles\Git\usr\bin") {
     # git tools
     if ($env:path.IndexOf("$($env:ProgramFiles)\Git\usr\bin", [StringComparison]::CurrentCultureIgnoreCase) -lt 0) {

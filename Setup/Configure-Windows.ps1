@@ -19,6 +19,26 @@ if (Test-Path $dockerConfigFilePath) {
 # windows explorer, show file extensions
 Set-ItemProperty -Path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced' -Name HideFileExt -Value 0
 
+# The Windows OpenSSH ssh-agent service owns the named pipe '\\.\pipe\openssh-ssh-agent'.
+# gpg-agent needs that very same pipe for its 'enable-win32-openssh-support' option (set below),
+# and when the pipe is already taken gpg-agent just carries on without openssh support, so the
+# yubikey authentication key silently never shows up in `ssh-add -l`. We use gpg-agent as the ssh
+# agent, so the service is disabled here, and it has to be stopped *before* gpg-agent is
+# (re)started further down, otherwise gpg-agent still finds the pipe occupied.
+$script:stoppedSshAgentService = $false
+$sshAgentService = Get-Service ssh-agent -ErrorAction Ignore
+if ($null -ne $sshAgentService) {
+    if ($sshAgentService.StartType -ne 'Disabled') {
+        Write-Output "Disabling the Windows ssh-agent service, gpg-agent is used as the ssh agent."
+        Set-Service -Name ssh-agent -StartupType Disabled
+    }
+    if ($sshAgentService.Status -ne 'Stopped') {
+        Write-Output "Stopping the Windows ssh-agent service so gpg-agent can own '\\.\pipe\openssh-ssh-agent'."
+        Stop-Service -Name ssh-agent -Force
+        $stoppedSshAgentService = $true
+    }
+}
+
 #gpg/pgp import public key, so it works with yubikey
 if (Get-Command gpg -ErrorAction Ignore) {
     $keyId = '275F6749AFD2379D1033548C1237AB122E6F4761'
@@ -34,7 +54,8 @@ if (Get-Command gpg -ErrorAction Ignore) {
     }
     # set gpg-config so it works with ssh and wsl
     $gpgAgentConf = $(gpgconf --list-options gpg-agent)
-    $updatedGpgAgentConf = $false
+    # freeing the openssh pipe above only takes effect once gpg-agent restarts and claims it
+    $updatedGpgAgentConf = $stoppedSshAgentService
     if (!($gpgAgentConf | Where-Object { $_.StartsWith('enable-ssh-support:') }).EndsWith(':1')) {
         Write-Output 'enable-ssh-support:0:1' | gpgconf --change-options gpg-agent
         $updatedGpgAgentConf = $true
@@ -66,6 +87,22 @@ if (Get-Command gpg -ErrorAction Ignore) {
         gpgconf --reload
         gpgconf --kill gpg-agent
         gpg-connect-agent /bye
+    }
+    # gpg-agent claims the openssh pipe lazily on startup, so make sure it actually got it,
+    # otherwise ssh silently falls back to having no keys at all
+    $sshAdd = Get-Command ssh-add -CommandType Application -ErrorAction Ignore | Select-Object -First 1
+    if ($sshAdd) {
+        $agentKeys = $null
+        foreach ($attempt in 1..5) {
+            $agentKeys = & $sshAdd -L 2>&1
+            if ($LASTEXITCODE -eq 0) { break }
+            Start-Sleep -Milliseconds 500
+        }
+        if (($agentKeys | Where-Object { $_ -match 'openpgp:|cardno:' })) {
+            Write-Output "gpg-agent is serving the yubikey authentication key over '\\.\pipe\openssh-ssh-agent'."
+        } else {
+            Write-Warning "'\\.\pipe\openssh-ssh-agent' is not offering a yubikey key. Plug the yubikey in and run 'gpgconf --kill gpg-agent; gpg-connect-agent /bye', and check that the ssh-agent service is still stopped."
+        }
     }
 } else {
     Write-Host "Gpg not installed, configuration not performed."

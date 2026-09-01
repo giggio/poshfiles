@@ -45,7 +45,8 @@ $env:ChocolateyBinRoot = "c:\tools\"
 
 . "$profileDir/CreateAliases.windows.ps1"
 
-if (!(Get-Process ssh-agent -ErrorAction Ignore) -and (Test-Path (Join-Path (Join-Path $(if ($env:HOME) { $env:HOME } else { $env:USERPROFILE }) .ssh) id_rsa))) {
-    Start-SshAgent -Quiet
-}
+# Deliberately no Start-SshAgent here: posh-sshell starts the *Windows* ssh-agent service (and
+# re-enables it when elevated), which steals '\\.\pipe\openssh-ssh-agent' from gpg-agent and
+# takes the yubikey key away from ssh. gpg-agent is our ssh agent and is launched by the
+# 'Start gpg-agent' scheduled task registered in Setup/Setup-Windows.ps1.
 if (Get-Command colortool -ErrorAction Ignore) { colortool --quiet campbell.ini }
