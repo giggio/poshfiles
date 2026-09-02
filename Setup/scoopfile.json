@@ -4,25 +4,31 @@
       "Info": "",
       "Name": "7zip",
       "Source": "main",
-      "Version": "25.00"
+      "Version": "26.02"
     },
     {
       "Info": "",
       "Name": "act",
       "Source": "main",
-      "Version": "0.2.79"
+      "Version": "0.2.89"
     },
     {
       "Info": "",
       "Name": "ag",
       "Source": "main",
-      "Version": "2.2.5"
+      "Version": "2.2.7"
+    },
+    {
+      "Info": "",
+      "Name": "atuin",
+      "Source": "main",
+      "Version": "18.21.0"
     },
     {
       "Info": "",
       "Name": "bat",
       "Source": "main",
-      "Version": "0.25.0"
+      "Version": "0.26.1"
     },
     {
       "Info": "",
@@ -32,27 +38,33 @@
     },
     {
       "Info": "",
-      "Name": "carapace-bin",
-      "Source": "extras",
-      "Version": "1.3.3"
+      "Name": "cacert",
+      "Source": "main",
+      "Version": "2026-08-13"
     },
     {
       "Info": "",
-      "Name": "clangd",
+      "Name": "carapace-bin",
+      "Source": "extras",
+      "Version": "1.7.3"
+    },
+    {
+      "Info": "Install failed",
+      "Name": "claude",
+      "Source": null,
+      "Version": null
+    },
+    {
+      "Info": "",
+      "Name": "claude-code",
       "Source": "main",
-      "Version": "20.1.0"
+      "Version": "2.1.258"
     },
     {
       "Info": "",
       "Name": "clink",
       "Source": "main",
-      "Version": "1.7.20"
-    },
-    {
-      "Info": "",
-      "Name": "cmake",
-      "Source": "main",
-      "Version": "4.0.3"
+      "Version": "1.9.32"
     },
     {
       "Info": "",
@@ -64,7 +76,7 @@
       "Info": "",
       "Name": "dapr-cli",
       "Source": "main",
-      "Version": "1.15.1"
+      "Version": "1.18.2"
     },
     {
       "Info": "",
@@ -76,19 +88,19 @@
       "Info": "",
       "Name": "delta",
       "Source": "main",
-      "Version": "0.18.2"
+      "Version": "0.19.2"
     },
     {
       "Info": "",
       "Name": "deno",
       "Source": "main",
-      "Version": "2.4.0"
+      "Version": "2.9.6"
     },
     {
       "Info": "",
       "Name": "dependency-check",
       "Source": "main",
-      "Version": "12.1.3"
+      "Version": "13.0.0"
     },
     {
       "Info": "",
@@ -100,61 +112,61 @@
       "Info": "",
       "Name": "docker",
       "Source": "main",
-      "Version": "28.3.1"
+      "Version": "29.7.2"
+    },
+    {
+      "Info": "",
+      "Name": "docker-compose",
+      "Source": "main",
+      "Version": "5.5.0"
     },
     {
       "Info": "",
       "Name": "eza",
       "Source": "main",
-      "Version": "0.22.0"
+      "Version": "0.23.5"
     },
     {
       "Info": "",
       "Name": "fd",
       "Source": "main",
-      "Version": "10.2.0"
+      "Version": "10.5.0"
     },
     {
       "Info": "",
       "Name": "ffmpeg",
       "Source": "main",
-      "Version": "7.1.1"
+      "Version": "9.0.1"
     },
     {
       "Info": "",
       "Name": "ffmpeg-shared",
       "Source": "main",
-      "Version": "7.1.1"
+      "Version": "9.0.1"
     },
     {
       "Info": "",
       "Name": "fzf",
       "Source": "main",
-      "Version": "0.64.0"
-    },
-    {
-      "Info": "",
-      "Name": "gcc",
-      "Source": "main",
-      "Version": "13.2.0"
+      "Version": "0.74.3"
     },
     {
       "Info": "",
       "Name": "go",
       "Source": "main",
-      "Version": "1.24.4"
+      "Version": "1.27.1"
     },
     {
       "Info": "",
       "Name": "gsudo",
       "Source": "main",
-      "Version": "2.6.0"
+      "Version": "2.6.1"
     },
     {
       "Info": "",
       "Name": "hadolint",
       "Source": "main",
-      "Version": "2.12.0"
+      "Version": "2.15.1"
     },
     {
       "Info": "",
@@ -166,97 +178,91 @@
       "Info": "",
       "Name": "hugo-extended",
       "Source": "main",
-      "Version": "0.147.9"
+      "Version": "0.165.0"
     },
     {
       "Info": "",
       "Name": "innounp",
       "Source": "main",
-      "Version": "2.64.5"
+      "Version": "2.71.1"
     },
     {
       "Info": "",
       "Name": "iperf3",
       "Source": "main",
-      "Version": "3.19"
+      "Version": "3.21"
     },
     {
       "Info": "",
       "Name": "jq",
       "Source": "main",
-      "Version": "1.8.1"
+      "Version": "1.8.2"
     },
     {
       "Info": "",
       "Name": "k3d",
       "Source": "main",
-      "Version": "5.8.3"
+      "Version": "5.9.0"
     },
     {
       "Info": "",
       "Name": "kubectx",
       "Source": "main",
-      "Version": "0.9.5"
+      "Version": "0.11.0"
     },
     {
       "Info": "",
       "Name": "kubens",
       "Source": "main",
-      "Version": "0.9.5"
+      "Version": "0.11.0"
     },
     {
       "Info": "",
       "Name": "less",
       "Source": "main",
-      "Version": "679"
+      "Version": "704"
     },
     {
       "Info": "",
       "Name": "lessmsi",
       "Source": "main",
-      "Version": "2.7.3"
-    },
-    {
-      "Info": "",
-      "Name": "llvm",
-      "Source": "main",
-      "Version": "20.1.8"
+      "Version": "2.12.9"
     },
     {
       "Info": "",
       "Name": "lua",
       "Source": "main",
-      "Version": "5.4.7-2"
+      "Version": "5.5.0"
     },
     {
       "Info": "",
-      "Name": "lua51",
-      "Source": "versions",
-      "Version": "5.1.5"
-    },
-    {
-      "Info": "",
-      "Name": "luarocks",
+      "Name": "lua-language-server",
       "Source": "main",
-      "Version": "3.12.2"
+      "Version": "3.19.1"
     },
     {
       "Info": "",
-      "Name": "make",
+      "Name": "marksman",
       "Source": "main",
-      "Version": "4.4.1"
+      "Version": "2026-02-08"
+    },
+    {
+      "Info": "",
+      "Name": "mingw",
+      "Source": "main",
+      "Version": "16.2.0-rt_v14-rev1"
     },
     {
       "Info": "",
       "Name": "mongosh",
       "Source": "extras",
-      "Version": "2.5.5"
+      "Version": "2.10.0"
     },
     {
       "Info": "",
       "Name": "msys2",
       "Source": "main",
-      "Version": "2025-06-22"
+      "Version": "2026-06-11"
     },
     {
       "Info": "",
@@ -268,7 +274,7 @@
       "Info": "",
       "Name": "neovim",
       "Source": "main",
-      "Version": "0.11.2"
+      "Version": "0.12.5"
     },
     {
       "Info": "",
@@ -286,13 +292,13 @@
       "Info": "",
       "Name": "nu",
       "Source": "main",
-      "Version": "0.105.1"
+      "Version": "0.115.1"
     },
     {
       "Info": "",
       "Name": "nuget",
       "Source": "main",
-      "Version": "6.14.0"
+      "Version": "7.9.0"
     },
     {
       "Info": "",
@@ -310,79 +316,73 @@
       "Info": "",
       "Name": "opentofu",
       "Source": "main",
-      "Version": "1.10.2"
+      "Version": "1.12.6"
+    },
+    {
+      "Info": "",
+      "Name": "opus-tools",
+      "Source": "main",
+      "Version": "0.2-opus-1.3"
     },
     {
       "Info": "",
       "Name": "osquery",
       "Source": "main",
-      "Version": "5.17.0"
+      "Version": "5.23.1"
+    },
+    {
+      "Info": "",
+      "Name": "pipx",
+      "Source": "main",
+      "Version": "1.17.2"
     },
     {
       "Info": "",
       "Name": "presenterm",
       "Source": "main",
-      "Version": "0.14.0"
+      "Version": "0.16.1"
     },
     {
       "Info": "",
       "Name": "protobuf",
       "Source": "extras",
-      "Version": "31.1"
+      "Version": "36.1"
     },
     {
       "Info": "",
       "Name": "python",
       "Source": "main",
-      "Version": "3.13.5"
-    },
-    {
-      "Info": "",
-      "Name": "python27",
-      "Source": "versions",
-      "Version": "2.7.18"
-    },
-    {
-      "Info": "",
-      "Name": "python310",
-      "Source": "versions",
-      "Version": "3.10.11"
-    },
-    {
-      "Info": "",
-      "Name": "python312",
-      "Source": "versions",
-      "Version": "3.12.10"
+      "Version": "3.14.7"
     },
     {
       "Info": "",
       "Name": "quarkus-cli",
       "Source": "main",
-      "Version": "3.24.2"
+      "Version": "3.39.1"
     },
     {
       "Info": "",
       "Name": "redis",
       "Source": "main",
-      "Version": "8.0.3"
+      "Version": "8.10.1"
     },
     {
       "Info": "",
       "Name": "ripgrep",
       "Source": "main",
-      "Version": "14.1.1"
+      "Version": "15.2.0"
+    },
+    {
+      "Info": "",
+      "Name": "ruby",
+      "Source": "main",
+      "Version": "4.0.6-1"
     },
     {
       "Info": "",
       "Name": "rustup",
       "Source": "main",
-      "Version": "1.28.2"
-    },
-    {
-      "Info": "",
-      "Name": "scoop-search",
-      "Source": "main",
-      "Version": "2.1.0"
+      "Version": "1.29.1"
     },
     {
       "Info": "",
@@ -392,33 +392,57 @@
     },
     {
       "Info": "",
+      "Name": "shellcheck",
+      "Source": "main",
+      "Version": "0.11.0"
+    },
+    {
+      "Info": "",
+      "Name": "shfmt",
+      "Source": "main",
+      "Version": "3.14.0"
+    },
+    {
+      "Info": "",
       "Name": "speedtest-cli",
       "Source": "main",
       "Version": "1.2.0"
     },
     {
       "Info": "",
+      "Name": "sqlite",
+      "Source": "main",
+      "Version": "3.53.4"
+    },
+    {
+      "Info": "",
       "Name": "starship",
       "Source": "main",
-      "Version": "1.23.0"
+      "Version": "1.26.0"
+    },
+    {
+      "Info": "",
+      "Name": "stylua",
+      "Source": "main",
+      "Version": "2.5.2"
     },
     {
       "Info": "",
       "Name": "tealdeer",
       "Source": "main",
-      "Version": "1.7.2"
+      "Version": "1.9.0"
     },
     {
       "Info": "",
       "Name": "terraform",
       "Source": "main",
-      "Version": "1.12.2"
+      "Version": "1.16.1"
     },
     {
       "Info": "",
       "Name": "tree-sitter",
       "Source": "main",
-      "Version": "0.25.6"
+      "Version": "0.27.0"
     },
     {
       "Info": "",
@@ -430,19 +454,49 @@
       "Info": "",
       "Name": "vault",
       "Source": "main",
-      "Version": "1.20.0"
+      "Version": "2.1.0"
+    },
+    {
+      "Info": "",
+      "Name": "vim",
+      "Source": "main",
+      "Version": "9.2.1031"
+    },
+    {
+      "Info": "",
+      "Name": "wget",
+      "Source": "main",
+      "Version": "1.21.4"
+    },
+    {
+      "Info": "",
+      "Name": "wget2",
+      "Source": "main",
+      "Version": "2.2.1"
+    },
+    {
+      "Info": "",
+      "Name": "winget-ps",
+      "Source": "main",
+      "Version": "1.29.280"
+    },
+    {
+      "Info": "",
+      "Name": "yamlfmt",
+      "Source": "main",
+      "Version": "0.21.0"
     },
     {
       "Info": "",
       "Name": "yori",
       "Source": "main",
-      "Version": "2.40"
+      "Version": "2.70"
     },
     {
       "Info": "",
       "Name": "yq",
       "Source": "main",
-      "Version": "4.45.4"
+      "Version": "4.53.6"
     },
     {
       "Info": "",
@@ -454,7 +508,7 @@
       "Info": "",
       "Name": "zoxide",
       "Source": "main",
-      "Version": "0.9.8"
+      "Version": "0.10.0"
     },
     {
       "Info": "",
@@ -465,17 +519,17 @@
   ],
   "buckets": [
     {
-      "Manifests": 1396,
+      "Manifests": 1641,
       "Name": "main",
-      "Source": "https://github.com/ScoopInstaller/Main.git"
+      "Source": "https://github.com/ScoopInstaller/Main"
     },
     {
-      "Manifests": 2169,
+      "Manifests": 2377,
       "Name": "extras",
       "Source": "https://github.com/ScoopInstaller/Extras"
     },
     {
-      "Manifests": 510,
+      "Manifests": 602,
       "Name": "versions",
       "Source": "https://github.com/ScoopInstaller/Versions"
     }

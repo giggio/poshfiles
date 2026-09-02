@@ -1,14 +1,11 @@
 {
   "$schema": "https://aka.ms/winget-packages.schema.2.0.json",
-  "CreationDate": "2025-07-11T14:55:24.055-03:00",
+  "CreationDate": "2026-09-02T13:06:36.928-03:00",
   "Sources": [
     {
       "Packages": [
         {
           "PackageIdentifier": "9PKJV6319QTL"
-        },
-        {
-          "PackageIdentifier": "XP8C9QZMS2PC1T"
         }
       ],
       "SourceDetails": {
@@ -21,6 +18,9 @@
     {
       "Packages": [
         {
+          "PackageIdentifier": "7zip.7zip"
+        },
+        {
           "PackageIdentifier": "acaudwell.Gource"
         },
         {
@@ -30,13 +30,10 @@
           "PackageIdentifier": "AETEurope.SafeSignICStandard"
         },
         {
-          "PackageIdentifier": "ALCPU.CoreTemp"
+          "PackageIdentifier": "Anthropic.ClaudeCode"
         },
         {
           "PackageIdentifier": "AntibodySoftware.WizTree"
-        },
-        {
-          "PackageIdentifier": "ArashiVisionInc.Insta360Studio"
         },
         {
           "PackageIdentifier": "Audacity.Audacity"
@@ -51,13 +48,13 @@
           "PackageIdentifier": "Canonical.Ubuntu"
         },
         {
-          "PackageIdentifier": "Chocolatey.Chocolatey"
+          "PackageIdentifier": "Canonical.Ubuntu.2204"
+        },
+        {
+          "PackageIdentifier": "Cloudflare.Warp"
         },
         {
           "PackageIdentifier": "clsid2.mpc-hc"
-        },
-        {
-          "PackageIdentifier": "code52.Carnac"
         },
         {
           "PackageIdentifier": "CoreyButler.NVMforWindows"
@@ -66,22 +63,16 @@
           "PackageIdentifier": "Discord.Discord"
         },
         {
+          "PackageIdentifier": "dnSpyEx.dnSpy"
+        },
+        {
           "PackageIdentifier": "Docker.DockerDesktop"
         },
         {
           "PackageIdentifier": "dotPDN.PaintDotNet"
         },
         {
-          "PackageIdentifier": "ElectronicArts.EADesktop"
-        },
-        {
-          "PackageIdentifier": "ElementLabs.LMStudio"
-        },
-        {
-          "PackageIdentifier": "FinalWire.AIDA64.Extreme"
-        },
-        {
-          "PackageIdentifier": "Freeplane.Freeplane"
+          "PackageIdentifier": "EclipseAdoptium.Temurin.19.JDK"
         },
         {
           "PackageIdentifier": "Git.Git"
@@ -93,9 +84,6 @@
           "PackageIdentifier": "GlavSoft.TightVNC"
         },
         {
-          "PackageIdentifier": "GnuCash.GnuCash"
-        },
-        {
           "PackageIdentifier": "GnuPG.GnuPG"
         },
         {
@@ -105,13 +93,13 @@
           "PackageIdentifier": "Graphviz.Graphviz"
         },
         {
-          "PackageIdentifier": "Highresolution.X-MouseButtonControl"
-        },
-        {
           "PackageIdentifier": "icsharpcode.ILSpy"
         },
         {
           "PackageIdentifier": "JackieLiu.NotepadsApp"
+        },
+        {
+          "PackageIdentifier": "JetBrains.dotTrace"
         },
         {
           "PackageIdentifier": "JetBrains.Gateway"
@@ -126,22 +114,16 @@
           "PackageIdentifier": "JohnMacFarlane.Pandoc"
         },
         {
+          "PackageIdentifier": "KeePassXCTeam.KeePassXC"
+        },
+        {
           "PackageIdentifier": "Keybase.Keybase"
         },
         {
-          "PackageIdentifier": "KirillOsenkov.MSBuildStructuredLogViewer"
+          "PackageIdentifier": "LibreWolf.LibreWolf"
         },
         {
           "PackageIdentifier": "LINQPad.LINQPad.8"
-        },
-        {
-          "PackageIdentifier": "Logitech.CameraSettings"
-        },
-        {
-          "PackageIdentifier": "Logitech.GHUB"
-        },
-        {
-          "PackageIdentifier": "Logitech.LGS"
         },
         {
           "PackageIdentifier": "Logitech.LogiTune"
@@ -150,13 +132,16 @@
           "PackageIdentifier": "M2Team.NanaZip"
         },
         {
-          "PackageIdentifier": "MartiCliment.UniGetUI"
+          "PackageIdentifier": "Microsoft.AccessDatabaseEngine.2016"
         },
         {
           "PackageIdentifier": "Microsoft.AppInstaller"
         },
         {
-          "PackageIdentifier": "Microsoft.Azd"
+          "PackageIdentifier": "Microsoft.Azure.DataStudio"
+        },
+        {
+          "PackageIdentifier": "Microsoft.Azure.StorageEmulator"
         },
         {
           "PackageIdentifier": "Microsoft.Azure.StorageExplorer"
@@ -168,25 +153,22 @@
           "PackageIdentifier": "Microsoft.CLRTypesSQLServer.2019"
         },
         {
+          "PackageIdentifier": "Microsoft.DotNet.AspNetCore.6"
+        },
+        {
+          "PackageIdentifier": "Microsoft.DotNet.DesktopRuntime.10"
+        },
+        {
           "PackageIdentifier": "Microsoft.DotNet.DesktopRuntime.6"
         },
         {
           "PackageIdentifier": "Microsoft.DotNet.DesktopRuntime.8"
         },
         {
-          "PackageIdentifier": "Microsoft.DotNet.Framework.DeveloperPack_4"
-        },
-        {
           "PackageIdentifier": "Microsoft.DotNet.Framework.DeveloperPack.4.6"
         },
         {
-          "PackageIdentifier": "Microsoft.DotNet.Runtime.6"
-        },
-        {
-          "PackageIdentifier": "Microsoft.DotNet.SDK.8"
-        },
-        {
-          "PackageIdentifier": "Microsoft.DotNet.SDK.9"
+          "PackageIdentifier": "Microsoft.DotNet.Native.Runtime"
         },
         {
           "PackageIdentifier": "Microsoft.DotNet.UninstallTool"
@@ -201,9 +183,6 @@
           "PackageIdentifier": "Microsoft.msodbcsql.17"
         },
         {
-          "PackageIdentifier": "Microsoft.Office"
-        },
-        {
           "PackageIdentifier": "Microsoft.OneDrive"
         },
         {
@@ -213,10 +192,10 @@
           "PackageIdentifier": "Microsoft.OpenJDK.17"
         },
         {
-          "PackageIdentifier": "Microsoft.OpenJDK.21"
+          "PackageIdentifier": "Microsoft.OpenSSH.Preview"
         },
         {
-          "PackageIdentifier": "Microsoft.PerfView"
+          "PackageIdentifier": "Microsoft.Outlook"
         },
         {
           "PackageIdentifier": "Microsoft.PowerShell"
@@ -228,10 +207,22 @@
           "PackageIdentifier": "Microsoft.Sqlcmd"
         },
         {
+          "PackageIdentifier": "Microsoft.SQLServer.2012.NativeClient"
+        },
+        {
+          "PackageIdentifier": "Microsoft.SQLServer.OLEDBDriver"
+        },
+        {
           "PackageIdentifier": "Microsoft.SQLServerManagementStudio"
         },
         {
+          "PackageIdentifier": "Microsoft.SurfaceApp"
+        },
+        {
           "PackageIdentifier": "Microsoft.Teams"
+        },
+        {
+          "PackageIdentifier": "Microsoft.Teams.Classic"
         },
         {
           "PackageIdentifier": "Microsoft.UI.Xaml.2.7"
@@ -240,19 +231,13 @@
           "PackageIdentifier": "Microsoft.UI.Xaml.2.8"
         },
         {
+          "PackageIdentifier": "Microsoft.UpdateHealthTools"
+        },
+        {
+          "PackageIdentifier": "Microsoft.VCLibs.14"
+        },
+        {
           "PackageIdentifier": "Microsoft.VCLibs.Desktop.14"
-        },
-        {
-          "PackageIdentifier": "Microsoft.VCRedist.2008.x86"
-        },
-        {
-          "PackageIdentifier": "Microsoft.VCRedist.2010.x86"
-        },
-        {
-          "PackageIdentifier": "Microsoft.VCRedist.2012.x86"
-        },
-        {
-          "PackageIdentifier": "Microsoft.VCRedist.2013.x64"
         },
         {
           "PackageIdentifier": "Microsoft.VCRedist.2013.x86"
@@ -264,10 +249,7 @@
           "PackageIdentifier": "Microsoft.VCRedist.2015+.x86"
         },
         {
-          "PackageIdentifier": "Microsoft.VisualStudio.2022.Community"
-        },
-        {
-          "PackageIdentifier": "Microsoft.VisualStudio.2022.Community.Preview"
+          "PackageIdentifier": "Microsoft.VisualStudio.Community"
         },
         {
           "PackageIdentifier": "Microsoft.VisualStudioCode"
@@ -280,6 +262,33 @@
         },
         {
           "PackageIdentifier": "Microsoft.WinDbg"
+        },
+        {
+          "PackageIdentifier": "Microsoft.WindowsAppRuntime.1.0"
+        },
+        {
+          "PackageIdentifier": "Microsoft.WindowsAppRuntime.1.2"
+        },
+        {
+          "PackageIdentifier": "Microsoft.WindowsAppRuntime.1.3"
+        },
+        {
+          "PackageIdentifier": "Microsoft.WindowsAppRuntime.1.4"
+        },
+        {
+          "PackageIdentifier": "Microsoft.WindowsAppRuntime.1.5"
+        },
+        {
+          "PackageIdentifier": "Microsoft.WindowsAppRuntime.1.6"
+        },
+        {
+          "PackageIdentifier": "Microsoft.WindowsAppRuntime.1.7"
+        },
+        {
+          "PackageIdentifier": "Microsoft.WindowsAppRuntime.1.8"
+        },
+        {
+          "PackageIdentifier": "Microsoft.WindowsAppRuntime.2"
         },
         {
           "PackageIdentifier": "Microsoft.WindowsInstallationAssistant"
@@ -300,7 +309,7 @@
           "PackageIdentifier": "Mozilla.Firefox"
         },
         {
-          "PackageIdentifier": "NirSoft.BlueScreenView"
+          "PackageIdentifier": "Nextcloud.NextcloudDesktop"
         },
         {
           "PackageIdentifier": "Notepad++.Notepad++"
@@ -312,16 +321,7 @@
           "PackageIdentifier": "Obsidian.Obsidian"
         },
         {
-          "PackageIdentifier": "OBSProject.OBSStudio"
-        },
-        {
           "PackageIdentifier": "OffSec.KaliLinux"
-        },
-        {
-          "PackageIdentifier": "OpenVPNTechnologies.OpenVPNConnect"
-        },
-        {
-          "PackageIdentifier": "ParadoxInteractive.ParadoxLauncher"
         },
         {
           "PackageIdentifier": "PeterDaveHello.TransmissionRemoteGUI"
@@ -330,7 +330,13 @@
           "PackageIdentifier": "Postman.Postman"
         },
         {
+          "PackageIdentifier": "RaspberryPiFoundation.RaspberryPiImager"
+        },
+        {
           "PackageIdentifier": "REALiX.HWiNFO"
+        },
+        {
+          "PackageIdentifier": "RealVNC.VNCViewer"
         },
         {
           "PackageIdentifier": "Rufus.Rufus"
@@ -339,19 +345,10 @@
           "PackageIdentifier": "SoftDeluxe.FreeDownloadManager"
         },
         {
-          "PackageIdentifier": "Softerra.LDAPBrowser"
-        },
-        {
-          "PackageIdentifier": "SoftFever.OrcaSlicer"
+          "PackageIdentifier": "SoftwareOK.Q-Dir"
         },
         {
           "PackageIdentifier": "SublimeHQ.SublimeText.3"
-        },
-        {
-          "PackageIdentifier": "SUSE.openSUSE.Tumbleweed"
-        },
-        {
-          "PackageIdentifier": "SUSE.RancherDesktop"
         },
         {
           "PackageIdentifier": "TechSmith.Snagit.2021"
@@ -360,25 +357,19 @@
           "PackageIdentifier": "Telerik.Fiddler.Classic"
         },
         {
-          "PackageIdentifier": "th-ch.YouTubeMusic"
-        },
-        {
-          "PackageIdentifier": "Valve.Steam"
-        },
-        {
           "PackageIdentifier": "VideoLAN.VLC"
         },
         {
-          "PackageIdentifier": "vim.vim"
-        },
-        {
-          "PackageIdentifier": "wez.wezterm"
+          "PackageIdentifier": "vim.vim.nightly"
         },
         {
           "PackageIdentifier": "Win32diskimager.win32diskimager"
         },
         {
           "PackageIdentifier": "WinDirStat.WinDirStat"
+        },
+        {
+          "PackageIdentifier": "WireGuard.WireGuard"
         },
         {
           "PackageIdentifier": "WiresharkFoundation.Wireshark"
@@ -398,5 +389,5 @@
       }
     }
   ],
-  "WinGetVersion": "1.11.400"
+  "WinGetVersion": "1.30.110-preview"
 }
